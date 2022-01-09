@@ -1,0 +1,190 @@
+.sticky{
+    position:fixed;
+    width: 100%;
+    top: 0;
+    background-color: #525252;
+}
+
+.navbar{
+    background-color: #525252;
+    font-family: 'Roboto';
+}
+
+nav ul li a{
+    color: #ffffff!important;
+}
+
+.navbar .menu{
+    background-color:#29626D; 
+    font-size: 1.0625rem !important; 
+    font-weight: lighter!important;
+}
+
+.navbar .menu-simple{
+    font-size: 1.0625rem !important; 
+    font-weight: lighter!important;
+}
+
+.navbar .menu:hover{
+    background-color: #ffffff;
+    color: #1d7a8c!important;
+}
+
+.pricebtn:hover{
+   background-color: #ffffff;
+   color: #1d7a8c!important;
+}
+
+
+#banner{
+    width: 1560px; 
+    height: 370px; 
+    object-fit:cover;
+}
+
+.contact_title{
+    color: #4f4f4f; 
+    font-weight: 500; 
+    font-size: 36px; 
+    margin-top: 30px; 
+    font-family: 'Roboto';
+}
+
+.line1{
+    width: 6%; 
+    color: #4f4f4f;
+    margin-top: 30px; 
+    margin-right: 10px; 
+    height: 1px;
+}
+
+.star{
+    margin-top: 2px;
+    object-fit: contain;
+}
+
+.line2{
+    width: 6%;
+    color: #4f4f4f;
+    margin-top: 30px; 
+    margin-left: 10px; 
+    height: 1px;
+}
+
+
+.container .about-text{
+    width: 982px;
+    height: 231px;
+    margin-top: 38px;
+    margin-right:288px;
+    margin-left: 290px;
+    margin-bottom: 82px;
+}
+
+.container .para{
+    font-family: 'roboto';
+    font-size: 16px;
+    color: #646464;
+    line-height:1.5;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.container .story-text{
+    width: 982px;
+    height: 255px;
+    margin-top: 41px;
+    margin-right:288px;
+    margin-left: 290px;
+    margin-bottom: 82px;
+}
+
+
+
+
+
+.newsletter{
+    position: relative; 
+    font-family: 'Roboto';
+}
+
+.newsletter .newsletter-title{
+    font-size:1.125rem; 
+    font-family: 'Roboto'!important;
+}
+
+.newsletter form .email-box{
+    border: 1px solid gray; 
+    background-color:#ffffff; 
+    text-align:start;
+     padding-left: 15px; 
+     padding-top: 5px; 
+     padding-bottom: 5px; 
+    font-size: 0.875rem!important;
+}
+
+.newsletter form  .submit{
+    background-color: #ff7b6d; 
+    padding-top: 3px; 
+    padding-bottom: 3px;  
+    color: #ffffff; 
+    font-size: 0.875rem!important;
+}
+
+
+footer{
+    background-color: #111111; 
+    height:auto; 
+    font-family: 'Roboto';
+}
+
+footer a{
+    color: white; 
+    text-decoration: none; 
+    font-size: 14px;
+}
+
+footer .insta{
+    color: white; 
+    text-decoration: none;
+}
+
+footer .fb{
+    color: white; 
+    text-decoration: none;
+}
+
+@media(max-width:991px){
+    nav .navbar-nav{
+        background-color: black;
+    }
+
+    nav .navbar-nav .menu{
+        background-color: black!important;
+        border: none!important;
+    }
+
+    nav .navbar-nav .pricebtn{
+        border: none!important;
+    }
+
+    nav .navbar-nav .pricebtn:hover{
+        background-color: black;
+    }
+
+    nav .navbar-nav a{
+        color:#646464!important;
+    }
+
+    nav .navbar-nav a:hover{
+        color: #a0a0a0!important;
+    }
+
+    nav .navbar-nav .menu:hover{
+        color: #a0a0a0!important;
+    }
+
+    footer .footer-line{
+        display: none!important;
+    }
+}

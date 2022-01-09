@@ -1,0 +1,285 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body{
+  background-color: #f2f4f5;
+}
+
+.header-nav{
+    background-color: #1fb6ff;
+    height: 60px;
+}
+
+.site-name{
+  font-family: 'roboto';
+  font-size: 37.5px;
+  font-weight: bold;
+  line-height: 0.65;
+  text-align: left;
+  color: #ffffff;
+  margin-top: 2px!important;
+  margin-bottom: 8px!important;
+}
+
+.site-name:hover{
+  color: #ffffff;
+}
+
+
+/*-------------------------usermanaegement navbar-------------------------*/
+.UserManagement-navbar .navbar-nav{
+  width: 273px;
+  height: 1012px;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  margin-right: 0px!important;   
+}
+
+.UserManagement-navbar-line{
+  width: 273px;
+  height: 1px;
+  background-color:#e5e5e5;
+  margin: 0px!important;
+}
+
+.UserManagement-navbar-content{
+  color: #646464;
+  height: 51px!important;
+  font-size: 16px;
+  font-family: 'roboto';
+  padding-left: 15px!important;
+  padding-top: 13px;
+}
+
+.admin-nav-active{color:#1fb6ff;}
+
+.UserManagement-navbar a:hover{
+  color:#e1e1e1;
+}
+#accordionExample{
+  height: 221px!important;
+  width: 273px!important;
+  left: 0px!important;
+  margin-bottom:15px;
+  margin-right: 0px!important;
+}
+#headingOne{
+  height: 51px!important;
+  width: 273px!important;
+  left: 0!important;
+
+}
+
+.accordion .accordion-item{
+  width: 273px!important;
+  left: 0!important;
+  margin-right: 0px!important;
+}
+
+/*-------------------------user management main table------------------------------*/
+.UserManagement-table-heading{
+  margin-top: 34px;
+}
+
+.UserManagement-table-heading b{
+  font-size: 22px;
+  color:#646464;
+  font-family:'roboto';
+  margin-left: -50px!important;
+}
+
+.addimg{
+  padding-right: 2px;
+}
+
+.adduserbtn{
+  width: 132px;
+  height: 36px;
+  font-size:14px;
+  font-family:'roboto';
+  color: #ffffff;
+  margin-left: 720px;
+  background-color:#1fb6ff;
+  border-radius: 5px;
+  border: none;
+}
+
+/*-----------------user name----------------------*/
+.usermanagement-user-menu{
+  margin-top: 16px;
+  width: 1053px;
+  height: 86px;
+  background-color: #ffffff;
+  margin-left: -60px;
+}
+
+.username{
+  width: 205px;
+  height: 46px;
+  margin-left: 15px!important;
+  margin-top:20px!important;
+}
+
+.username option{
+  font-size: 16px;
+  color: #a0a0a0;
+}
+
+.Userrole{
+  width: 215px;
+  height: 46px;
+  margin-top:20px!important;
+  margin-left: 2px!important;
+}
+
+.num{
+  width: 215px;
+  height: 46px;
+  margin-top:20px!important;
+  margin-left: 2px!important;
+}
+
+.zipcode{
+  width:140px;
+  height: 46px;
+  margin-top:20px!important;
+  margin-left: 2px!important;
+}
+
+.searchbtn button{
+  position: relative;
+  width: 84px;
+  height: 46px;
+  border: none;
+  color: #ffffff;
+  background-color: #1fb6ff;
+  margin-top:20px!important; 
+  margin-left: 15px!important;
+  margin-right: 15px!important;
+  font-family: 'roboto';
+  font-size: 16px;
+}
+
+.clearbtn button{
+  position: relative;
+  width: 84px;
+  height: 46px;
+  border: 1px solid #dedddd;
+  color: #646464;
+  margin-top:20px!important;
+  margin-left:35px!important;
+  font-family: 'roboto';
+  font-size: 16px;
+}
+
+
+/*-------------------------------------------------*/
+
+.UserManagement-main-table{
+  width: 1053px;
+  height: 776px;
+  border: 1px solid #e1e1e1;
+  margin-top: 20px;
+  margin-left: -60px!important;
+}
+
+.UserManagement-main-table-heading{  height: 55px !important;}
+.UserManagement-main-table-heading  th{
+  padding-top: 23px;
+  padding-bottom: 18px;
+}
+
+.UserManagement-main-table .UserManagement-main-table-heading{
+  background-color: #e1e1e1;
+  color: #646464;
+  font-size: 16px;
+}
+
+.UserManagement-main-table-content{font-size:16px; color: #646464; font-family: 'roboto'; height: 62px; background-color: #ffffff;}
+
+.activebtn{
+  color: #ffffff;
+  background-color: #67b644;
+  border: none;
+  width:58px;
+  height:24px;
+  font-size: 13px;
+  font-family: 'roboto';
+}
+
+.inactivebtn{
+  color: #ffffff;
+  background-color: #ff6b6b;
+  border: none;
+  width:58px;
+  height:24px;
+  font-size: 13px;
+  font-family: 'roboto';
+}
+
+.action-data .dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+}
+.dropbtn{
+  background-color: #f4f4f4;
+  padding: 5px 10px 5px 10px;
+  border-radius: 50% ;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  right: 0px !important;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1; 
+}
+
+.dropdown-content a {
+  color: #646464;
+  padding: 12px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.usermgmt-show-text{margin-left: -50px;}
+.usermgmt-table-bottom{
+  color: #646464;
+  font-family: 'roboto';
+}
+
+.usermgmtpages .pagination a{
+  color: #646464;
+}
+
+.usermgmtpages .pagination a:hover{
+  background-color: #646464;
+  color: #ffffff;
+}
+
+.usermgmtpages .pagination{
+  margin-right: 1px;
+  margin-top:-30px;
+}
+
+.copyright{
+  color: #a2a6a8;
+  font-size: 14px;
+  font-family: 'roboto';
+  margin-left: -50px;
+}
