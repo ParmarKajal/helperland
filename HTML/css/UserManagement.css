@@ -7,6 +7,12 @@ html {
   scroll-behavior: smooth;
 }
 
+.sticky{
+  position:fixed;
+  width: 100%;
+  top: 0;
+  background-color: #525252;
+}
 
 body{
   background-color: #f2f4f5;

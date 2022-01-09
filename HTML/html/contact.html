@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONTACT US</title>
-    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="../css/contact.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
     <header>
         <nav class="navbar navbar-expand-lg  navbar-dark">
             <div class="container-fluid" id="navbar">
-                <a class="navbar-brand" href="#"><img src="image/logo-small.png" id="logo"></a>
+                <a class="navbar-brand" href="#"><img src="../image/logo-small.png" id="logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -60,7 +60,7 @@
     <!--header section ends-->
 
     <!--contact banner starts-->
-    <img src="image/contact_banner.png" class="img-fluid align-items-stretch" id="banner">
+    <img src="../image/contact_banner.png" class="img-fluid align-items-stretch" id="banner">
     <!--contact banner ends-->
 
     <main>
@@ -69,14 +69,14 @@
             <h1 class="d-flex justify-content-center contact_title">Contact us</h1>
             <div class="d-flex justify-content-center">
                 <hr class="line1">
-                <img src="image/forma-1-copy-5.png" class="star">
+                <img src="../image/star.png" class="star">
                 <hr class="line2">
             </div>
             <div class="container mt-5 mb-5">
                 <div class="row justify-content-center text-center">
                     <div class="col-lg-4">
                         <div class="card border border-0">
-                            <img class="card-img-top justify-content-center" src="image/location.png" alt="Card image"
+                            <img class="card-img-top justify-content-center" src="../image/location.png" alt="Card image"
                                 id="location">
                             <div class="card-body">
                                 <p class="card-text text">1111 Lorem ipsum text 100,<br> Lorem ipsum AB</p>
@@ -86,7 +86,7 @@
 
                     <div class="col-lg-4">
                         <div class="card border border-0">
-                            <img class="card-img-top justify-content-center" src="image/phone-call.png" alt="Card image"
+                            <img class="card-img-top justify-content-center" src="../image/phone-call.png" alt="Card image"
                                 id="phone">
                             <div class="card-body">
                                 <p class="card-text text">+49 (40) 123 56 7890<br>+49 (40) 987 56 0000</p>
@@ -97,7 +97,7 @@
 
                     <div class="col-lg-4">
                         <div class="card border border-0">
-                            <img class="card-img-top justify-content-center" src="image/mail.png" alt="Card image"
+                            <img class="card-img-top justify-content-center" src="../image/mail.png" alt="Card image"
                                 id="mail">
                             <div class="card-body">
                                 <p class="card-text text">info@helperland.com</p>
@@ -187,7 +187,7 @@
 
         <div class="container d-flex justify-content-between align-items-center  py-3">
             <div>
-                <img src="image/footer-logo.png" alt="" width="100%">
+                <img src="../image/footer-logo.png" alt="" width="100%">
             </div>
             <div class="d-flex flex-wrap text-center justify-content-center">
                 <a class="px-3 pb-3 mt-4"
@@ -223,21 +223,6 @@
     <!--js files-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/5602f8a8c9.js" crossorigin="anonymous"></script>
-    <script>
-        window.onscroll = function () { myFunction() };
-        var navbar = document.getElementById("navbar");
-        var sticky = navbar.offsetTop;
-        function myFunction() {
-      if (window.pageYOffset >= sticky)
-      {
-          navbar.classList.add("sticky")
-      } 
-      else 
-      {
-          navbar.classList.remove("sticky");
-      }
-      } 
-    </script>
+    <script src="../js/main.js"></script>
 </body>
-
 </html>

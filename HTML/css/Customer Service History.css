@@ -7,7 +7,12 @@ html {
     scroll-behavior: smooth!important;
   }
   
-
+  .sticky{
+    position:fixed;
+    width: 100%;
+    top: 0;
+    background-color: #525252;
+}
 
  .sidebar{
     float: right!important;
