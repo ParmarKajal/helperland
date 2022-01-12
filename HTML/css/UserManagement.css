@@ -263,7 +263,7 @@ body{
   display: block;
 }
 
-.usermgmt-show-text{margin-left: -50px;}
+.usermgmt-show-text{margin-left: -50px;} 
 .usermgmt-table-bottom{
   color: #646464;
   font-family: 'roboto';
@@ -281,7 +281,7 @@ body{
 .usermgmtpages .pagination{
   margin-right: 1px;
   margin-top:-30px;
-}
+} 
 
 .copyright{
   color: #a2a6a8;

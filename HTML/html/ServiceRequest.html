@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin> Service Request</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="../css/ServiceRequest.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!--header section-->
+  <header>
+    <nav class="navbar navbar-expand-md header-nav">
+      <div class="container-fluid" id="navbar">
+        <a class="navbar-brand site-name" href="#">helperland</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#"><img src="../image/admin-user.png"></a>
+            </li>
+            <li class="nav-item pt-1">
+              <a class="nav-link" href="#" style="color: #ffffff;">James Smith</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><img src="../image/logout.png"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!--main section-->
+  <main>
+      <div class="container-fluid px-0">
+        <div class="row">
+          <!--table1-->
+          <div class="col-sm-3 ServiceRequest-navbar">
+            <nav class="navbar mt-0 pt-0">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link ServiceRequest-content">Service Management</a>
+                </li>
+                <hr class="ServiceRequest-navbar-line">
+                <li class="nav-item">
+                  <a class="nav-link ServiceRequest-content">Role Management</a>
+                </li>
+                <hr class="ServiceRequest-navbar-line">
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Coupon Code Management
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                      data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <p><a href="#">Coupon Codes</a></p>
+                        <p><a href="#">Usage History</a>
+                        <p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="ServiceRequest-navbar-line">
+                <li class="nav-item">
+                  <a class="nav-link ServiceRequest-content">Escalation Management</a>
+                </li>
+                <hr class="ServiceRequest-navbar-line">
+                <li class="nav-item">
+                  <a class="nav-link ServiceRequest-content nav-active" href="ServiceRequest.html"  target="_blank">Service Request</a>
+                </li>
+                <hr class="ServiceRequest-navbar-line">
+                <li class="nav-item">
+                  <a class="nav-link ServiceRequest-content">Service Provider</a>
+                </li>
+                <hr class="ServiceRequest-navbar-line">
+                <li class="nav-item">
+                  <a class="nav-link ServiceRequest-content" href="UserManagement.html"  target="_blank">User Management</a>
+                </li>
+                <hr class="ServiceRequest-navbar-line">
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Finance Module
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                      data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <p><a href="#">All Transactions</a></p>
+                        <p><a href="#">Generate Payment</a>
+                        <p>
+                        <p><a href="#">Customer Invoices</a></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="ServiceRequest-navbar-line">
+                <li class="nav-item">
+                  <a class="nav-link ServiceRequest-content">Zip Code Management</a>
+                </li>
+                <hr class="ServiceRequest-navbar-line">
+                <li class="nav-item">
+                  <a class="nav-link ServiceRequest-content">Rating Management</a>
+                </li>
+                <hr class="ServiceRequest-navbar-line">
+                <li class="nav-item">
+                  <a class="nav-link ServiceRequest-content">Inquiry Management</a>
+                </li>
+                <hr class="ServiceRequest-navbar-line">
+                <li class="nav-item">
+                  <a class="nav-link ServiceRequest-content">Newsletter Management</a>
+                </li>
+                <hr class="ServiceRequest-navbar-line">
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Content Management
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                      data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <p><a href="#">Blog</a></p>
+                        <p><a href="#">FAQs</a>
+                        <p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </ul>
+            </nav>
+          </div>
+
+
+          <!--table2-->
+          <div class="col-sm-9 ServiceRequest-maintable">
+           <h2 class="maintable-heading">Service Requests</h2>
+
+             <div class="row ServiceRequest-menu">
+              <div class="col-sm-1 text-center id">
+                <input type="text" placeholder=" Service ID" name="Service ID">
+              </div>
+
+              <div class="col-sm-1 customer">
+                <select class="form-select" id="userlist" name="customer" aria-placeholder="User-Name">
+                  <option selected>Customer</option>
+                  <option value="1">Customer 1</option>
+                  <option value="2">Customer 2</option>
+                  <option value="3">Customer 3</option>
+                </select>
+              </div>
+
+              <div class="col-sm-1 service-provider">
+                <select class="form-select" id="userlist" name="service provider" aria-placeholder="service provider">
+                  <option selected>Service Provider</option>
+                  <option value="1">Service Provider 1</option>
+                  <option value="2">Service Provider 2</option>
+                  <option value="3">Service Provider 3</option>
+                </select>
+              </div>
+
+              <div class="col-sm-1 status">
+                <select class="form-select" id="userlist" name="status" aria-placeholder="status">
+                  <option selected>Status</option>
+                  <option value="1">Status 1</option>
+                  <option value="2">Status 2</option>
+                  <option value="3">Status 3</option>
+                </select>
+              </div>
+
+                <div class="col-sm-1 fromdate">
+                 <!-- <img  class="calender" src="../image/admin-calendar-blue.png"> 
+                <input type="text" placeholder="From Date" name="from-date"> -->
+                <input type="date" name="From Date">
+              </div>
+
+              <div class="col-sm-1 todate">
+                <!-- <img class="calender" src="../image/admin-calendar-blue.png">
+                <input type="text" placeholder="To Date" name="to-date"> -->
+                <input type="date" name="From Date">
+              </div>
+
+              <div class="col-sm-1 searchbtn">
+                <button type="button" class="rounded border">Search</button>
+              </div>
+
+              <div class="col-sm-1 clearbtn">
+                <button type="button" class="rounded border">Clear</button>
+              </div>
+            </div>
+
+            <!--table2-->
+            <table class="table ServiceRequest-main-table">
+              <tr class="ServiceRequest-main-table-heading">
+                <th>Service ID <img src="../image/sort.png"></th>
+                <th>Service Date <img src="../image/sort.png"></th>
+                <th>Customer Details <img src="../image/sort.png"></th>
+                <th>Service Provider <img src="../image/sort.png"></th>
+                <th>Status <img src="../image/sort.png"></th>
+                <th>Actions</th>
+              </tr>
+
+              <!--tr-1-->
+              <tr class="ServiceRequest-main-table-content">
+                <td class="px-2 pt-3">323436</td>
+                <td class="pt-3">
+                  <div>
+                    <img src="../image/calendar2.png">
+                    <b>09/04/2018</b>
+                  </div>
+
+                  <div>
+                    <img src="../image/watch.png">
+                    <span>12:00-18:00</span>
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>David Bough</div>
+                  <div>
+                    <img src="../image/home.png">
+                    Musterstrabe 5,12345 Bonn
+                  </div>
+                </td>
+
+                <td class="pt-3">
+
+                </td>
+
+                <td class="ml-2 pt-3">
+                  <button type="button" class="newbtn">New</button>
+                </td>
+
+                <td class="action-data pt-3">
+                  <div class="dropdown">
+                    <button class="dropbtn rounded-circle border border-1"><img src="../image/three-dot.png"></button>
+                    <div class="dropdown-content">
+                      <a href="#">Edit</a>
+                      <a href="#">Deactivate</a>
+                      <a href="#">Service History</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+
+              <!--tr-2-->
+              <tr class="ServiceRequest-main-table-content">
+                <td class="px-2 pt-3">323436</td>
+                <td class="pt-3">
+                  <div>
+                    <img src="../image/calendar2.png">
+                    <b>09/04/2018</b>
+                  </div>
+
+                  <div>
+                    <img src="../image/watch.png">
+                    <span>12:00-18:00</span>
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>David Bough</div>
+                  <div>
+                    <img src="../image/home.png">
+                    Musterstrabe 5,12345 Bonn
+                  </div>
+                </td>
+
+                <td class="pt-3">
+
+                </td>
+
+                <td class="ml-2 pt-3">
+                  <button type="button" class="newbtn">New</button>
+                </td>
+
+                <td class="action-data pt-3">
+                  <div class="dropdown">
+                    <button class="dropbtn rounded-circle border border-1"><img src="../image/three-dot.png"></button>
+                    <div class="dropdown-content">
+                      <a href="#">Edit</a>
+                      <a href="#">Deactivate</a>
+                      <a href="#">Service History</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+
+
+              <!--tr-3-->
+              <tr class="ServiceRequest-main-table-content">
+                <td class="px-2 pt-3">323436</td>
+                <td class="pt-3">
+                  <div>
+                    <img src="../image/calendar2.png">
+                    <b>09/04/2018</b>
+                  </div>
+
+                  <div>
+                    <img src="../image/watch.png">
+                    <span>12:00-18:00</span>
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>David Bough</div>
+                  <div>
+                    <img src="../image/home.png">
+                    Musterstrabe 5,12345 Bonn
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>
+                    <div><img style="float: left;" src="../image/cap.png" class="cap"></div>
+                    <p class="px-2 pt-1">Lyum Watson<br><img  src="../image/yellowstar.png"><img src="../image/yellowstar.png">
+                      <img src="../image/yellowstar.png"><img src="../image/yellowstar.png"><img src="../image/greystar.png"> 4
+                    </p>
+                  </div>
+                </td>
+
+                <td class="ml-2 pt-3">
+                  <button type="button" class="pendingbtn">Pending</button>
+                </td>
+
+                <td class="action-data pt-3">
+                  <div class="dropdown">
+                    <button class="dropbtn rounded-circle border border-1"><img src="../image/three-dot.png"></button>
+                    <div class="dropdown-content">
+                      <a href="#">Edit & Reschedule </a>
+                      <a href="#">Refund</a>
+                      <a href="#">Cancel</a>
+                      <a href="#">Change SP</a>
+                      <a href="#">Escalate</a>
+                      <a href="#">History Log</a>
+                      <a href="#">Download Invoice</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+
+
+              <!--tr-4-->
+              <tr class="ServiceRequest-main-table-content">
+                <td class="px-2 pt-3">323436</td>
+                <td class="pt-3">
+                  <div>
+                    <img src="../image/calendar2.png">
+                    <b>09/04/2018</b>
+                  </div>
+
+                  <div>
+                    <img src="../image/watch.png">
+                    <span>12:00-18:00</span>
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>David Bough</div>
+                  <div>
+                    <img src="../image/home.png">
+                    Musterstrabe 5,12345 Bonn
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>
+                    <div><img style="float: left;" src="../image/cap.png" class="cap"></div>
+                    <p class="px-2 pt-1">Lyum Watson<br><img  src="../image/yellowstar.png"><img src="../image/yellowstar.png">
+                      <img src="../image/yellowstar.png"><img src="../image/yellowstar.png"><img src="../image/greystar.png"> 4
+                    </p>
+                  </div>
+                </td>
+
+                <td class="ml-2 pt-3">
+                  <button type="button" class="pendingbtn">Pending</button>
+                </td>
+
+                <td class="action-data pt-3">
+                  <div class="dropdown">
+                    <button class="dropbtn rounded-circle border border-1"><img src="../image/three-dot.png"></button>
+                    <div class="dropdown-content">
+                      <a href="#">Edit & Reschedule </a>
+                      <a href="#">Refund</a>
+                      <a href="#">Cancel</a>
+                      <a href="#">Change SP</a>
+                      <a href="#">Escalate</a>
+                      <a href="#">History Log</a>
+                      <a href="#">Download Invoice</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+
+
+              <!--tr-5-->
+              <tr class="ServiceRequest-main-table-content">
+                <td class="px-2 pt-3">323436</td>
+                <td class="pt-3">
+                  <div>
+                    <img src="../image/calendar2.png">
+                    <b>09/04/2018</b>
+                  </div>
+
+                  <div>
+                    <img src="../image/watch.png">
+                    <span>12:00-18:00</span>
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>David Bough</div>
+                  <div>
+                    <img src="../image/home.png">
+                    Musterstrabe 5,12345 Bonn
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>
+                    <div><img style="float: left;" src="../image/cap.png" class="cap"></div>
+                    <p class="px-2 pt-1">Lyum Watson<br><img  src="../image/yellowstar.png"><img src="../image/yellowstar.png">
+                      <img src="../image/yellowstar.png"><img src="../image/yellowstar.png"><img src="../image/greystar.png"> 4
+                    </p>
+                  </div>
+                </td>
+
+                <td class="ml-2 pt-3">
+                  <button type="button" class="completebtn">Completed</button>
+                </td>
+
+                <td class="action-data pt-3">
+                  <div class="dropdown">
+                    <button class="dropbtn rounded-circle border border-1"><img src="../image/three-dot.png"></button>
+                    <div class="dropdown-content">
+                      <a href="#">Refund</a>
+                      <a href="#">Escalate</a>
+                      <a href="#">History Log</a>
+                      <a href="#">Download Invoice</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+
+
+               <!--tr-6-->
+               <tr class="ServiceRequest-main-table-content">
+                <td class="px-2 pt-3">323436</td>
+                <td class="pt-3">
+                  <div>
+                    <img src="../image/calendar2.png">
+                    <b>09/04/2018</b>
+                  </div>
+
+                  <div>
+                    <img src="../image/watch.png">
+                    <span>12:00-18:00</span>
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>David Bough</div>
+                  <div>
+                    <img src="../image/home.png">
+                    Musterstrabe 5,12345 Bonn
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>
+                    <div><img style="float: left;" src="../image/cap.png" class="cap"></div>
+                    <p class="px-2 pt-1">Lyum Watson<br><img  src="../image/yellowstar.png"><img src="../image/yellowstar.png">
+                      <img src="../image/yellowstar.png"><img src="../image/yellowstar.png"><img src="../image/greystar.png"> 4
+                    </p>
+                  </div>
+                </td>
+
+                <td class="ml-2 pt-3">
+                  <button type="button" class="completebtn">Completed</button>
+                </td>
+
+                <td class="action-data pt-3">
+                  <div class="dropdown">
+                    <button class="dropbtn rounded-circle border border-1"><img src="../image/three-dot.png"></button>
+                    <div class="dropdown-content">
+                      <a href="#">Refund</a>
+                      <a href="#">Escalate</a>
+                      <a href="#">History Log</a>
+                      <a href="#">Download Invoice</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+
+               <!--tr-7-->
+               <tr class="ServiceRequest-main-table-content">
+                <td class="px-2 pt-3">323436</td>
+                <td class="pt-3">
+                  <div>
+                    <img src="../image/calendar2.png">
+                    <b>09/04/2018</b>
+                  </div>
+
+                  <div>
+                    <img src="../image/watch.png">
+                    <span>12:00-18:00</span>
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>David Bough</div>
+                  <div>
+                    <img src="../image/home.png">
+                    Musterstrabe 5,12345 Bonn
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>
+                    <div><img style="float: left;" src="../image/cap.png" class="cap"></div>
+                    <p class="px-2 pt-1">Lyum Watson<br><img  src="../image/yellowstar.png"><img src="../image/yellowstar.png">
+                      <img src="../image/yellowstar.png"><img src="../image/yellowstar.png"><img src="../image/greystar.png"> 4
+                    </p>
+                  </div>
+                </td>
+
+                <td class="ml-2 pt-3">
+                  <button type="button" class="cancelbtn">Cancel</button>
+                </td>
+
+                <td class="action-data pt-3">
+                  <div class="dropdown">
+                    <button class="dropbtn rounded-circle border border-1"><img src="../image/three-dot.png"></button>
+                    <div class="dropdown-content">
+                      <a href="#">Refund</a>
+                      <a href="#">Escalate</a>
+                      <a href="#">History Log</a>
+                      <a href="#">Download Invoice</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+
+
+              <!--tr-8-->
+              <tr class="ServiceRequest-main-table-content">
+                <td class="px-2 pt-3">323436</td>
+                <td class="pt-3">
+                  <div>
+                    <img src="../image/calendar2.png">
+                    <b>09/04/2018</b>
+                  </div>
+
+                  <div>
+                    <img src="../image/watch.png">
+                    <span>12:00-18:00</span>
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>David Bough</div>
+                  <div>
+                    <img src="../image/home.png">
+                    Musterstrabe 5,12345 Bonn
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>
+                    <div><img style="float: left;" src="../image/cap.png" class="cap"></div>
+                    <p class="px-2 pt-1">Lyum Watson<br><img  src="../image/yellowstar.png"><img src="../image/yellowstar.png">
+                      <img src="../image/yellowstar.png"><img src="../image/yellowstar.png"><img src="../image/greystar.png"> 4
+                    </p>
+                  </div>
+                </td>
+
+                <td class="ml-2 pt-3">
+                  <button type="button" class="completebtn">Completed</button>
+                </td>
+
+                <td class="action-data pt-3">
+                  <div class="dropdown">
+                    <button class="dropbtn rounded-circle border border-1"><img src="../image/three-dot.png"></button>
+                    <div class="dropdown-content">
+                      <a href="#">Refund</a>
+                      <a href="#">Escalate</a>
+                      <a href="#">History Log</a>
+                      <a href="#">Download Invoice</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+
+               <!--tr-9-->
+               <tr class="ServiceRequest-main-table-content">
+                <td class="px-2 pt-3">323436</td>
+                <td class="pt-3">
+                  <div>
+                    <img src="../image/calendar2.png">
+                    <b>09/04/2018</b>
+                  </div>
+
+                  <div>
+                    <img src="../image/watch.png">
+                    <span>12:00-18:00</span>
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>David Bough</div>
+                  <div>
+                    <img src="../image/home.png">
+                    Musterstrabe 5,12345 Bonn
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>
+                    <div><img style="float: left;" src="../image/cap.png" class="cap"></div>
+                    <p class="px-2 pt-1">Lyum Watson<br><img  src="../image/yellowstar.png"><img src="../image/yellowstar.png">
+                      <img src="../image/yellowstar.png"><img src="../image/yellowstar.png"><img src="../image/greystar.png"> 4
+                    </p>
+                  </div>
+                </td>
+
+                <td class="ml-2 pt-3">
+                  <button type="button" class="cancelbtn">Cancel</button>
+                </td>
+
+                <td class="action-data pt-3">
+                  <div class="dropdown">
+                    <button class="dropbtn rounded-circle border border-1"><img src="../image/three-dot.png"></button>
+                    <div class="dropdown-content">
+                      <a href="#">Refund</a>
+                      <a href="#">Escalate</a>
+                      <a href="#">History Log</a>
+                      <a href="#">Download Invoice</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+
+
+              <!--tr-10-->
+              <tr class="ServiceRequest-main-table-content">
+                <td class="px-2 pt-3">323436</td>
+                <td class="pt-3">
+                  <div>
+                    <img src="../image/calendar2.png">
+                    <b>09/04/2018</b>
+                  </div>
+
+                  <div>
+                    <img src="../image/watch.png">
+                    <span>12:00-18:00</span>
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>David Bough</div>
+                  <div>
+                    <img src="../image/home.png">
+                    Musterstrabe 5,12345 Bonn
+                  </div>
+                </td>
+
+                <td class="pt-3">
+                  <div>
+                    <div><img style="float: left;" src="../image/cap.png" class="cap"></div>
+                    <p class="px-2 pt-1">Lyum Watson<br><img  src="../image/yellowstar.png"><img src="../image/yellowstar.png">
+                      <img src="../image/yellowstar.png"><img src="../image/yellowstar.png"><img src="../image/greystar.png"> 4
+                    </p>
+                  </div>
+                </td>
+
+                <td class="ml-2 pt-3">
+                  <button type="button" class="completebtn">Completed</button>
+                </td>
+
+                <td class="action-data pt-3">
+                  <div class="dropdown">
+                    <button class="dropbtn rounded-circle border border-1"><img src="../image/three-dot.png"></button>
+                    <div class="dropdown-content">
+                      <a href="#">Refund</a>
+                      <a href="#">Escalate</a>
+                      <a href="#">History Log</a>
+                      <a href="#">Download Invoice</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+
+            <div class="usermgmt-show-text">
+              <span class="usermgmt-table-bottom">show&nbsp &nbsp</span>
+              <select class="usermgmt-select">
+                <option value="10">10</option>
+                <option value="9">9</option>
+                <option value="8">8</option>
+                <option value="7">7</option>
+                <option value="6">6</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+              </select>
+  
+              <span class="usermgmt-table-bottom">&nbsp &nbspentities &nbsp</span>
+            </div>
+  
+            <div class="usermgmtpages">
+              <ul class="pagination pagination-sm  justify-content-end">
+                <li class="page-item px-1"><a class="page-link  px-2 py-1" href="#"><img
+                      src="../image/userpagearrow.png"></a></li>
+                <li class="page-item px-1"><a class="page-link active-page px-2 py-1" style="outline: none;"
+                    href="#">1</a></li>
+                <li class="page-item px-1"><a class="page-link  px-2 py-1" href="#">2</a></li>
+                <li class="page-item px-1"><a class="page-link  px-2 py-1" href="#">3</a></li>
+                <li class="page-item px-1"><a class="page-link  px-2 py-1" href="#">4</a></li>
+                <li class="page-item px-1"><a class="page-link  px-2 py-1" href="#" id="next-page"><img
+                      src="../image/userpagearrow.png"></a></li>
+              </ul>
+            </div>
+  
+            <div class="copyright pt-2 mb-4">©2018 Helperland. All rights reserved.</div>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <script src="https://kit.fontawesome.com/5602f8a8c9.js" crossorigin="anonymous"></script>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
