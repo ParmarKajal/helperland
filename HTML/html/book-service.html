@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/Book-Service.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/5602f8a8c9.js" crossorigin="anonymous"></script>
+    <title>Book-Service</title>
+</head>
+
+<body>
+    <!--header section starts-->
+    <nav class="navbar navbar-expand-lg  navbar-dark">
+        <div class="container-fluid" id="navbar">
+            <a class="navbar-brand" href="#"><img src="../image/logo-small.png" id="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item px-1">
+                        <a class="nav-link rounded-pill text-center border border-1 nav-padding ms-1 me-1 menu"
+                            href="#">Book Now</a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link rounded-pill text-center pricebtn border border-1 nav-padding ms-1 me-1 menu-simple"
+                            href="#">Prices &
+                            Services</a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link nav-padding text-center menu-simple" href="#">Warranty</a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link nav-padding text-center menu-simple" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link nav-padding text-center menu-simple" href="contact.html"
+                            target="_blank">Contact</a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link rounded-pill text-center border border-1 nav-padding ms-1 me-1 menu"
+                            href="#">Login</a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link rounded-pill text-center border border-1 nav-padding menu" href="#">Become a
+                            Helper</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--header section ends-->
+
+    <!--banner-->
+    <section>
+        <img src="../image/book-service-banner.jpg" class="img-fluid align-items-stretch" id="banner">
+    </section>
+
+    <!--title-->
+    <div class="d-flex justify-content-center price_title">Set up your cleaning service</div>
+    <div class="d-flex justify-content-center">
+        <hr class="line1">
+        <img src="../image/star.png" class="star">
+        <hr class="line2">
+    </div>
+
+    <!--main section-->
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 d-flex mt-5 mb-5 px-0 steps">
+                    <div class="container">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" href="#img1">
+                                <div>
+                                    <img src="../image/setup-service.png" class="img-front px-1">
+                                    <img src="../image/setup-service-white.png" class="img-back  px-1">
+                                    <p>Setup Service</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" href="#img2">
+                                <div>
+                                    <img src="../image/schedule.png" class="img-front  px-1">
+                                    <img src="../image/schedule-white.png" class="img-back  px-1">
+                                    <p>Schedule & Plan</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" href="#img3">
+                                <div>
+                                    <img src="../image/details.png" class="img-front  px-1">
+                                    <img src="../image/details-white.png" class="img-back  px-1">
+                                    <p>Your Details</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" href="#img4">
+                                <div>
+                                    <img src="../image/payment.png" class="img-front  px-1">
+                                    <img src="../image/payment-white.png" class="img-back  px-1">
+                                    <p>Make Payment</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!--steps content-->
+                    <div class="tab-content">
+                        <div class="tab-pane container mt-4 px-0" id="img1">
+                            <label for="postal-code">Enter your Postal Code</label><br>
+                            <input type="text" placeholder="Postal Code" id="postal-code">
+                            <button type="button" class="availability-btn">Check Availability</button>
+                        </div>
+                        <div class="tab-pane container mt-4 fade" id="img2">
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <p>When do you need your cleaner?</p>
+                                    <div class="d-flex">
+                                        <input type="date" name="date" class="date">
+                                        <select class="select-btn">
+                                            <option value="8:00">8:00</option>
+                                            <option value="9:00">9:00</option>
+                                            <option value="10:00">10:00</option>
+                                            <option value="11:00">11:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <p>How long do you need your cleaner to stay?</p>
+                                    <select class="time-btn">
+                                        <option value="4.0 Hrs">4.0 Hrs</option>
+                                        <option value="3.0 Hrs">3.0 Hrs</option>
+                                        <option value="2.0 Hrs">2.0 Hrs</option>
+                                        <option value="1.0 Hrs">1.0 Hrs</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="row mt-2 mb-2">
+                                <p class="heading">Extra Services</p>
+                                <div class="col">
+                                    <div class="card border border-0 text-center justify-content-center extraservicebox">
+                                        <div class="mx-auto">
+                                            <div class="border border-2 rounded-circle text-center acessimg">
+                                                <img class="card-img-top front-img" src="../image/cabinet.png" alt="Card image">
+                                                <img class="card-img-top back-img" src="../image/cabinet-green.png" alt="Card image">
+                                            </div>
+                                        </div>
+                                        <div class="card-body text-center extraservice-body">
+                                            <h5 class="card-title">Inside cabinets</h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="card border border-0 text-center justify-content-center extraservicebox">
+                                        <div class="mx-auto">
+                                            <div class="border border-2 rounded-circle text-center acessimg">
+                                                <img class="card-img-top front-img" src="../image/fridge.png" alt="Card image">
+                                                <img class="card-img-top back-img" src="../image/fridge-green.png" alt="Card image">
+                                            </div>
+                                        </div>
+                                        <div class="card-body text-center extraservice-body">
+                                            <h5 class="card-title">Inside fridge</h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col">
+                                    <div class="card border border-0 text-center justify-content-center extraservicebox">
+                                        <div class="mx-auto">
+                                            <div class="border border-2 rounded-circle text-center acessimg">
+                                                <img class="card-img-top front-img" src="../image/oven.png" alt="Card image">
+                                                <img class="card-img-top back-img" src="../image/oven-green.png" alt="Card image">
+                                            </div>
+                                        </div>
+                                        <div class="card-body text-center extraservice-body">
+                                            <h5 class="card-title">Inside Oven</h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="card border border-0 text-center justify-content-center extraservicebox">
+                                        <div class="mx-auto">
+                                            <div class="border border-2 rounded-circle text-center acessimg">
+                                                <img class="card-img-top front-img" src="../image/laundry.png" alt="Card image">
+                                                <img class="card-img-top back-img" src="../image/laundry-green.png" alt="Card image">
+                                            </div>
+                                        </div>
+                                        <div class="card-body text-center extraservice-body">
+                                            <h5 class="card-title">Laundry wash & dry</h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col">
+                                    <div class="card border border-0 text-center justify-content-center  extraservicebox">
+                                        <div class="mx-auto">
+                                            <div class="border border-2 rounded-circle text-center acessimg">
+                                                <img class="card-img-top front-img" src="../image/window.png" alt="Card image">
+                                                <img class="card-img-top back-img" src="../image/window-green.png" alt="Card image">
+                                            </div>
+                                        </div>
+                                        <div class="card-body text-center extraservice-body">
+                                            <h5 class="card-title">Interior Windows</h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <label for="comment">Comments</label>
+                                <textarea rows="3" cols="3" placeholder="Commemts" class="comment pt-2 mt-3"></textarea>
+                                <div class="form-check px-0">
+                                <label for="pet" class="check-label">
+                                <input type="checkbox" id="pet" name="pet" value="pet" class="px-0 mt-5">I have pets at home
+                                </label>
+                                </div>
+                                
+                    
+                                <hr class="mt-4">
+
+                                <div>
+                                <button type="button" name="continue-btn" class="continue-btn text-center">Continue</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane container fade mt-4 px-0" id="img3">
+                            <div class="details-heading">
+                                <p>Enter your contact details, so we can serve you in better way!</p>
+                            </div>
+                            <div class="row mb-3 address">
+                                <div class="col-lg-4">
+                                    <input type="radio" name="address" class="radio-btn">
+                                </div>
+                                <div class="col-lg-8">
+                                    <p>Adress: koenigstrasse 112, Tambach-Dietharz 99897</p>
+                                    <p>Phone Number:9955648797</p>
+                                </div>    
+                            </div>
+
+                            <div class="row address">
+                                <div class="col-lg-4">
+                                    <input type="radio" name="address" class="radio-btn">
+                                </div>
+                                <div class="col-lg-8">
+                                    <p>Adress: koenigstrasse 112, Tambach-Dietharz 99897</p>
+                                    <p>Phone Number:9955648797</p>
+                                </div>    
+                            </div>
+
+                            <button type="button" name="createbtn" data-bs-toggle="collapse"
+                             data-bs-target="#form" class="create-btn mt-3">+Add New Address</button>
+                            <div id="form" class="collapse address-form mt-4">
+                            <form class="px-3 pt-3 pb-3">
+                                <div class="row pt-3">
+                                    <div class="col">
+                                    <label for="street-name" class="form-label">Street name</label>
+                                    <input type="text" class="form-control" id="street-name" placeholder="Street name" name="street-name">
+                                    </div>
+
+                                    <div class="col">
+                                    <label for="house-no" class="form-label">House number</label>
+                                    <input type="text" class="form-control" id="street-name" placeholder="House number" name="house-no">
+                                    </div>    
+                                </div>
+
+                                <div class="row pt-3">
+                                    <div class="col">
+                                        <label for="postal code" class="form-label">Postal Code</label>
+                                        <input type="text" class="form-control" id="postal code" placeholder="Postal Code" name="postal code">
+                                    </div>
+
+                                    <div class="col">
+                                    <label for="city" class="form-label">City</label>
+                                    <input type="text" class="form-control" id="city" placeholder="Street name" name="street-name">
+                                    </div>       
+                                </div>
+
+                                <div class="row pt-3">
+                                    <div class="col">
+                                        <label for="mobile">Phone Number</label>
+                                        <div class="input-group mobile-no">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">+49</span>
+                                            </div>
+                                            <input type="text" class="form-control" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                                                placeholder="Phone Number" name="mobile" id="mobile">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row pt-3">
+                                    <div class="col">
+                                        <button type="button" class="save-btn">Save</button>
+                                        <button type="button" class="cancle-btn">Cancle</button>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+
+                            <div class="favourite-provider mt-4">
+                                <p>Your Favourite Service Provider</p>
+                                <hr>
+                                <p>You can choose your favourite service provider from the below list</p>
+                                <div class="row mt-2 mb-2">
+                                    <div class="col">
+                                        <div class="card border border-0 text-center fav-provider">
+                                            <div class="mx-auto">
+                                                <div class="border border-2 rounded-circle text-center provider-img">
+                                                    <img class="card-img-top" src="../image/cap.png" alt="Card image">
+                                                </div>
+                                            </div>
+                                            <div class="card-body text-center  fav-provider-body">
+                                                <h5 class="card-title">Sandip Patel</h5>
+                                                <button type="button" class="card-text">Select</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane container fade" id="img4">
+                            <label for="postal-code">Enter your Postal Code</label><br>
+                            <input type="text" placeholder="Postal Code" id="postal-code">
+                            <button type="button" class="availability-btn">Check Availability</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+
+
+                <div class="col-md-4 mt-5 mb-5">
+                    <div class="card">
+                        <div class="card-header">Payment Summary</div>
+                        <div class="card-body">
+                            <p class="pt-3 date-time">01/01/2018&nbsp @&nbsp4:00pm</p>
+                            <p>1&nbsp bed,&nbsp1&nbsp bath.</p>
+                            <b>Duration</b>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex">
+                                        <p>Basic</p>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex justify-content-end">
+                                        <p>3 Hrs</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex">
+                                        <p>Inside Cabinets(extra)</p>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex justify-content-end">
+                                        <p>30 Mins</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex">
+                                        <b>Total Service Time</b>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex justify-content-end">
+                                        <b>3.5 Hrs</b>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex">
+                                        <p>Per Cleaning</p>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex justify-content-end">
+                                        <p>$87</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex">
+                                        <p>Discount</p>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex justify-content-end">
+                                        <p>-$27</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex">
+                                        <p class="blue-text pt-3">Total Payment</p>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex justify-content-end">
+                                        <p class="blue-no">$63</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex">
+                                        <p>Effective Price</p>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex justify-content-end pt-0 mt-0">
+                                        <p style="font-size:18px; font-weight: 700;">$50.4</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div>
+                                <img src="../image/smiley.png">
+                                <p class="px-2">See what is always included</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../js/main.js"></script>
+    <script>
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+
+        //     $("[data-bs-toggle=popover]").popover({
+        //         html: true,
+	    //     content: function() {
+        //   return $('#popover-content').html();
+        // }
+        // });
+
+//         $(function(){
+//           $("[data-toggle=popover]").popover({
+//              html : true,
+//             content: function() {
+//               var content = $(this).attr("data-popover-content");
+//               return $(content).children(".setup-service-content").html();
+//             },
+//              title: function() {
+//             var title = $(this).attr("data-popover-content");
+//            return $(title).children(".popover-heading").html();
+//         }
+//     });
+// });
+    </script>
+</body>
+
+</html>
