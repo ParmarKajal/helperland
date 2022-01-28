@@ -156,6 +156,12 @@ nav a{
     color: #646464;
 }
 
+.tab-content .tab-pane b{
+    font-family: 'Roboto'!important;
+    font-size: 15px;
+    font-weight:lighter!important;
+}
+
 .tab-content .tab-pane input{
     padding:5px 10px 5px 10px;
     font-size: 14px!important;
@@ -357,4 +363,13 @@ nav a{
     display: inline-block;
     color: #646464;
     font-size: 14px;
+}
+
+
+.question .questions p{
+    font-size: 14px;
+}
+
+.question .help-text{
+    color: #1d7a8c;
 }

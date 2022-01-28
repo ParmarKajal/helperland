@@ -1,0 +1,185 @@
+﻿#banner {
+    width: 1560px;
+    height: 370px;
+    object-fit: cover;
+}
+
+.price_title {
+    color: #4f4f4f;
+    font-weight: 500;
+    font-size: 36px;
+    margin-top: 30px;
+    font-family: 'Roboto';
+}
+
+.line1 {
+    width: 6%;
+    color: #4f4f4f;
+    margin-top: 30px;
+    margin-right: 10px;
+    height: 1px;
+}
+
+.star {
+    margin-top: 2px;
+    object-fit: contain;
+}
+
+.line2 {
+    width: 6%;
+    color: #4f4f4f;
+    margin-top: 30px;
+    margin-left: 10px;
+    height: 1px;
+}
+
+section {
+    font-family: 'Roboto';
+}
+
+.one-time {
+    width: 553px;
+}
+
+    .one-time .onetime-title {
+        height: 59px;
+        background-color: #1d7a8c;
+    }
+
+        .one-time .onetime-title span {
+            font-size: 28px;
+            color: #ffffff;
+        }
+
+.onetime-body .dollar {
+    color: #646464;
+    font-size: 48px;
+}
+
+.onetime-body .hour {
+    font-size: 30px;
+    color: #646464;
+}
+
+.onetime-text {
+    padding-left: 9.4375rem;
+}
+
+    .onetime-text p {
+        color: #646464;
+        font-size: 16px;
+    }
+
+    .onetime-text img {
+        padding-right: 0.5rem;
+    }
+
+.extra-service {
+    width: 1140px;
+}
+
+    .extra-service .extra-service-title {
+        color: #4f4f4f;
+        font-weight: 500;
+        font-size: 36px;
+        margin-top: 30px;
+    }
+
+.extraservicebox {
+    width: 175px;
+}
+
+.acessimg {
+    height: 108px;
+    width: 108px;
+    padding-top: 1.79rem;
+}
+
+    .acessimg img {
+        width: 37px;
+        height: 48px;
+    }
+
+.extraservicebox .extraservice-body h5 {
+    font-size: 16px;
+}
+
+.extraservicebox .extraservice-body p {
+    font-size: 18px;
+    color: #1D7A8C;
+}
+
+.extra-service .extraservicebox .card-title {
+    color: #4f4f4f !important;
+}
+
+.includecleaningbox {
+    margin-top: 2rem;
+    background-color: #F6F6F6;
+}
+
+.c1 img {
+    width: 100%;
+}
+
+.c1 p {
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+.c1 .c1-text a {
+    opacity: .6;
+}
+
+.c1 .c1-text p {
+    padding-left: .5rem;
+    padding-top: .1rem;
+    font-size: 15px;
+    color: #4F4F4F;
+}
+
+.why-helperland-title {
+    font-size: 36px;
+    font-family: 'Roboto';
+    color: #4f4f4f;
+}
+
+.right-content {
+    text-align: right;
+    max-width: 390px;
+    font-family: 'Roboto';
+}
+
+    .right-content .p1 {
+        color: #646464;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: 'Roboto';
+    }
+
+    .right-content .p2 {
+        color: #646464;
+        font-size: 14px;
+        font-family: 'Roboto';
+    }
+
+.left-content {
+    text-align: left;
+    max-width: 390px;
+    font-family: 'Roboto';
+}
+
+    .left-content .p21 {
+        color: #646464;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: 'Roboto';
+    }
+
+    .left-content .p22 {
+        color: #646464;
+        font-size: 14px;
+        width: 285.7px;
+        height: 84.67px;
+        font-family: 'Roboto';
+    }

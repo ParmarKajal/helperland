@@ -127,12 +127,31 @@
                             <button type="button" class="availability-btn">Check Availability</button>
                         </div>
                         <div class="tab-pane container mt-4 fade" id="img2">
-                            <div class="row mb-4">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <b>Select number of rooms and bath</b>
+                                    <br>
+                                    <select class="select-btn pt-2 pb-2 px-1 mt-3 mb-3">
+                                        <option value="1 bed">1 bed</option>
+                                        <option value="2 bed">2 bed</option>
+                                        <option value="3 bed">3 bed</option>
+                                        <option value="4 bed">4 bed</option>
+                                    </select>
+                                    <select class="select-btn  pt-2 pb-2 mx-3 px-1 mt-3 mb-3">
+                                        <option value="1 bath">1 bath</option>
+                                        <option value="2 bath">2 bath</option>
+                                        <option value="3 bath">3 bath</option>
+                                        <option value="4 bath">4 bath</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row mb-4 pt-3">
                                 <div class="col">
-                                    <p>When do you need your cleaner?</p>
-                                    <div class="d-flex">
-                                        <input type="date" name="date" class="date">
-                                        <select class="select-btn">
+                                    <b>When do you need your cleaner?</b>
+                                    <div class="d-flex mt-3">
+                                        <input type="date" name="date" class="date pt-2 pb-2 px-1">
+                                        <select class="select-btn pt-2 pb-2 px-1">
                                             <option value="8:00">8:00</option>
                                             <option value="9:00">9:00</option>
                                             <option value="10:00">10:00</option>
@@ -142,8 +161,8 @@
                                 </div>
 
                                 <div class="col">
-                                    <p>How long do you need your cleaner to stay?</p>
-                                    <select class="time-btn">
+                                    <b>How long do you need your cleaner to stay?</b><br>
+                                    <select class="time-btn pt-2 pb-2 px-1 mt-3">
                                         <option value="4.0 Hrs">4.0 Hrs</option>
                                         <option value="3.0 Hrs">3.0 Hrs</option>
                                         <option value="2.0 Hrs">2.0 Hrs</option>
@@ -155,7 +174,7 @@
                             <hr>
 
                             <div class="row mt-2 mb-2">
-                                <p class="heading">Extra Services</p>
+                                <b class="heading mb-3 pt-2">Extra Services</b>
                                 <div class="col">
                                     <div class="card border border-0 text-center justify-content-center extraservicebox">
                                         <div class="mx-auto">
@@ -233,12 +252,11 @@
 
                                 <hr>
 
-                                <label for="comment">Comments</label>
+                                <label for="comment"><b>Comments</b></label>
                                 <textarea rows="3" cols="3" placeholder="Commemts" class="comment pt-2 mt-3"></textarea>
                                 <div class="form-check px-0">
-                                <label for="pet" class="check-label">
-                                <input type="checkbox" id="pet" name="pet" value="pet" class="px-0 mt-5">I have pets at home
-                                </label>
+                                <input type="checkbox" id="pet" name="pet" value="pet" class="px-0 mt-5">
+                                <label for="pet" class="check-label px-0">I have pets at home</label> 
                                 </div>
                                 
                     
@@ -254,7 +272,7 @@
                             <div class="details-heading">
                                 <p>Enter your contact details, so we can serve you in better way!</p>
                             </div>
-                            <div class="row mb-3 address">
+                            <!-- <div class="row mb-3 address">
                                 <div class="col-lg-4">
                                     <input type="radio" name="address" class="radio-btn">
                                 </div>
@@ -262,10 +280,20 @@
                                     <p>Adress: koenigstrasse 112, Tambach-Dietharz 99897</p>
                                     <p>Phone Number:9955648797</p>
                                 </div>    
+                            </div> -->
+
+                            <div class="address row mb-3">
+                                <div class="col-lg-4 pt-4">
+                                    <input type="radio" name="address" class="radio-btn">
+                                </div>
+                                <div class="col-lg-8">
+                                    <p>Adress: koenigstrasse 112, Tambach-Dietharz 99897</p>
+                                    <p>Phone Number:9955648797</p>
+                                </div>  
                             </div>
 
                             <div class="row address">
-                                <div class="col-lg-4">
+                                <div class="col-lg-4 pt-4">
                                     <input type="radio" name="address" class="radio-btn">
                                 </div>
                                 <div class="col-lg-8">
@@ -476,38 +504,51 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="container-fluid question px-0">
+                        <div class="question-heading text-center mt-4 mb-3">
+                            <h5><b>Questions?</b></h5>
+                        </div>
+
+                        <div class="questions d-flex px-0 pt-2 pb-0">
+                           <a href="#"  id="previous-page"><img src="../image/previouspage.png"></a>
+                            <p class="px-1">Which Helperland professional will come to my place?</p>
+                        </div>
+                        <hr>
+                        <div class="questions d-flex px-0 pt-2 pb-0">
+                            <a href="#"  id="previous-page"><img src="../image/previouspage.png"></a>
+                             <p class="px-1">Which Helperland professional will come to my place?</p>
+                         </div>
+                         <hr>
+                         <div class="questions d-flex px-0 pt-2 pb-0">
+                            <a href="#"  id="previous-page"><img src="../image/previouspage.png"></a>
+                             <p class="px-1">Which Helperland professional will come to my place?</p>
+                         </div>
+                         <hr>
+                         <div class="questions d-flex px-0 pt-2 pb-0">
+                            <a href="#"  id="previous-page"><img src="../image/previouspage.png"></a>
+                             <p class="px-1">Which Helperland professional will come to my place?</p>
+                         </div>
+                         <hr>
+                         <div class="questions d-flex px-0 pt-2 pb-0">
+                            <a href="#"  id="previous-page"><img src="../image/previouspage.png"></a>
+                             <p class="px-1">Which Helperland professional will come to my place?</p>
+                         </div>
+                         <hr>
+                         <div class="questions d-flex px-0 pt-2 pb-0">
+                            <a href="#"  id="previous-page"><img src="../image/previouspage.png"></a>
+                             <p class="px-1">Which Helperland professional will come to my place?</p>
+                         </div>
+                         <hr>
+                         <div>
+                             <b class="help-text pt-3">For more help</b>
+                         </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </main>
     <script src="../js/main.js"></script>
-    <script>
-        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-            return new bootstrap.Popover(popoverTriggerEl)
-        })
-
-        //     $("[data-bs-toggle=popover]").popover({
-        //         html: true,
-	    //     content: function() {
-        //   return $('#popover-content').html();
-        // }
-        // });
-
-//         $(function(){
-//           $("[data-toggle=popover]").popover({
-//              html : true,
-//             content: function() {
-//               var content = $(this).attr("data-popover-content");
-//               return $(content).children(".setup-service-content").html();
-//             },
-//              title: function() {
-//             var title = $(this).attr("data-popover-content");
-//            return $(title).children(".popover-heading").html();
-//         }
-//     });
-// });
-    </script>
 </body>
-
 </html>

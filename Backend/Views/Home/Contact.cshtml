@@ -1,0 +1,123 @@
+﻿@model Helperland.Models.Data.ContactU
+@{
+    Layout = "/Views/Shared/Custom_Layout.cshtml";
+}
+    <head>
+        <link href="~/css/Contact.css" rel="stylesheet" />
+        <title>Contact</title>
+    </head>
+
+
+    <!--contact banner starts-->
+    <img src="../image/contact_banner.png" class="img-fluid align-items-stretch" id="banner">
+    <!--contact banner ends-->
+
+    <main>
+        <!--contact us section-->
+        <section>
+            <h1 class="d-flex justify-content-center contact_title">Contact us</h1>
+            <div class="d-flex justify-content-center">
+                <hr class="line1">
+                <img src="../image/star.png" class="star">
+                <hr class="line2">
+            </div>
+            <div class="container mt-5 mb-5">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-4">
+                        <div class="card border border-0">
+                            <img class="card-img-top justify-content-center" src="../image/location.png" alt="Card image"
+                                 id="location">
+                            <div class="card-body">
+                                <p class="card-text text">1111 Lorem ipsum text 100,<br> Lorem ipsum AB</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="card border border-0">
+                            <img class="card-img-top justify-content-center" src="../image/phone-call.png" alt="Card image"
+                                 id="phone">
+                            <div class="card-body">
+                                <p class="card-text text">+49 (40) 123 56 7890<br>+49 (40) 987 56 0000</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="card border border-0">
+                            <img class="card-img-top justify-content-center" src="../image/mail.png" alt="Card image"
+                                 id="mail">
+                            <div class="card-body">
+                                <p class="card-text text">info@helperland.com</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!--partition line-->
+        <div class="container justify-content-center">
+            <hr>
+        </div>
+
+        <section>
+            <div class="form-title justify-content-center text-center mt-5">
+                <h2>Get in touch with us</h2>
+            </div>
+
+            <div class="container d-flex flex-wrap justify-content-center">
+                <form asp-action="" method="post">
+                    <div class="row">
+                        <div class="col">
+                            <input asp-for="Name" class="form-control" placeholder="First Name" name="fname" id="first">
+                        </div>
+                        <div class="col">
+                            <input asp-for="Name" class="form-control" placeholder="Last Name" name="lname" id="last">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group mobile-no">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon">+49</span>
+                                </div>
+                                <input asp-for="PhoneNumber" class="form-control" placeholder="Mobile Number" id="no">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <input asp-for="Email" class="form-control" placeholder="Email Address" id="mailfield">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <select asp-for="SubjectType" id="subject" class="rounded border-1">
+                                <option value="" disabled selected>Subject</option>
+                                <option value="Maths">Subject1</option>
+                                <option value="Phy">Subject2</option>
+                                <option value="Chem">Subject3</option>
+                            </select>
+                            <!-- <span id="arrow"><img src="image/down_click.png"></span>  -->
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <input asp-for="Message" id="message" class="form-control" placeholder="Message">
+                        </div>
+                    </div>
+                    <input type="submit" value="Submit" id="submit" class="rounded-pill border-0">
+                </form>
+            </div>
+        </section>
+
+        <!--location-->
+        <section>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.9516298820763!2d70.76084111436057!3d22.27982204926945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959cbcb40ef68d3%3A0xf14e8c4894cf879b!2sCrystal%20Mall%20Rajkot%2C%20Jyoti%20Nagar%20Main%20Rd%2C%20Opp.%20Rani%20Tower%2C%20Ghanshyam%20Nagar%2C%20Rajkot%2C%20Gujarat%20360005!5e0!3m2!1sen!2sin!4v1640916180204!5m2!1sen!2sin"
+                    width="1346px" height="400px" style="border:0;" allowfullscreen="false" loading="lazy"></iframe>
+        </section>
+    </main>

@@ -1,0 +1,85 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+
+* {
+    font-family: 'Roboto' !important;
+}
+
+body {
+    scroll-behavior: smooth !important;
+}
+
+img {
+    width: 22px;
+    height: 22px;
+}
+
+.font {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.para {
+    font-size: 1rem !important;
+    font-family: 'Roboto' !important;
+    font-weight: lighter;
+}
+
+#flogo {
+    width: 6.625rem !important;
+    height: 4.875rem !important;
+}
+
+
+@media(max-width:990px) {
+    nav a {
+        color: #646464 !important;
+        font-family: 'roboto' !important;
+        text-decoration: none;
+        border: none !important;
+        font-weight: 700;
+    }
+
+        nav a:hover {
+            transition: all 0.3s ease-in;
+            color: #a0a0a0 !important;
+        }
+
+    nav .navbar-nav {
+        background-color: black;
+    }
+
+    .nav-btns {
+        background-color: black !important;
+        border-radius: 0px !important;
+        border: none !important;
+    }
+
+        .nav-btns:hover {
+            transition: all 0.3s ease-in;
+            color: #a0a0a0 !important;
+        }
+
+    .one-btn {
+        border: none !important;
+    }
+
+        .one-btn:hover {
+            background-color: black !important;
+            transition: all 0.3s ease-in;
+            color: #a0a0a0 !important;
+        }
+
+    footer .footer-line {
+        display: none !important;
+    }
+
+    footer {
+        overflow-x: hidden;
+    }
+}
+
+@media(max-width:730px) {
+    .btn-wrapper {
+        align-items: center !important;
+    }
+}
