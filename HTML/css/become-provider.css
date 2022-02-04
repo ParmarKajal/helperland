@@ -30,7 +30,7 @@ body { font-family: 'Roboto';}
    }
 .register-form form{
     width: 430px;
-    max-height: 664px;
+    /* max-height: 664px; */
     background-color:#ffffff;
     padding-bottom: 20px;
     margin-left: 299px; 

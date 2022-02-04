@@ -79,6 +79,8 @@
                     </div>
                 </div>
             </nav>
+
+        <div class="container login-modal">
             <div class="modal" id="login">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
@@ -92,28 +94,77 @@
                     <!-- Modal body -->
                     <div class="modal-body">
                      <form>
-                         <div class="form-group">
-                             <input type="email" name="email" placeholder="Email" class="form-control">
-                             <i class="fa fa-user"></i>
-                         </div>
-
-                         <div class="form-group">
-                            <input type="password" name="pwd" placeholder="Password" class="form-control">
-                            <i class="fas fa-lock"></i>
+                        <div class="form-group mt-2">
+                            <div class="input-group">
+                                <input type="email"  class="form-control rounded-end" placeholder="Email" aria-label="email" aria-describedby="email">
+                                <span class="user"><i class="fa fa-user"></i></span>
+                            </div>
                         </div>
-                        
+
+                        <div class="form-group mt-3">
+                            <div class="input-group">
+                                <input type="password" name="pwd" placeholder="Password" class="form-control rounded-end" aria-label="pwd" aria-describedby="pwd">
+                                <span class="user"><i class="fa fa-lock"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="form-check mt-2 mb-3">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                            </label>
+                        </div>
+                        <div class="justify-content-center">
+                        <button type="button" class="btn login-btn btn-primary rounded-pill">Login</button>
+                        </div>
+
+                        <div class="create justify-content-center mt-2">
+                            <a class="fpwdlink" href="#" data-bs-toggle="modal" data-bs-target="#forgotpwd">Forgot Password?</a>
+                            <p>Don't have an account? <a href="createaccount.html" target="_blank">Create an account</a></p>
+                        </div>
                      </form>
                     </div>
-              
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                    </div>
-              
                   </div>
                 </div>
-              </div>
-        </header>
+            </div>
+        </div>
+
+        
+        
+
+        <div class="container fpwd-modal">
+            <div class="modal" id="forgotpwd">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title text-center">Forgot Password</h4>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                     <form>
+                        <div class="form-group mt-2">
+                            <div class="input-group">
+                                <input type="email"  class="form-control rounded-end" placeholder="Email" aria-label="email" aria-describedby="email">
+                            </div>
+                        </div>
+                        <div class="justify-content-center mt-3">
+                        <button type="button" class="btn login-btn btn-primary rounded-pill">Send</button>
+                        </div>
+
+                        <div class="create justify-content-center mt-2">
+                            <a class="fpwdlink" href="#" data-bs-toggle="modal" data-bs-target="#login">Login Now</a>
+                        </div>
+                     </form>
+                    </div>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
 
         <main>

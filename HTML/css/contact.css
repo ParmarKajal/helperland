@@ -190,6 +190,14 @@ nav ul li a{
     background-color: #ffffff;
 }
 
+.fileupload{
+    display: block;
+}
+
+.upload{
+    padding-left:450px;
+}
+
 #submit{
     width:163px;
     height:46px;
