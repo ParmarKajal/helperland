@@ -66,6 +66,9 @@ namespace Helperland_Project.Models.Data
         [StringLength(50)]
         public string TaxNo { get; set; }
 
+        [StringLength(100)]
+        public string ResetPasswordCode { get; set; }
+
         [InverseProperty(nameof(FavoriteAndBlocked.TargetUser))]
         public virtual ICollection<FavoriteAndBlocked> FavoriteAndBlockedTargetUsers { get; set; }
         [InverseProperty(nameof(FavoriteAndBlocked.User))]

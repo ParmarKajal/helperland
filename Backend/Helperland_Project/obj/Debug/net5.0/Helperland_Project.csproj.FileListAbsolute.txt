@@ -392,3 +392,6 @@ C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\
 C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Shared\Custom_Layout.cshtml.g.cs
 C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Create\Account.cshtml.g.cs
 C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\BecomeProvider\ServiceProviderRegistration.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Home\Account.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Home\ServiceProviderRegistration.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Home\ResetPassword.cshtml.g.cs

@@ -20,8 +20,6 @@ namespace Helperland_Project.ViewModels
         [Required]
         [StringLength(100)]
         public string Password { get; set; }
-
-        
         //[DataType(DataType.Password)]
         [Required]
         [Compare("Password" , ErrorMessage = "Password and Confirm Password must be match!")]
@@ -32,5 +30,7 @@ namespace Helperland_Project.ViewModels
 
         public bool RememberMe { get; set; }
         public int UserTypeId { get; set; }
+
+       
     }
 }

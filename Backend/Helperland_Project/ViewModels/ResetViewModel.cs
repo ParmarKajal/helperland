@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace Helperland_Project.ViewModels
 {
-    public class LoginViewModel
+    public class ResetViewModel
     {
         [Required]
         [StringLength(100)]
-        public string email { get; set; }
+        public string NewPassword { get; set; }
+
+        [Required]
         [StringLength(100)]
-        public string password { get; set; }
+        public string ConfirmPassword { get; set; }
+
+        public string ResetCode { get; set; }
+
+
     }
 }

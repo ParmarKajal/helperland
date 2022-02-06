@@ -78,7 +78,7 @@
         <hr class="line2">
     </div>
 
-   @*<div class="d-flex flex-wrap container justify-content-center mt-4">
+    @*<div class="d-flex flex-wrap container justify-content-center mt-4">
             <form asp-controller="Create" asp-action="Account" enctype="multipart/form-data" method="post">
                 <div class="row">
                     <div class="col">
@@ -126,67 +126,63 @@
             </form>
         </div>*@
 
-<section>
-    <div class="form-title justify-content-center text-center mt-5">
-        <h2>Get in touch with us</h2>
-    </div>
+    <section>
+        <div class="container d-flex flex-wrap justify-content-center mt-5 contactusform">
+            <form asp-action="Account" asp-controller="Home" method="post">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="row">
 
-    <div class="container d-flex flex-wrap justify-content-center mt-5 contactusform">
-        <form asp-action="Account" asp-controller="Home" method="post">
-            <div asp-validation-summary="ModelOnly"></div>
-            <div class="row">
+                    <div class="col">
+                        <input asp-for="firstname" class="form-control form-field" placeholder="First Name" id="first">
+                        <span asp-validation-for="firstname" class="text-danger"></span>
+                    </div>
+                    <div class="col">
+                        <input asp-for="lastname" class="form-control form-field" placeholder="Last Name" id="last">
+                        <span asp-validation-for="lastname" class="text-danger"></span>
+                    </div>
 
-                <div class="col">
-                    <input asp-for="firstname" class="form-control form-field" placeholder="First Name" id="first">
-                    <span asp-validation-for="firstname" class="text-danger"></span>
                 </div>
-                <div class="col">
-                    <input asp-for="lastname" class="form-control" placeholder="Last Name" id="last">
-                    <span asp-validation-for="lastname" class="text-danger"></span>
-                </div>
+                <div class="row">
 
-            </div>
-            <div class="row">
-
-                <div class="col">
-                    <div class="input-group mobile-no">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="addon">+49</span>
+                    <div class="col">
+                        <div class="input-group mobile-no">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon">+49</span>
+                            </div>
+                            <input asp-for="mobile"  class="form-control form-field" placeholder="Mobile Number" id="no">
                         </div>
-                        <input asp-for="mobile" class="form-control" placeholder="Mobile Number" id="no">
+                    </div>
+                    <div class="col">
+                        <input asp-for="email" class="form-control form-field" placeholder="Email Address" id="mailfield">
+                        <span asp-validation-for="email" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col">
+                        <input type="password" asp-for="Password" class="form-field" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="col">
+                        <input type="password" asp-for="ConfirmPassword" class="form-field" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="col">
-                    <input asp-for="email" class="form-control" placeholder="Email Address" id="mailfield">
-                    <span asp-validation-for="email" class="text-danger"></span>
+                <div class="row">
+                    <div class="col">
+                        <input type="submit" value="Submit" id="submit" class="rounded-pill border-0">
+                    </div>
                 </div>
-
-            </div>
-            
-            <div class="row">
-
-                <div class="col">
-                    <input type="password" asp-for="Password"/>
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-
-                <div class="col">
-                    <input type="password" asp-for="ConfirmPassword" />
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <input type="submit" value="Submit" id="submit" class="rounded-pill border-0">
-                </div>
-            </div>
-        </form>
-    </div>
-</section>
+            </form>
+        </div>
+    </section>
 
 
 
-        
+
 
     @* <div class="last-text mb-5 mt-3">
             <p>Already Registered?</p>
@@ -263,3 +259,4 @@
 
 </body>
 </html>
+

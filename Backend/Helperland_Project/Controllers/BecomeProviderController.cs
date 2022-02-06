@@ -11,39 +11,39 @@ namespace Helperland_Project.Controllers
 {
     public class BecomeProviderController : Controller
     {
-        private readonly Helperland_SchemaContext _db;
-        public BecomeProviderController(Helperland_SchemaContext db)
-        {
-            _db = db;
-        }
-        public IActionResult ServiceProviderRegistration()
-        {
+        //private readonly Helperland_SchemaContext _db;
+        //public BecomeProviderController(Helperland_SchemaContext db)
+        //{
+        //    _db = db;
+        //}
+        //public IActionResult ServiceProviderRegistration()
+        //{
             
-            return View();
-        }
+        //    return View();
+        //}
 
-        [HttpPost]
-        public IActionResult ServiceProviderRegistration(CreateAccountViewModel model)
-        {
-            if(ModelState.IsValid)
-            {
-                User serviceprovider = new User
-                {
-                    FirstName = model.firstname,
-                    LastName = model.lastname,
-                    Email = model.email,
-                    Mobile = model.mobile,
-                    Password = model.Password,
-                    CreatedDate = DateTime.Now,
-                    ModifiedDate = DateTime.Now,
+        //[HttpPost]
+        //public IActionResult ServiceProviderRegistration(CreateAccountViewModel model)
+        //{
+        //    if(ModelState.IsValid)
+        //    {
+        //        User serviceprovider = new User
+        //        {
+        //            FirstName = model.firstname,
+        //            LastName = model.lastname,
+        //            Email = model.email,
+        //            Mobile = model.mobile,
+        //            Password = model.Password,
+        //            CreatedDate = DateTime.Now,
+        //            ModifiedDate = DateTime.Now,
 
-                };
-                _db.Users.Add(serviceprovider);
-                _db.SaveChanges();
-                return RedirectToAction();
-            }
+        //        };
+        //        _db.Users.Add(serviceprovider);
+        //        _db.SaveChanges();
+        //        return RedirectToAction();
+        //    }
 
-            return View();
-        }
+        //    return View();
+        //}
     }
 }

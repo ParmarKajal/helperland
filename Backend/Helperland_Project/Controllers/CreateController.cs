@@ -12,12 +12,12 @@ namespace Helperland_Project.Controllers
 {
     public class CreateController : Controller
     {
-        private readonly Helperland_SchemaContext _schema;
+        //private readonly Helperland_SchemaContext _schema;
 
-        public CreateController(Helperland_SchemaContext schema)
-        {
-            _schema = schema;
-        }
+        //public CreateController(Helperland_SchemaContext schema)
+        //{
+        //    _schema = schema;
+        //}
 
         //[HttpGet]
         //public IActionResult Account()
@@ -41,44 +41,44 @@ namespace Helperland_Project.Controllers
 
 
         
-        public IActionResult Account()
-        {
-            return View();
-        }
+    //    public IActionResult Account()
+    //    {
+    //        return View();
+    //    }
 
-        [HttpPost]
+    //    [HttpPost]
 
-        public IActionResult Account(CreateAccountViewModel model)
-        {
-            if(ModelState.IsValid)
-            {
-                User user = new User
-                {
-                    FirstName = model.firstname,
-                    LastName = model.lastname,
-                    Email = model.email,
-                    Mobile = model.mobile,
-                    Password = model.Password,
-                    CreatedDate = DateTime.Now,
-                    ModifiedDate = DateTime.Now,
-                    UserTypeId=(int)UserTypeIdEnum.Customer
+    //    public IActionResult Account(CreateAccountViewModel model)
+    //    {
+    //        if(ModelState.IsValid)
+    //        {
+    //            User user = new User
+    //            {
+    //                FirstName = model.firstname,
+    //                LastName = model.lastname,
+    //                Email = model.email,
+    //                Mobile = model.mobile,
+    //                Password = model.Password,
+    //                CreatedDate = DateTime.Now,
+    //                ModifiedDate = DateTime.Now,
+    //                UserTypeId=(int)UserTypeIdEnum.Customer
                     
-                };
+    //            };
 
-                _schema.Add(user);
-                _schema.SaveChanges();
-                return RedirectToAction();
+    //            _schema.Add(user);
+    //            _schema.SaveChanges();
+    //            return RedirectToAction();
                
-            }
+    //        }
 
-            return View();
-        }
+    //        return View();
+    //    }
 
-        [HttpPost]
-        public IActionResult Login(LoginViewModel model)
-        {
-            return View();
-        }
+    //    [HttpPost]
+    //    public IActionResult Login(LoginViewModel model)
+    //    {
+    //        return View();
+    //    }
        
     }
 }
