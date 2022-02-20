@@ -147,42 +147,68 @@ nav a{
 }
 
 /* setup service */
-.tab-pane{
-    color: #646464;
-}
 
-.tab-content .tab-pane label{
+/*.tab-pane{
+    color: #646464;
+}*/
+
+.tab-content label{
     font-size: 17px;
     color: #646464;
 }
 
-.tab-content .tab-pane b{
+.tab-content  b{
     font-family: 'Roboto'!important;
     font-size: 15px;
     font-weight:lighter!important;
 }
 
-.tab-content .tab-pane input{
+.tab-content  input{
     padding:5px 10px 5px 10px;
     font-size: 14px!important;
     width: 300px;
     outline: #a0a0a0!important;
     font-family: 'Roboto';
 }
+#postal-code{
+    border: 1px solid #DCDCDC!important;
+    border-radius: 3px;
+    padding: 10px 10px 10px 10px;
+}
 
-.tab-content .tab-pane .availability-btn{
+
+.tab-content .availability-btn{
     border-radius: 27px;
     background-color: #1d7a8c;
     color: #ffffff;
     outline: none;
-    padding: 10px 25px 10px 25px;
+    padding: 10px 10px 10px 10px;
     border: none!important;
     margin-left: 20px;
+    font-size: 14px;
 }
+
+.tab-content .availability-btn:hover{
+    border:1px solid  #29626D!important;
+    color:white!important;
+    background-color: #29626D;
+    transition: 0.3s ease;
+}
+
+
+/* schedule and plan */
+
 .tab-content .tab-pane .date{
     width: 150px;
     margin-right: 10px;
     color: #646464;
+    border: 1px solid #DCDCDC!important;
+    border-radius: 3px;
+}
+
+.schedule select,option{
+    border: 1px solid #DCDCDC!important;
+    border-radius: 3px;
 }
 
 .tab-content .tab-pane .select-btn{
@@ -205,11 +231,20 @@ nav a{
     height: 108px; 
     width: 108px;
     padding-top:1.79rem;
+    border-radius: 50%;
+    border: 2px solid #E8E8E8;
+}
+
+#ovenborder{
+    height: 108px; 
+    width: 108px;
+    border-radius: 50%;
+    border: 2px solid #E8E8E8;
 }
 
 .acessimg img{
-    width: 37px;
-    height: 48px;
+    width: 37px!important;
+    height: 48px!important;
 }
 
 .extraservice-body .card-title{
@@ -231,7 +266,7 @@ nav a{
 }
 .extraservicebox .acessimg img .back-img{
    position: absolute;
-   /* left: 0!important;   */
+   /* left: 0!important;*/
    display: none;
    padding-top:1.79rem; 
 }
@@ -241,6 +276,8 @@ nav a{
 
 .comment{
     font-size:14px;
+    border: 1px solid #DCDCDC!important;
+    border-radius: 3px;
 }
 
 #pet{
@@ -261,13 +298,51 @@ nav a{
     margin-left: 530px;
 }
 
+.continue-btn:hover{
+    border:1px solid  #1d7a8c!important;
+    color: #1d7a8c;
+    background-color: #ffffff;
+}
+
+
+
+
+/* your details */
+
 .address{
-    border: 1px solid #a0a0a0;
+    border: 1px solid #DCDCDC!important;
+    border-radius: 3px;
     padding: 5px 5px 5px 5px;
 }
 
 .address .col input{
    padding-left: 10px!important;
+}
+
+#street-name ::placeholder{
+    font-size: 12px;
+    color: #dcdcdc !important;
+    font-weight: lighter!important;
+}
+
+#street-name{
+    padding: 10px 10px 10px 10px;
+}
+
+#postalcode{
+    padding: 10px 10px 10px 10px;
+}
+
+#city{
+    padding: 10px 10px 10px 10px;
+}
+
+#mobile{
+    padding: 10px 10px 10px 10px;
+}
+
+.input-group-text{
+    padding: 10px 10px 10px 10px;
 }
 
 .create-btn{
@@ -281,8 +356,8 @@ nav a{
 }
 
 .tab-pane .address-form{
-    border: 1px solid #a0a0a0;
-    background-color: #F8F8F8;
+    border: 1px solid #DCDCDC!important;
+    /*background-color: #F8F8F8;*/
 }
 
 .save-btn{
@@ -293,12 +368,24 @@ nav a{
     border: none;
 }
 
+.save-btn:hover{
+    background-color: #FFFFFF;
+    border: 1px solid #1d7a8c;
+    color: #1d7a8c!important;
+}
+
 .cancle-btn{
     border-radius: 27px;
     padding:10px 25px 10px 25px;
     border:1px solid #a0a0a0;
     background-color: #ffffff;
     color: #646464;
+}
+
+.cancle-btn:hover{
+    background-color: #646464;
+    color:#FFFFFF;
+    border: none;
 }
 
 .fav-provider{
@@ -327,6 +414,92 @@ nav a{
     background-color: #ffffff;
     color: #646464;
 }
+
+
+
+
+/*payment gateway*/
+
+
+.tab-content .tab-pane .payment-heading{
+    font-size: 15px;
+    color: #4f4f4f!important;
+    font-weight:700;
+}
+
+
+#labelpromo{
+
+    font-size:15px;
+    color: #4f4f4f!important;
+}
+#promocode{
+    padding: 10px 10px 10px 10px;
+}
+.payment .promo input{
+    border: 1px solid #DCDCDC!important;
+    border-radius: 3px;
+}
+.payment .apply-btn{
+    border-radius: 27px;
+    border:1px solid  #1d7a8c;
+    color: #1d7a8c;
+    outline: none;
+    display: inline!important;
+    background-color: #ffffff;
+    padding: 6px 25px 6px 25px;
+    margin-left: 20px;
+}
+
+.payment .apply-btn:hover{
+    background-color: #1d7a8c;
+    color: #ffffff;
+}
+.payment .carddetails{
+    box-shadow:0 0 10px 0 #e4ebf0;;
+}
+.payment .carddetails input{
+  width: 200px;
+  padding: 15px 15px 15px 15px;
+  border: none!important;
+}
+
+.payment .carddetails input:hover{
+    border: none!important;
+    animation: none!important;
+}
+
+#check{
+    display: inline!important;
+}
+
+#book-btn{
+    border-radius: 27px;
+    background-color: #1d7a8c;
+    color: #ffffff;
+    border: none;
+    float: right;
+    padding: 7px 25px 7px 25px;
+}
+
+#book-btn:hover{
+    color: #1d7a8c;
+    background-color: #ffffff;
+    border: 1px solid #1d7a8c;
+}
+
+.payment .tickbox label{
+    display: inline!important;
+    font-size:14px;
+    color: #646464;
+    font-weight: normal!important;
+    letter-spacing: 0.5px;
+}
+
+
+
+
+
 
 /* Payment Summary*/
 
@@ -372,4 +545,33 @@ nav a{
 
 .question .help-text{
     color: #1d7a8c;
+}
+
+
+/*Media Queries*/
+
+@media(max-width:767px){
+
+    .nav-link p{
+        display: none!important;
+      
+    }
+
+    .nav{
+        width: 100%!important;
+    }
+}
+
+@media(max-width:1200px) and (min-width:768px) {
+    .steps .nav .nav-item .nav-link img{
+        padding-left: 25px!important;
+    }
+    .nav-link p{
+        display: block !important; 
+        padding-bottom: 10px!important; 
+    }
+
+    .steps .nav .nav-item{
+        max-height:70px!important;
+    }
 }

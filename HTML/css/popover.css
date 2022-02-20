@@ -1,0 +1,121 @@
+#popover-content{
+    max-width: 760px;
+    max-height: 700px;
+}
+
+#popover-content .setup-service-content input{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    font-family: 'Roboto';
+    margin-top: 10px;
+    font-size: 14px;
+    outline: #a0a0a0!important;
+    width: 250px;
+}
+
+.availability-btn{
+    border-radius: 27px;
+    background-color: #1d7a8c;
+    color: #ffffff;
+    outline: none;
+    padding: 10px 25px 10px 25px;
+    border: none!important;
+    margin-left: 10px;
+}
+
+
+
+/*steps*/
+
+.steps{
+    background-color:#F0F0F0;
+    margin-top: 200px;
+    height: 60px;
+}
+
+ .steps-hover{
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    height: 100%;
+}
+
+.steps-hover img{
+    position: absolute; 
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out ;
+    -ms-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+.steps-hover .img-back{
+   position: absolute;
+   left: 3px!important;
+   display: none;
+   top: 15px!important;
+}
+
+.steps .steps-hover:hover .img-back{
+    display: block;
+}
+
+.steps .steps-hover:hover{
+    background-color: #1d7a8c!important;
+    color: #ffffff!important;
+}
+
+.steps-hover p{
+    display: inline-block;  
+    font-family: 'Roboto';  
+    color: #4f4f4f;
+    padding-left: 40px;
+}
+
+.steps-hover p:hover{
+    color: #ffffff;
+} 
+
+.steps-hover:hover{
+    color: #ffffff;
+} 
+
+
+/*extra services*/
+.extra{
+    background-color:#F0F0F0;
+    margin-top: 200px;
+    height:170px;
+}
+
+.services{
+    position: relative!important;
+    padding-top: 15px!important;
+    padding-bottom: 10px!important;
+    height: 100%;
+}
+
+.services .accessimg img{
+    position:absolute!important; 
+    -webkit-transition: opacity 1s ease-in-out!important;
+    -moz-transition: opacity 1s ease-in-out !important;
+    -ms-transition: opacity 1s ease-in-out!important;
+    -o-transition: opacity 1s ease-in-out!important;
+    transition: opacity 1s ease-in-out!important;
+}
+
+.services .accessimg .back-img{
+    position: absolute!important;
+    left: 0!important;
+    display: none!important;
+    /*top: 15px!important;*/
+}
+
+ .extra .services .accessimg:hover .img-back{
+    display: block!important;
+}
+
+.extra .services:hover{
+    background-color: white!important;
+}
