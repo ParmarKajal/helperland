@@ -1,0 +1,1102 @@
+﻿@model Helperland_Project.ViewModels.BookNowViewModel
+@{
+    Layout = null;
+}
+
+@{
+    ViewData["Title"] = "Book Now";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/css/booknow.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/5602f8a8c9.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg  navbar-dark">
+        <div class="container-fluid" id="navbar">
+            <a class="navbar-brand" href="#"><img src="../image/logo-small.png" id="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item px-1">
+                        <a class="nav-link rounded-pill text-center border border-1 nav-padding ms-1 me-1 menu"
+                           href="#">Book Now</a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link rounded-pill text-center pricebtn border border-1 nav-padding ms-1 me-1 menu-simple"
+                           href="#">
+                            Prices &
+                            Services
+                        </a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link nav-padding text-center menu-simple" href="#">Warranty</a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link nav-padding text-center menu-simple" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link nav-padding text-center menu-simple" href="contact.html"
+                           target="_blank">Contact</a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link rounded-pill text-center border border-1 nav-padding ms-1 me-1 menu"
+                           href="#">Login</a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link rounded-pill text-center border border-1 nav-padding menu" href="#">
+                            Become a
+                            Helper
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--header section ends-->
+    <!--banner-->
+    <section>
+        <img src="../image/book-service-banner.jpg" class="img-fluid align-items-stretch" id="banner">
+    </section>
+
+    <!--title-->
+    <div class="d-flex justify-content-center price_title">Set up your cleaning service</div>
+    <div class="d-flex justify-content-center">
+        <hr class="line1">
+        <img src="../image/star.png" class="star">
+        <hr class="line2">
+    </div>
+
+    <!--main section-->
+    <main>
+        <div class="container steps">
+            <div class="row">
+                <div class="col-8 d-flex mt-5 mb-5 px-0">
+                    <div class="">
+                        <ul class="tabs">
+                            <li class="tab-li" style="display: inline-block">
+                                <a id="tab1" class="tab active-tab"
+                                   style="display: inline-block; text-decoration: none;" onclick="Tab1Click()">
+                                    <div class="hover">
+                                        <!--<img src="../image/setup-service-white.png" class="img-back">-->
+                                        <img id="setup" src="../image/setup-service.png" class="img-front">
+                                        <span class="tab-title setup-title">Setup Service</span>
+                                    </div>
+
+                                </a>
+                            </li>
+
+                            <li class="tab-li" style="display: inline-block">
+                                <a id="tab2" class="tab btn" style="display: inline-block; text-decoration: none;"
+                                   onclick="Tab2Click()">
+                                    <div class="hover">
+                                        <!--<img src="../image/schedule-white.png" class="img-back">-->
+                                        <img id="schedule" src="../image/schedule.png" class="img-front">
+                                        <span class="tab-title schedule-title">Schedule & Plan</span>
+                                    </div>
+
+                                </a>
+                            </li>
+
+                            <li class="tab-li" style="display: inline-block">
+                                <a id="tab3" class="tab btn" style="display: inline-block; text-decoration: none;"
+                                   onclick="Tab3Click()">
+                                    <div class="hover">
+                                        <!--<img src="../image/details-white.png" class="img-back">-->
+                                        <img id="detail" src="../image/details.png" class="img-front">
+                                        <span class="tab-title details-title">Your Details</span>
+                                    </div>
+
+                                </a>
+                            </li>
+                            <li class="tab-li" style="display: inline-block">
+                                <a id="tab4" class="tab btn" style="display: inline-block; text-decoration: none;"
+                                   onclick="Tab4Click()">
+                                    <div class="hover">
+                                        <!--<img src="../image/payment-white.png" class="img-back">-->
+                                        <img id="payment" src="../image/payment.png" class="img-front">
+                                        <span class="tab-title payment-title">Make Payment</span>
+                                    </div>
+
+                                </a>
+                            </li>
+                        </ul>
+
+
+                        <!--steps content-->
+                        <div class="tab-content">
+
+                            <div class="container mt-4 px-0" id="tabContent1">
+                                <label for="postal-code">Enter your Postal Code</label><br>
+                                <input asp-for="ZipCode" placeholder="Postal Code" class="mt-3" id="zipcode">
+                                <button type="button" class="availability-btn" onclick="SearchZipCode();">
+                                    Check
+                                    Availability
+                                </button>
+                            </div>
+
+
+                            <div class="container schedule mt-4" id="tabContent2" style="display: none;">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <b>Select number of rooms and bath</b>
+                                        <br>
+                                        <select class="select-btn pt-2 pb-2 px-1 mt-3 mb-3" onblur="bed();" id="numofbed">
+                                            <option value="1">1 bed</option>
+                                            <option value="2">2 bed</option>
+                                            <option value="3">3 bed</option>
+                                            <option value="4">4 bed</option>
+                                        </select>
+                                        <select class="select-btn  pt-2 pb-2 mx-3 px-1 mt-3 mb-3" onblur="bath();" id="numofbath">
+                                            <option value="1">1 bath</option>
+                                            <option value="2">2 bath</option>
+                                            <option value="3">3 bath</option>
+                                            <option value="4">4 bath</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row mb-4 pt-3">
+                                    <div class="col">
+                                        <b>When do you need your cleaner?</b>
+                                        <div class="d-flex mt-3">
+                                            <input type="date" asp-for="ServiceStartDate" class="date pt-2 pb-2 px-1" onblur="date();" id="day">
+                                            <select class="select-btn pt-2 pb-2 px-1" onblur="Time();" id="time">
+                                                <option value="8:00">8:00</option>
+                                                <option value="9:00">9:00</option>
+                                                <option value="10:00">10:00</option>
+                                                <option value="11:00">11:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <b>How long do you need your cleaner to stay?</b><br>
+                                        <select class="time-btn pt-2 pb-2 px-1 mt-3" onblur="duration();" asp-for="ServiceHours" id="hours">
+                                            <option value="4.0">4.0 Hrs</option>
+                                            <option value="3.0">3.0 Hrs</option>
+                                            <option value="2.0">2.0 Hrs</option>
+                                            <option value="1.0">1.0 Hrs</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row mt-2 mb-2">
+                                    <b class="heading mb-3 pt-2">Extra Services</b>
+                                    <div class="col">
+                                        <div class="card border border-0 text-center justify-content-center extraservicebox">
+                                            <div class="mx-auto">
+                                                <div class="text-center acessimg" id="cabinetborder" onclick="Cabinet();">
+                                                    <img id="cabinet" class="card-img-top front-img default"
+                                                         src="../image/cabinet.png" alt="Card image"
+                                                         onclick="Cabinet();">
+                                                    <!--<img class="card-img-top back-img" src="../image/cabinet-green.png"
+                                                        alt="Card image">-->
+                                                </div>
+                                            </div>
+                                            <div class="card-body text-center extraservice-body">
+                                                <h5 class="card-title" id="cabinettext">Inside cabinets</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <div class="card border border-0 text-center justify-content-center extraservicebox">
+                                            <div class="mx-auto">
+                                                <div class="text-center acessimg" id="fridgeborder" onclick="Fridge();">
+                                                    <img id="fridge" class="card-img-top front-img"
+                                                         src="../image/fridge.png" alt="Card image" onclick="Fridge();">
+                                                    <!--<img class="card-img-top back-img" src="../image/fridge-green.png"
+                                                        alt="Card image">-->
+                                                </div>
+                                            </div>
+                                            <div class="card-body text-center extraservice-body">
+                                                <h5 class="card-title" id="fridgetext">Inside fridge</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col">
+                                        <div class="card border border-0 text-center justify-content-center extraservicebox">
+                                            <div class="mx-auto">
+                                                <div class="text-center acessimg" id="ovenborder" onclick="Oven();">
+                                                    <img id="oven" class="card-img-top front-img"
+                                                         src="../image/oven.png" alt="Card image" onclick="Oven();">
+                                                    <!--<img class="card-img-top back-img" src="../image/oven-green.png"
+                                                        alt="Card image">-->
+                                                </div>
+                                            </div>
+                                            <div class="card-body text-center extraservice-body">
+                                                <h5 class="card-title" id="oventext">Inside Oven</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <div class="card border border-0 text-center justify-content-center extraservicebox">
+                                            <div class="mx-auto">
+                                                <div class="text-center acessimg" id="laundryborder" onclick="Laundry();">
+                                                    <img id="laundry" class="card-img-top front-img"
+                                                         src="../image/laundry.png" alt="Card image"
+                                                         onclick="Laundry();">
+                                                    <!--<img class="card-img-top back-img" src="../image/laundry-green.png"
+                                                        alt="Card image">-->
+                                                </div>
+                                            </div>
+                                            <div class="card-body text-center extraservice-body">
+                                                <h5 class="card-title" id="laundrytext">Laundry wash & dry</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <div class="card border border-0 text-center justify-content-center  extraservicebox">
+                                            <div class="mx-auto">
+                                                <div class="text-center acessimg" id="windowborder" onclick="window();">
+                                                    <img id="window" class="card-img-top front-img"
+                                                         src="../image/window.png" alt="Card image" onclick="window();">
+                                                    <!--<img class="card-img-top back-img" src="../image/window-green.png"
+                                                        alt="Card image">-->
+                                                </div>
+                                            </div>
+                                            <div class="card-body text-center extraservice-body">
+                                                <h5 class="card-title" id="windowtext">Interior Windows</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <label for="comment"><b>Comments</b></label>
+                                    <textarea rows="3" cols="3" asp-for="Comments"  placeholder="Comments"
+                                              class="comment pt-2 mt-3" id="comment"></textarea>
+                                    <div class="form-check px-0">
+                                        <input type="checkbox" id="pet" name="pet" value="pet" class="px-0 mt-5">
+                                        <label for="pet" class="check-label px-0">I have pets at home</label>
+                                    </div>
+                                    <!-- <input type="checkbox" id="pet" name="pet" class="px-0 mt-5">
+                                        <label for="pet">I have pets at home</label>-->
+                                    <hr class="mt-4">
+
+                                    <div>
+                                        <button type="button" name="continue-btn" class="continue-btn text-center"
+                                                onclick="SaveServiceDetail();">
+                                            Continue
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container mt-4 px-0" id="tabContent3" style="display: none;">
+                                <div class="details-heading">
+                                    <p>Enter your contact details, so we can serve you in better way!</p>
+                                </div>
+
+                                <div id="displayaddress"></div>
+
+                                
+                                <!-- <div class="row mb-3 address">
+                                    <div class="col-lg-4">
+                                        <input type="radio" name="address" class="radio-btn">
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <p>Adress: koenigstrasse 112, Tambach-Dietharz 99897</p>
+                                        <p>Phone Number:9955648797</p>
+                                    </div>
+                                </div> -->
+
+                                <div class="address row mb-3">
+                                    <div class="col-lg-4 pt-4">
+                                        <input type="radio" name="address" class="radio-btn">
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <p>Adress: koenigstrasse 112, Tambach-Dietharz 99897</p>
+                                        <p>Phone Number:9955648797</p>
+                                    </div>
+                                </div>
+
+                                <div class="row address">
+                                    <div class="col-lg-4 pt-4">
+                                        <input type="radio" name="address" class="radio-btn">
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <p>Adress: koenigstrasse 112, Tambach-Dietharz 99897</p>
+                                        <p>Phone Number:9955648797</p>
+                                    </div>
+                                </div>
+
+                                <button type="button" name="createbtn" data-bs-toggle="collapse" data-bs-target="#form"
+                                        class="create-btn mt-3">
+                                    +Add New Address
+                                </button>
+                                <div id="form" class="collapse address-form mt-4">
+                                    <form class="px-3 pt-3 pb-3">
+                                        <div class="row pt-3 px-3">
+                                            <div class="col">
+                                                <label for="street-name" class="form-label">Street name</label>
+                                                <input asp-for="addressline1" id="AddressLine1" class="form-control"
+                                                       placeholder="Street name">
+                                            </div>
+
+                                            <div class="col">
+                                                <label for="house-no" class="form-label">House number</label>
+                                                <input asp-for="addressline2" id="AddressLine2"  class="form-control"
+                                                       placeholder="House number">
+                                            </div>
+                                        </div>
+
+                                        <div class="row pt-5 px-3">
+                                            <div class="col">
+                                                <label for="postal code" class="form-label">Postal Code</label>
+                                                <input asp-for="postalcode" id="PostalCode"  class="form-control"
+                                                       placeholder="Postal Code">
+                                            </div>
+
+                                            <div class="col">
+                                                <label for="city" class="form-label">City</label>
+                                                <input asp-for="city" id="City" class="form-control"
+                                                       placeholder="Street name">
+                                            </div>
+                                        </div>
+
+                                        <div class="row pt-5 px-3">
+                                            <div class="col">
+                                                <label for="mobile" class="form-label">Phone Number</label>
+                                                <div class="input-group mobile-no">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">+49</span>
+                                                    </div>
+                                                    <input asp-for="mobile" id="MobileNumber" class="form-control"
+                                                           pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Phone Number" />
+                                                           
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row pt-5 px-3">
+                                            <div class="col">
+                                                <button type="button" class="save-btn" onclick="addNewAddress();">Save</button>
+                                                <button type="reset" class="cancle-btn">Cancle</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="favourite-provider pt-5 mt-4">
+                                    <p>Your Favourite Service Provider</p>
+                                    <hr>
+                                    <p>You can choose your favourite service provider from the below list</p>
+                                    <div class="row mt-2 mb-2">
+                                        <div class="col">
+                                            <div class="card border border-0 text-center fav-provider">
+                                                <div class="mx-auto">
+                                                    <div class="border border-2 rounded-circle text-center provider-img">
+                                                        <img class="card-img-top" src="../image/cap.png"
+                                                             alt="Card image">
+                                                    </div>
+                                                </div>
+                                                <div class="card-body text-center  fav-provider-body">
+                                                    <h5 class="card-title">Sandip Patel</h5>
+                                                    <button type="button" class="card-text">Select</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="submit" class="save-btn" value="Continue" onclick="SaveAddress();" style="float:right;">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="container-fluid payment" id="tabContent4" style="display: none;">
+                                <p class="mt-4 payment-heading">
+                                <p>Pay securely with Helperland payment gateway!</p>
+                                </p>
+                                <br>
+                                <div class="mb-3 promo">
+                                    <label id="labelpromo" for="promo-code">Promo code(optional)</label><br>
+                                    <input type="text" placeholder="Promo code(optional)" class="rounded-corner mt-3"
+                                           id="promocode">
+                                    <button type="button" class="apply-btn">Apply</button>
+                                </div>
+                                <hr>
+
+                                <div class="container-fluid carddetails mt-5 d-flex">
+                                    <div class="row">
+                                        <!-- <div class="col-lg-4">
+                                            <input type="text" class="form-control" placeholder="Card Number">
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" placeholder="mm/yy">
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control" placeholder="cvc">
+                                        </div> -->
+                                        <div class="col">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <input type="text" class="form-control" placeholder="Card Number">
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="mm/yy">
+                                                <input type="text" class="form-control" placeholder="cvc">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-5">
+                                    <div class="col  justify-content-end">
+                                        <label for="fname">Accepted Cards</label>
+                                        <div class="icon-container">
+                                            <i class="fa fa-cc-visa" style="color:navy;"></i>
+                                            <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                                            <i class="fa fa-cc-amex" style="color:blue;"></i>
+                                            <i class="fa fa-cc-discover" style="color:orange;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row  justify-content-start mb-4">
+                                    <div class="col-1">
+                                        <input type="checkbox" value="" id="Check">
+                                    </div>
+                                    <div class="col-11 tickbox">
+                                        <label for="Check">
+                                            I accepted <span style="display: inline; color: #1d7a8c;">
+                                                terms and
+                                                conditions.
+                                            </span>
+                                            the <span style="display: inline; color: #1d7a8c;">
+                                                cancellation policy
+                                            </span> and the
+                                            <span style="display: inline; color: #1d7a8c;">privacy policy.</span>
+                                            I conformed that Helperland starts to execute the contract before the expiry
+                                            of
+                                            the withdrawal period and I lose
+                                            my right of withdrawal as a consumer with full performance of the contract
+                                        </label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="">
+                                    <button type="button" class="rounded-pill justify-content-end" id="book-btn"
+                                            onclick="Complete();">
+                                        Complete Booking
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 mt-5 mb-5">
+                    <div class="card">
+                        <div class="card-header">Payment Summary</div>
+                        <div class="card-body">
+                            <p class="pt-3 date-time" id="daydate"></p>
+                            <p id="bathbed"></p>
+                            <b>Duration</b>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex">
+                                        <p>Basic</p>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex justify-content-end">
+                                        <p id="basicduration">3 Hrs</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex">
+                                        <p class="extraservicetext"></p>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex justify-content-end">
+                                        <p class="extratime"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex">
+                                        <b>Total Service Time</b>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex justify-content-end">
+                                        <b id="totalservicetime"></b>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex">
+                                        <p>Per Cleaning</p>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex justify-content-end">
+                                        <p class="percleaning">$87</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex">
+                                        <p>Discount</p>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex justify-content-end">
+                                        <p class="discount">$00.0</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex">
+                                        <p class="blue-text pt-3">Total Payment</p>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex justify-content-end">
+                                        <p class="blue-no totalpayment">$261</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex">
+                                        <p>Effective Price</p>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex justify-content-end pt-0 mt-0">
+                                        <p class="effectivepayment" style="font-size:18px; font-weight: 700;">$261s</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div>
+                                <img src="../image/smiley.png">
+                                <p class="px-2">See what is always included</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </main>
+
+
+    <script type="text/javascript">
+        var globalVar = "Global to Booking page";
+        var totaltime = 0;
+        var cabinet = 0;
+        var interior = 0;
+        var laundry = 0;
+        var oven = 0;
+        var fridge = 0;
+        var time = 0;
+        var payment = 0;
+        var percleaning = 87;
+
+
+         function Tab1Click() {
+            $("#tab1").addClass("active-tab");
+            $("#tab2").removeClass("active-tab").addClass("tab");
+            $("#tab3").removeClass("active-tab").addClass("tab");
+            $("#tab4").removeClass("active-tab").addClass("tab");
+
+            $("#tabContent2").hide();
+            $("#tabContent3").hide();
+            $("#tabContent4").hide();
+            $("#tabContent1").show();
+
+            $(".setup-title").css("color","White");
+            $(".schedule-title").css("color","#4F4F4F");
+            $(".details-title").css("color","#4F4F4F");
+            $(".payment-title").css("color","#4F4F4F");
+
+        document.getElementById("schedule").src = "../image/schedule.png";
+        document.getElementById("setup").src = "../image/setup-service-white.png";
+        document.getElementById("detail").src = "../image/details.png";
+        document.getElementById("payment").src = "../image/payment.png";
+        }
+
+        function Tab2Click() {
+            $("#tab2").addClass("active-tab");
+            $("#tab1").removeClass("active-tab").addClass("tab");
+            $("#tab3").removeClass("active-tab").addClass("tab");
+            $("#tab4").removeClass("active-tab").addClass("tab");
+
+            $("#tabContent1").hide();
+            $("#tabContent3").hide();
+            $("#tabContent4").hide();
+            $("#tabContent2").show();
+
+            $(".setup-title").css("color","#4F4F4F");
+            $(".schedule-title").css("color","White");
+            $(".details-title").css("color","#4F4F4F");
+            $(".payment-title").css("color","#4F4F4F");
+
+        document.getElementById("schedule").src = "../image/schedule-white.png";
+        document.getElementById("setup").src = "../image/setup-service.png";
+        document.getElementById("detail").src = "../image/details.png";
+        document.getElementById("payment").src = "../image/payment.png";
+        }
+
+        function Tab3Click() {
+            $("#tab3").addClass("active-tab");
+            $("#tab1").removeClass("active-tab").addClass("tab");
+            $("#tab2").removeClass("active-tab").addClass("tab");
+            $("#tab4").removeClass("active-tab").addClass("tab");
+
+            $(".schedule-title").css("color","#4F4F4F");
+            $(".details-title").css("color","White");
+            $(".setup-title").css("color","#4F4F4F");
+            $(".payment-title").css("color","#4F4F4F");
+
+            $("#tabContent1").hide();
+            $("#tabContent2").hide();
+            $("#tabContent4").hide();
+            $("#tabContent3").show();
+            //$("#divAddress").html("Loading Address view...")
+            //.load('@Url.Action("GetAddress", "BookServiceRequest")');
+
+        document.getElementById("schedule").src = "../image/schedule.png";
+        document.getElementById("setup").src = "../image/setup-service.png";
+        document.getElementById("detail").src = "../image/details-white.png";
+        document.getElementById("payment").src = "../image/payment.png";
+        }
+        function Tab4Click() {
+            $("#tab4").addClass("active-tab");
+            $("#tab1").removeClass("active-tab").addClass("tab");
+            $("#tab2").removeClass("active-tab").addClass("tab");
+            $("#tab3").removeClass("active-tab").addClass("tab");
+
+            $(".details-title").css("color","#4F4F4F");
+            $(".payment-title").css("color","White");
+            $(".setup-title").css("color","#4F4F4F");
+            $(".schedule-title").css("color","#4F4F4F");
+
+            $("#tabContent1").hide();
+            $("#tabContent2").hide();
+            $("#tabContent3").hide();
+            $("#tabContent4").show();
+
+        document.getElementById("schedule").src = "../image/schedule.png";
+        document.getElementById("setup").src = "../image/setup-service.png";
+        document.getElementById("detail").src = "../image/details.png";
+        document.getElementById("payment").src = "../image/payment-white.png";
+        }
+
+
+
+        function SearchZipCode() {
+
+
+            var data = {};
+            data.ZipCode = $("#zipcode").val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/BookNow/ZipCodeValue',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                data: data,
+                success: function (result) {
+                    if (result.value == "true") {
+                        $("#tab2").addClass("active-tab");
+                        $("#tab1").removeClass("active-tab").addClass("tab");
+                        $("#tabContent1").hide();
+                        $("#tabContent2").show();
+                        document.getElementById("schedule").src = "../image/schedule-white.png";
+                        document.getElementById("setup").src = "../image/setup-service.png";
+                        document.getElementById("detail").src = "../image/details.png";
+                        document.getElementById("payment").src = "../image/payment.png";
+
+                        $(".setup-title").css("color", "#4F4F4F");
+                        $(".schedule-title").css("color", "White");
+                        $(".details-title").css("color", "#4F4F4F");
+                        $(".payment-title").css("color", "#4F4F4F");
+                    }
+                },
+                error: function () {
+                    alert('Failed to receive the Data');
+                    console.log('Failed ');
+                }
+            })
+        }
+
+
+
+
+
+        function SaveServiceDetail() {
+
+            var data = $("#scheduleform").serialize ;
+
+
+            $.ajax({
+                type: 'POST',
+                url: '/BookNow/Schedule',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                data: data,
+                success: function (result) {
+                    if (result.value == "true")
+                    {
+
+                        $("#tab3").addClass("active-tab");
+                        $("#tab2").removeClass("active-tab").addClass("tab");
+                        $("#tabContent2").hide();
+                        $("#tabContent4").hide();
+                        $("#tabContent3").show();
+                        document.getElementById("schedule").src = "../image/schedule.png";
+                        document.getElementById("setup").src = "../image/setup-service.png";
+                        document.getElementById("detail").src = "../image/details-white.png";
+                        document.getElementById("payment").src = "../image/payment.png";
+
+                        $(".setup-title").css("color", "#4F4F4F");
+                        $(".schedule-title").css("color", "#4F4F4F");
+                        $(".details-title").css("color", "white");
+                        $(".payment-title").css("color", "#4F4F4F");
+                        $("#displayaddress").load('@Url.Action("Address","BookNow")');
+                    }
+                },
+                error: function () {
+                    alert('Failed to ');
+                    console.log('Failed ');
+                }
+            })
+        }
+
+        function addNewAddress() {
+
+            var data = {};
+            data.addressline1 = $("#AddressLine1").val();
+            data.addressline2 = $("#AddressLine2").val();
+            data.city = $("#City").val();
+            data.postalcode = $("#PostalCode").val();
+
+            data.mobile = $("#MobileNumber").val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/BookNow/AddNewAddress',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                data: data,
+                success: function (result) {
+                    if (result.value == "true") {
+
+                        alert("successfully Add New Address");
+                         $("#displayaddress").load('@Url.Action("Address","BookNow")');
+                    }
+                },
+                error: function () {
+                    alert('Failed ');
+                    console.log('Failed ');
+                }
+            })
+
+        }
+
+
+        function SaveAddress() {
+            var data = {};
+
+            if ($("input[type='radio'][name = 'address']:Checked").val() != null)
+            {
+                data.radio = parseInt($("input[type='radio'][name = 'address']:Checked").val())
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/BookNow/YourDetail',
+                    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                    data: data,
+                    success: function (result) {
+                        if (result.value == "true") {
+
+                            $("#tab4").addClass("active-tab");
+                            $("#tab3").removeClass("active-tab").addClass("tab");
+                            $("#tabContent3").hide();
+                            $("#tabContent4").show();
+                            document.getElementById("schedule").src = "../image/schedule.png";
+                            document.getElementById("setup").src = "../image/setup-service.png";
+                            document.getElementById("detail").src = "../image/details.png";
+                            document.getElementById("payment").src = "../image/payment-white.png";
+
+                            $(".setup-title").css("color", "#4F4F4F");
+                            $(".schedule-title").css("color", "#4F4F4F");
+                            $(".details-title").css("color", "#4F4F4F");
+                            $(".payment-title").css("color", "white");
+                            $("#confirmZipCode").html($("#ZipCode").val());
+                        }
+                    },
+                    error: function () {
+                        alert('Failed to receive the ');
+                        console.log('Failed ');
+                    }
+                })
+            }
+
+            else
+            {
+                alert('please check radio button');
+            }
+
+        }
+
+
+        function Complete() {
+            debugger;
+            var data = {};
+            data.ZipCode = $("#zipcode").val();
+            data.ServiceStartDate = $("#day").val();
+            data.ServiceHourlyRate = percleaning;
+            data.ExtraHours = 4;
+            data.SubTotal = payment;
+            data.ServiceHours = $("#hours").val();
+            data.PaymentDone = true;
+            data.Discount = 0.00;
+            data.TotalCost = payment;
+            data.Comments = $("#comment").val();
+            data.HasPets = false;
+
+
+           // details.
+            $.ajax({
+                type: 'POST',
+                url: '/BookNow/CompleteBooking',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+
+                data:data,
+                success: function (result) {
+                    if (result.value == "true") {
+                        alert('Successfully!completed service booking!');
+                    }
+                },
+                error: function () {
+                    alert('Failed to  Data');
+                    console.log('Failed ');
+                }
+            })
+
+        }
+
+
+
+
+
+
+
+
+        function date() {
+            $("#daydate").html($("#day").val());
+        }
+
+        function bed() {
+            $("#bathbed").html(" " + $("#numofbed").val() + " Bed");
+        }
+
+        function bath() {
+            $("#bathbed").append(" " + $("#numofbath").val() + " Bath");
+        }
+
+        function Time() {
+            $("#daydate").append(" " + $("#time").val());
+        }
+
+
+        function duration() {
+            $("#basicduration").html($("#hours").val() + " Hrs ");
+            totaltime = parseFloat($("#hours").val());
+            $("#totalservicetime").html(totaltime + " Hrs ");
+            payment = parseFloat(percleaning * totaltime);
+            $(".totalpayment").html("$" + payment);
+            $(".effectivepayment").html("$" + payment);
+        }
+
+
+        function Cabinet() {
+
+            if (cabinet < 1) {
+                totaltime += 0.5;
+                $("#totalservicetime").html(totaltime + " Hrs ");
+                $(".extraservicetext").append("<p>Inside Cabinets(extra)</p>");
+                $(".extratime").append("<p>30 Mins</p>");
+
+                payment = parseFloat(percleaning * totaltime);
+                $(".totalpayment").html("$" + payment);
+                $(".effectivepayment").html("$" + payment);
+                cabinet++;
+            }
+
+            $('#cabinetborder').css({
+                'border': '2px solid #1d7a8c',
+            });
+
+
+
+            $(document).ready(function () {
+                $("#cabinet").click(function () {
+                    var select = true;
+                    if (select == true) {
+                        $("#cabinet").attr("src", "../image/cabinet-green.png");
+                        //document.getElementById("cabinet").src = "../image/cabinet-green.png";
+                        select = false;
+                    }
+
+                    else {
+                        $("#cabinet").attr("src", "../image/cabinet.png");
+                        //document.getElementById("cabinet").src = "../image/cabinet.png";
+                        select = true;
+                    }
+                });
+            });
+
+        }
+
+
+
+        function Fridge() {
+            if (fridge < 1) {
+                totaltime += 0.5;
+                $("#totalservicetime").html(totaltime + " Hrs ");
+                $(".extraservicetext").append("<p>Inside Fridge(extra)</p>");
+                $(".extratime").append("<p>30 Mins</p>");
+
+                payment = parseFloat(percleaning * totaltime);
+                $(".totalpayment").html("$" + payment);
+                $(".effectivepayment").html("$" + payment);
+                fridge++;
+            }
+            document.getElementById("fridge").src = "../image/fridge-green.png";
+            $('#fridgeborder').css({
+                'border': '2px solid #1d7a8c',
+            });
+        }
+
+        function Oven() {
+            if (oven < 1) {
+                totaltime += 0.5;
+                $("#totalservicetime").html(totaltime + " Hrs ");
+                $(".extraservicetext").append("<p>Inside Oven(extra)</p>");
+                $(".extratime").append("<p>30 Mins</p>");
+
+                payment = parseFloat(percleaning * totaltime);
+                $(".totalpayment").html("$" + payment);
+                $(".effectivepayment").html("$" + payment);
+                oven++;
+            }
+
+            //$(".extraservicetext").html($("#oventext").text());
+            document.getElementById("oven").src = "../image/oven-green.png";
+            $('#ovenborder').css({
+                'border': '2px solid #1d7a8c',
+            });
+        }
+
+        function Laundry() {
+            if (laundry < 1) {
+                totaltime += 0.5;
+                $("#totalservicetime").html(totaltime + " Hrs ");
+                $(".extraservicetext").append("<p>Laundry Wash & Dry (extra)</p>");
+                $(".extratime").append("<p>30 Mins</p>");
+
+                payment = parseFloat(percleaning * totaltime);
+                $(".totalpayment").html("$" + payment);
+                $(".effectivepayment").html("$" + payment);
+                laundry++;
+            }
+
+            //$(".extraservicetext").html($("#laundrytext").text());
+            document.getElementById("laundry").src = "../image/laundry-green.png";
+            $('#laundryborder').css({
+                'border': '2px solid #1d7a8c',
+            });
+        }
+
+        function Window() {
+            if (interior < 1) {
+                totaltime += 0.5;
+                $("#totalservicetime").html(totaltime + " Hrs ");
+                $(".extraservicetext").append("<p>Interior Windows(extra)</p>");
+                $(".extratime").append("<p>30 Mins</p>");
+
+                payment = parseFloat(percleaning * totaltime);
+                $(".totalpayment").html("$" + payment);
+                $(".effectivepayment").html("$" + payment);
+                interior++;
+            }
+
+            //$(".extraservicetext").html($("#windowtext").text());
+            document.getElementById("window").src = "../image/window-green.png";
+            $('#windowborder').css({
+                'border': '2px solid #1d7a8c',
+            });
+        }
+    </script>
+   
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
