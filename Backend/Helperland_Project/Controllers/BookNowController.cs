@@ -7,6 +7,8 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace Helperland_Project.Controllers
@@ -109,6 +111,27 @@ namespace Helperland_Project.Controllers
             return Ok(Json("true"));
         }
 
+
+        private void SendEmail(string emailAddress, string body, string subject)
+        {
+            using (MailMessage mm = new MailMessage("18comp.kajal.parmar@gmail.com", emailAddress))
+            {
+                mm.Subject = subject;
+                mm.Body = body;
+                mm.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.UseDefaultCredentials = false;
+                NetworkCredential NetworkCred = new System.Net.NetworkCredential("18comp.kajal.parmar@gmail.com", "1907kajal");
+                smtp.Credentials = NetworkCred;
+                smtp.EnableSsl = true;
+                smtp.Port = 587;
+                smtp.Send(mm);
+
+            }
+        }
+
+
         [HttpPost]
 
         public ActionResult CompleteBooking(BookNowViewModel booking)
@@ -151,6 +174,15 @@ namespace Helperland_Project.Controllers
             };
             _schema.Add(serviceaddress);
             _schema.SaveChanges();
+
+            var emailmessage = _schema.Users.Where(b => b.ZipCode.Equals(AddressData.PostalCode) && b.UserTypeId == 2).ToList();
+
+            foreach (var EmailMessage in emailmessage)
+            {
+                var subject = "New Request Arrived";
+                var body = "Greetings From Helperland, <br> " + EmailMessage.FirstName + ", <br/> Customer Wants to book a service in this area." + "<br> Thank you!";
+                SendEmail(EmailMessage.Email, body, subject);
+            }
 
             return Ok(Json("true"));
         }
