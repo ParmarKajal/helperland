@@ -456,6 +456,14 @@ nav a {
     letter-spacing: 0.5px;
 }
 
+.completebookingbtn{
+    background-color:#1d7a8c;
+    color:#ffffff;
+    border:none;
+    width:120px;
+    padding:10px 10px 10px 10px;
+}
+
 
 /* Payment Summary*/
 

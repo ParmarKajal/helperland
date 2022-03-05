@@ -204,7 +204,8 @@ nav .navbar-nav .menu-simple:hover{
     font-family:'roboto';
     width: 70px;
     height: 34px;
-    margin-left:590px;
+     margin-left:700px;
+    /* margin-right: 0px!important; */
 } 
 
 .exportbtn:hover{
@@ -217,9 +218,10 @@ nav .navbar-nav .menu-simple:hover{
     /* position: absolute; */
 }
 .service-History-table-table2{
-    width: 864px;
+    /* width: 864px; */
+    width: 100%;
     border: 1px solid #e1e1e1;
-    margin-left: 16px;
+    margin-left:0px;
 }
 
 .service-History-table2-heading{
@@ -238,7 +240,7 @@ nav .navbar-nav .menu-simple:hover{
     margin-right:12px;
     margin-top: 10px;
     border-radius: 50%;
-    padding: 5px 4px 5px 4px;
+    padding: 10px 5px 10px 5px;
 }
 
 #payment{
@@ -278,7 +280,23 @@ nav .navbar-nav .menu-simple:hover{
 }
 
 
+.reschedulebtn{
+    background-color: #1d7a8c;
+    border: 1px solid #1d7a8c!important;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: 'roboto';
+    border: none;
+    width: 110px;
+    height: 38px;
+    padding: 10px 15px 15px 15px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
 
+.reschedulebtn:hover{
+    background-color: #146371;
+}
 
 
  .show-text{

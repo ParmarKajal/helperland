@@ -1,3 +1,7 @@
+﻿@model Helperland_Project.ViewModels.ProfileViewModel
+@{
+    Layout = null;
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,14 +13,14 @@
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  -->
-    <link rel="stylesheet" href="../css/profile.css">
+    <link href="~/css/profile.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
@@ -30,15 +34,17 @@
             <div class="container-fluid" id="navbar">
                 <a class="navbar-brand" href="#"><img src="../image/logo-small.png"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapsibleNavbar">
+                        data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item px-1">
                             <a class="nav-link text-center rounded-pill menu-simple border border-1 px-3 me-2"
-                                style="background-color:#29626d;" href="#">Book
-                                Now</a>
+                               style="background-color:#29626d;" href="#">
+                                Book
+                                Now
+                            </a>
                         </li>
                         <li class="nav-item px-1">
                             <a class="nav-link  me-2 hovermenu" href="#">Prices & services</a>
@@ -67,8 +73,9 @@
                 </div>
 
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><img
-                            src="../image/admin-user.png"></a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <img src="../image/admin-user.png">
+                    </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Invoices</a></li>
                         <li><a class="dropdown-item" href="#">My Settings</a></li>
@@ -81,7 +88,7 @@
 
     <!--user name-->
     <section class="title">
-        <h1 class="welcome-text text-center">Welcome,<b> Gaurang!</b></h1>
+        <h1 class="welcome-text text-center">Welcome,<b> @ViewBag.FirstName!</b></h1>
         <div class="welcome-line"></div>
     </section>
 
@@ -99,7 +106,7 @@
                         <hr class="line">
                         <li class="nav-item">
                             <a class="nav-link customer-dashboard-table1-content px-3"
-                                href="Customer Service History.html" target="_blank">Service History</a>
+                               href="Customer Service History.html" target="_blank">Service History</a>
                         </li>
                         <hr class="line">
                         <li class="nav-item">
@@ -145,19 +152,19 @@
 
                 <!--tab-content-->
                 <div id="mydetails">
-                    
+                    <form asp-action="Profile" asp-controller="Customer" method="post">
                         <div class="row">
                             <div class="col-sm-4">
                                 <label class="add-new-button-label">First Name:</label>
-                                <input type="text" name="" placeholder="First Name" class="form11">
+                                <input asp-for="firstname" id="firstname" placeholder="First Name" class="form11">
                             </div>
                             <div class="col-sm-4">
                                 <label class="add-new-button-label">Last Name:</label>
-                                <input type="text" name="" placeholder="Last Name" class="form11">
+                                <input asp-for="lastname" id="lastname" placeholder="Last Name" class="form11">
                             </div>
                             <div class="col-sm-4">
                                 <label class="add-new-button-label">Email Address:</label>
-                                <input type="text" name="" placeholder="Email" class="form11">
+                                <input asp-for="email" id="email" placeholder="Email" class="form11">
                             </div>
                         </div>
 
@@ -168,8 +175,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1" style="height:46px;">+49</span>
                                     </div>
-                                    <input type="text" class="form-control " placeholder="Mobile number"
-                                        pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" style="height:46px;">
+                                    <input asp-for="Mobile" id="mobile" class="form-control " placeholder="Mobile number"
+                                           pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" style="height:46px;">
                                 </div>
                             </div>
                             <div class="col-sm-4">
@@ -177,7 +184,7 @@
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <div>
-                                            <select name="BirthDate" class="birthdate">
+                                            <select asp-for="BirthDate" id="birthdate" class="birthdate">
                                                 <option value="10">10</option>
                                                 <option value="20">20</option>
                                                 <option value="30">30</option>
@@ -188,7 +195,7 @@
                                     </div>
                                     <div class="col-sm-5">
                                         <div>
-                                            <select name="BirthMonth" class="birthdate">
+                                            <select asp-for="BirthMonth" id="birthmonth" class="birthdate">
                                                 <option value="June">June</option>
                                                 <option value="July">July</option>
                                                 <option value="August">August</option>
@@ -199,7 +206,7 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <div>
-                                            <select name="BirthDate" class="birthdate">
+                                            <select asp-for="BirthYear" id="birthyear" class="birthdate">
                                                 <option value="1991">1991</option>
                                                 <option value="1992">1992</option>
                                                 <option value="1993">1993</option>
@@ -225,160 +232,53 @@
                         </div>
 
                         <div>
-                            <button type="button" class="savecomputer-btn">Save</button>
+                            <button type="button" class="savecomputer-btn" onclick="Profile();">Save</button>
                         </div>
+                        </form>
                 </div>
 
                 <div id="myaddresses" style="display: none;">
 
-                    <table class="address-table">
-                        <tr class="address-table-heading">
-                            <th class="px-3">Addresses</th>
-                            <th>Actions</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="address">
-                                    <p><b>Adress: </b>&nbsp koenigstrasse 112, Tambach-Dietharz 99897</p>
-                                    <p><b>Phone Number: </b>&nbsp 9955648797</p>
-                                </div>
-                            </td>
+                    <div id="address"></div>
 
-                            <td>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#Edit"> <i class='far fa-edit'
-                                        style='font-size:18px; color: grey;'></i></a>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#Remove"><i
-                                        class='fas fa-trash-alt px-3' style="color: grey;"></i></a>
-                            </td>
-                        </tr>
-                    </table>
-
-                    <!--Edit modal-->
-                    <div class="container edit-modal">
-                        <div class="modal" id="Edit">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-
-                                    <!-- Modal Header -->
-                                    <div class="modal-header">
-                                        <h4 class="modal-title text-center">Edit Address</h4>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
-
-                                    <!-- Modal body -->
-                                    <div class="modal-body">
-                                        <div id="form" class="address-form">
-                                            <form class="">
-                                                <div class="row pt-2">
-                                                    <div class="col">
-                                                        <label for="street-name" class="form-label">Street name</label>
-                                                        <input type="text" class="form-control" id="street-name"
-                                                            placeholder="Street name" name="street-name">
-                                                    </div>
-
-                                                    <div class="col">
-                                                        <label for="house-no" class="form-label">House number</label>
-                                                        <input type="text" class="form-control" id="street-name"
-                                                            placeholder="House number" name="house-no">
-                                                    </div>
-                                                </div>
-
-                                                <div class="row pt-2">
-                                                    <div class="col">
-                                                        <label for="postal code" class="form-label">Postal Code</label>
-                                                        <input type="text" class="form-control" id="postalcode"
-                                                            placeholder="Postal Code" name="postal code">
-                                                    </div>
-
-                                                    <div class="col">
-                                                        <label for="city" class="form-label">City</label>
-                                                        <input type="text" class="form-control" id="city"
-                                                            placeholder="Street name" name="street-name">
-                                                    </div>
-                                                </div>
-
-                                                <div class="row pt-2">
-                                                    <div class="col">
-                                                        <label for="mobile" class="form-label">Phone Number</label>
-                                                        <div class="input-group mobile-no">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text">+49</span>
-                                                            </div>
-                                                            <input type="text" class="form-control"
-                                                                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-                                                                placeholder="Phone Number" name="mobile" id="mobile">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row pt-2">
-                                                    <div class="col">
-                                                        <button type="button" class="edit-btn">Edit</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Remove modal-->
-                    <div class="container remove-modal">
-                        <div class="modal" id="Remove">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-
-                                    <!-- Modal Header -->
-                                    <div class="modal-header">
-                                        <h4 class="modal-title text-center">Remove Address</h4>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
-
-                                    <!-- Modal body -->
-                                    <div class="modal-body">
-                                        <p class="alert">Are You Sure You Wang to Delete Address?</p>
-                                        <button type="button" class="remove-btn">Extinguish</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="button" class="add-btn">Add New Address</button>
                 </div>
 
                 <div id="tabContent3" style="display: none ;">
-                    <div class="row">
-                        <div class="col-sm-5">
+                    <form method="post" asp-action="UpdatePassword" asp-controller="Customer">
+                        <div class="row">
+                            <div class="col-sm-5">
                                 <label class="add-new-button-label">Old Password:</label>
-                                      <input type="Password" name="" placeholder="Current Password"  class="form11">
+                                <input type="Password" asp-for="OldPassword" placeholder="Current Password" id="op" placeholder="Current Password" class="form11">
+                            </div>
                         </div>
-                    </div>
-      
-                    <div class="row">
-                        <div class="col-sm-5">
+
+                        <div class="row">
+                            <div class="col-sm-5">
                                 <label class="add-new-button-label">New Password:</label>
-                                      <input type="Password" name="" placeholder="Password"  class="form11">
+                                <input type="Password" asp-for="Password"  id="np" placeholder="Password" class="form11">
+                            </div>
                         </div>
-                    </div>
-      
-                    <div class="row">
-                        <div class="col-sm-5">
+
+                        <div class="row">
+                            <div class="col-sm-5">
                                 <label class="add-new-button-label">Repeat Password:</label>
-                                      <input type="Password" name="" placeholder="Repeat Password"  class="form11">
+                                <input type="Password" name="" placeholder="Repeat Password" class="form11">
+                            </div>
                         </div>
-                    </div>
-      
-                     <div>
-                         <button type="button" class="savecomputer-btn" style="background-color:#6DA9B5 ;">Save</button>
-                     </div>
+
+                        <div>
+                            <button type="button" class="savecomputer-btn" onclick="PasswordUpdate()"  style="background-color:#6DA9B5 ;">Save</button>
+                        </div>
+                        </form>
                 </div>
 
             </div>
         </div>
     </div>
-
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -397,11 +297,40 @@
             $("#mydetails").show();
         }
 
+        function Profile() {
+            var data = {};
+
+            data.firstname = $("#firstname").val();
+            data.lastname = $("#lastname").val();
+            data.Mobile = $("#mobile").val();
+            data.DateOfBirth = $("#birthdate").val() + "-" + $("#birthmonth").val() + "-" + $("#birthyear").val();
+
+
+            $.ajax({
+                type: 'POST',
+                url: '/Customer/Profile',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+
+                data: data,
+                success: function (result) {
+                    if (result.value == "true") {
+                        alert('Successfully!Updated Data!');
+                    }
+                },
+                error: function () {
+                    alert('Failed to update Data');
+                    console.log('Failed ');
+                }
+            })
+
+        }
+
         function Tab2Click() {
             $("#tab2").addClass("active-tab");
             $("#tab1").removeClass("active-tab").addClass("tab");
             $("#tab3").removeClass("active-tab").addClass("tab");
             $("#tab4").removeClass("active-tab").addClass("tab");
+            $("#address").load('@Url.Action("MyAddress","Customer")');
 
             $("#mydetails").hide();
             $("#tabContent3").hide();

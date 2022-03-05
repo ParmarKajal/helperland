@@ -229,3 +229,33 @@ nav .navbar-nav .dropdown .dropdown-menu{
     margin-left:70px!important;
     margin-top:-30px;
 } 
+
+#rescheduledDate{
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #e1e1e1;
+}
+
+#rescheduledTime{
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #e1e1e1;
+}
+
+/*service details modal*/
+
+.Servicedetails-modal{
+    color: #646464;
+}
+.Servicedetails-modal .modal-title{
+    font-family: 'roboto';
+}
+.Servicedetails-modal .modal-body b,
+.Servicedetails-modal .modal-body span{
+    font-size:14px;
+    font-family: 'roboto';
+}
+
+.amt{
+    color: #1d7a8c;
+    font-size: 22px!important;
+    text-align: center!important;
+}

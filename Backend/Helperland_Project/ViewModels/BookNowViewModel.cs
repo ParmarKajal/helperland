@@ -18,6 +18,11 @@ namespace Helperland_Project.ViewModels
         public bool? PaymentDone { get; set; }
         public int UserId { get; set; }
         public string StartTime { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime ServiceDate { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime ServiceTime { get; set; }
 
 
         //SERVICE REQUEST ADDRESS

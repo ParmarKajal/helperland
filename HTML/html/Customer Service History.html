@@ -112,7 +112,7 @@
   <!--main section-->
   <main>
     <section>
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
 
           <!------------------------table 1---------------------------------------------->
@@ -178,7 +178,7 @@
 
                 <td>
                   <div>
-                    <div><img style="float: left;" src="../image/cap.png" class="cap"></div>
+                    <div><img style="float: left;" src="../image/cap.png"  class="cap"></div>
                     <p class="px-2 pt-1">Lyum Watson<br><img  src="../image/yellowstar.png"><img src="../image/yellowstar.png">
                       <img src="../image/yellowstar.png"><img src="../image/yellowstar.png"><img src="../image/greystar.png"> 4
                     </p>
@@ -192,7 +192,7 @@
                   <button type="button" class="completebtn">Completed</button>
                 </td>
                 <td class="pt-4">
-                  <button type="button" class="rounded-pill border border-1 ratebtn">Rate SP</button>
+                  <button type="button" class="rounded-pill border border-1 ratebtn" data-bs-toggle="modal" data-bs-target="#RateSp">Rate SP</button>
                 </td>
               </tr>
 
@@ -222,7 +222,7 @@
                   <button type="button" class="completebtn">Completed</button>
                 </td>
                 <td class="pt-4">
-                  <button type="button" class="rounded-pill border border-1 ratebtn">Rate SP</button>
+                  <button type="button"  data-bs-toggle="modal" data-bs-target="#RateSp" class="rounded-pill border border-1 ratebtn">Rate SP</button>
                 </td>
               </tr>
               <!---tr-3-->
@@ -251,7 +251,7 @@
                   <button type="button" class="completebtn">Completed</button>
                 </td>
                 <td class="pt-4">
-                  <button type="button" class="rounded-pill border border-1 ratebtn">Rate SP</button>
+                  <button type="button"  data-bs-toggle="modal" data-bs-target="#RateSp" class="rounded-pill border border-1 ratebtn">Rate SP</button>
                 </td>
               </tr>
               <!---tr-4-->
@@ -280,7 +280,7 @@
                   <button type="button" class="canclebtn">Cancelled</button>
                 </td>
                 <td class="pt-4">
-                  <button type="button" class="rounded-pill border border-1 ratebtn">Rate SP</button>
+                  <button type="button"  data-bs-toggle="modal" data-bs-target="#RateSp" class="rounded-pill border border-1 ratebtn">Rate SP</button>
                 </td>
               </tr>
               <!---tr-5-->
@@ -309,7 +309,7 @@
                   <button type="button" class="completebtn">Completed</button>
                 </td>
                 <td class="pt-4">
-                  <button type="button" class="rounded-pill border border-1 ratebtn">Rate SP</button>
+                  <button type="button"  data-bs-toggle="modal" data-bs-target="#RateSp" class="rounded-pill border border-1 ratebtn">Rate SP</button>
                 </td>
               </tr>
               <!---tr-6-->
@@ -338,7 +338,7 @@
                   <button type="button" class="canclebtn">Cancelled</button>
                 </td>
                 <td class="pt-4">
-                  <button type="button" class="rounded-pill border border-1 ratebtn">Rate SP</button>
+                  <button type="button"  data-bs-toggle="modal" data-bs-target="#RateSp" class="rounded-pill border border-1 ratebtn">Rate SP</button>
                 </td>
               </tr>
               <!---tr-7-->
@@ -367,7 +367,7 @@
                   <button type="button" class="completebtn">Completed</button>
                 </td>
                 <td class="pt-4">
-                  <button type="button" class="rounded-pill border border-1 ratebtn">Rate SP</button>
+                  <button type="button"  data-bs-toggle="modal" data-bs-target="#RateSp" class="rounded-pill border border-1 ratebtn">Rate SP</button>
                 </td>
               </tr>
               <!---tr-8-->
@@ -396,7 +396,7 @@
                   <button type="button" class="completebtn">Completed</button>
                 </td>
                 <td class="pt-4">
-                  <button type="button" class="rounded-pill border border-1 ratebtn">Rate SP</button>
+                  <button type="button"  data-bs-toggle="modal" data-bs-target="#RateSp" class="rounded-pill border border-1 ratebtn">Rate SP</button>
                 </td>
               </tr>
               <!---tr-9-->
@@ -425,7 +425,7 @@
                   <button type="button" class="canclebtn">Cancelled</button>
                 </td>
                 <td class="pt-4">
-                  <button type="button" class="rounded-pill border border-1 ratebtn">Rate SP</button>
+                  <button type="button"  data-bs-toggle="modal" data-bs-target="#RateSp" class="rounded-pill border border-1 ratebtn">Rate SP</button>
                 </td>
               </tr>
               <!---tr-10-->
@@ -454,12 +454,54 @@
                   <button type="button" class="canclebtn">Cancelled</button>
                 </td>
                 <td class="pt-4">
-                  <button type="button" class="rounded-pill border border-1 ratebtn">Rate SP</button>
+                  <button type="button"  data-bs-toggle="modal" data-bs-target="#RateSp" class="rounded-pill border border-1 ratebtn">Rate SP</button>
                 </td>
               </tr>
-
-
             </table>
+
+            <!--Ratesp modal-->
+            <div class="container remove-modal">
+              <div class="modal" id="RateSp">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+            
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                     
+                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+            
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <div>
+                        <img class="cap" src="../image/cap.png" style="float: left;">
+                      </div>
+                      <p><strong>Sandip Patel</strong><br><img src="../image/greystar.png"><img src="../image/greystar.png">
+                        <img src="../image/greystar.png"><img src="../image/greystar.png"><img src="../image/greystar.png"><span>&nbsp3.67</span></p>
+                      <p>Rate Your Service Provider</p>
+                      <hr>
+
+                      <p>On Time Arrival<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../image/greystar.png"><img src="../image/greystar.png">
+                        <img src="../image/greystar.png"><img src="../image/greystar.png"><img src="../image/greystar.png"></span></p>
+
+                        <p>Friendly<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../image/greystar.png"><img src="../image/greystar.png">
+                          <img src="../image/greystar.png"><img src="../image/greystar.png"><img src="../image/greystar.png"></span></p>
+                        
+                          <p>Quality Of Service<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../image/greystar.png"><img src="../image/greystar.png">
+                            <img src="../image/greystar.png"><img src="../image/greystar.png"><img src="../image/greystar.png"></span></p>
+                          
+                            <p>Feedback on Service Provider</p>
+                            <textarea rows="2" cols="45"></textarea>
+                      </div>
+                      <button type="button" class="rounded-pill border border-1 text-center reschedulebtn">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
 
             <div class="show-text ml-5">
               <span class="service-history-table-bottom">show&nbsp &nbsp</span>

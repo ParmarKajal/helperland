@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Helperland_Project.Models.Data.ServiceRequest>
+@{ Layout = null; }
+@foreach (var displayservice in Model)
+{
+    <tr class="customer-dashboard-table2-data">
+        <td class="pt-3">
+            <div class="px-2">
+                <b id="serviceid">@Html.DisplayFor(modelItem=>displayservice.ServiceId)</b>
+            </div>
+        </td>
+
+        <td>
+            <div>
+                <img src="../image/calendar2.png">
+                <b id="date">@Html.DisplayFor(modelItem => displayservice.ServiceStartDate)</b>
+            </div>
+            <div id="time">
+                <img src="../image/watch.png">
+                @Html.DisplayFor(modelItem => displayservice.ServiceHours)
+            </div>
+        </td>
+
+        <td id="serviceprovider" class="pt-3">
+        </td>
+        <td class="pt-4" id="payment">
+            @Html.DisplayFor(modelItem => displayservice.SubTotal)&#128;
+        </td>
+
+        <td class="pt-4">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#Reschedule" class="rounded-pill border border-1 text-center reschedulebtn">Reschedule</button>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#Cancle" class="rounded-pill border border-1 text-center canclebtn">Cancle</button>
+        </td>
+    </tr>
+
+}

@@ -140,12 +140,17 @@ namespace Helperland_Project.Controllers
             int ID = CustomerId.UserId;
 
             var ZipValue = HttpContext.Session.GetString("ZipCode");
+            var day = booking.ServiceDate.ToString("dd-MM-yyyy");
+            var time = booking.ServiceTime.ToString("hh:mm:ss");
+            var actual = day + " " + time;
+            DateTime dt = DateTime.Parse(actual);
+            booking.ServiceStartDate = dt;
 
             ServiceRequest service = new ServiceRequest
             {
                 ZipCode = ZipValue,
                 UserId = ID,
-                ServiceStartDate = DateTime.Now,
+                ServiceStartDate = booking.ServiceStartDate,
                 ServiceHourlyRate = booking.ServiceHourlyRate,
                 ExtraHours = booking.ExtraHours,
                 SubTotal = booking.SubTotal,
@@ -155,6 +160,7 @@ namespace Helperland_Project.Controllers
                 TotalCost = booking.TotalCost,
                 Comments = booking.Comments,
                 HasPets = booking.HasPets,
+                //ServiceId=Guid.New Guid();
             };
             _schema.Add(service);
             _schema.SaveChanges();
@@ -172,8 +178,10 @@ namespace Helperland_Project.Controllers
                 ServiceRequestId = service.ServiceRequestId,
 
             };
+            ViewBag.Id = serviceaddress.ServiceRequestId;
             _schema.Add(serviceaddress);
             _schema.SaveChanges();
+           
 
             var emailmessage = _schema.Users.Where(b => b.ZipCode.Equals(AddressData.PostalCode) && b.UserTypeId == 2).ToList();
 

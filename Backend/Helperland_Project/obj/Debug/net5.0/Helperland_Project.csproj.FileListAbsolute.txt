@@ -398,3 +398,9 @@ C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\
 C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\BookNow\BookNow.cshtml.g.cs
 C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\bin\Debug\net5.0\libman.json
 C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\BookNow\Address.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Customer\CustomerDashboard.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Customer\Profile.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Customer\Services.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Customer\ServiceHistory.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Customer\CustomPage.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Customer\MyAddress.cshtml.g.cs

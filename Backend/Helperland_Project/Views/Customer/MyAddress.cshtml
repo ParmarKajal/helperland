@@ -1,0 +1,189 @@
+﻿@model IEnumerable<Helperland_Project.Models.Data.UserAddress>
+@{
+    Layout = null;
+}
+
+
+<table class="address-table">
+    <tr class="address-table-heading">
+        <th class="px-3">Addresses</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var add in Model)
+    {
+        <tr>
+            <td>
+                <span>@Html.DisplayFor(modelitem => add.AddressId)</span> 
+                <div class="address">
+                    <p>
+                        <b>Adress: </b>&nbsp; @Html.DisplayFor(modelitem => add.AddressLine1) , @Html.DisplayFor(modelitem => add.AddressLine2) , @Html.DisplayFor(modelitem => add.PostalCode) -
+                        @Html.DisplayFor(modelitem => add.City)
+                    </p>
+                    <p><b>Phone Number: </b>&nbsp; @Html.DisplayFor(modelitem => add.Mobile)</p>
+                </div>
+            </td>
+
+            <td>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#Edit" onclick="Edit(@add.AddressId)">
+                    <i class='far fa-edit'
+                       style='font-size:18px; color: grey;'></i>
+                </a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#Remove" onclick="Delete(@add.AddressId)">
+                    <i class='fas fa-trash-alt px-3' style="color: grey;"></i>
+                </a>
+            </td>
+        </tr>
+    }
+    </table>
+
+<!--Edit modal-->
+<div class="container edit-modal">
+    <div class="modal" id="Edit">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title text-center">Edit Address</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div id="form" class="address-form">
+                        <form class="">
+                            <div class="row pt-2">
+                                <div class="col">
+                                    <label for="street-name" class="form-label">Street name</label>
+                                    <input type="text" class="form-control street" id="street-name"
+                                           placeholder="Street name" name="street-name">
+                                </div>
+
+                                <div class="col">
+                                    <label for="house-no" class="form-label">House number</label>
+                                    <input type="text" class="form-control house" id="street-name"
+                                           placeholder="House number" name="house-no">
+                                </div>
+                            </div>
+
+                            <div class="row pt-2">
+                                <div class="col">
+                                    <label for="postal code" class="form-label">Postal Code</label>
+                                    <input type="text" class="form-control postal" id="postalcode"
+                                           placeholder="Postal Code" name="postal code">
+                                </div>
+
+                                <div class="col">
+                                    <label for="city" class="form-label">City</label>
+                                    <input type="text" class="form-control city" id="city"
+                                           placeholder="Street name" name="street-name">
+                                </div>
+                            </div>
+
+                            <div class="row pt-2">
+                                <div class="col">
+                                    <label for="mobile" class="form-label">Phone Number</label>
+                                    <div class="input-group mobile-no">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">+49</span>
+                                        </div>
+                                        <input type="text" class="form-control phone"
+                                               pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                                               placeholder="Phone Number" name="mobile" id="mobile">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row pt-2">
+                                <div class="col">
+                                    <button type="button" class="edit-btn" value="" onclick="Update(this.value);" id="update">Edit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Remove modal-->
+<div class="container remove-modal">
+    <div class="modal" id="Remove">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title text-center">Remove Address</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p class="alert">Are You Sure You Want to Delete Address?</p>
+                    <button type="button" class="remove-btn" value="" onclick="Remove(this.value)" id="delete">Extinguish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<button type="button" value="" onclick="Edit(this.value)"  data-bs-toggle="modal" data-bs-target="#Edit" class="add-btn">Add New Address</button>
+
+
+<script>
+    function Edit(ServiceRequestId)
+    {
+      
+        $("#update").prop("value", ServiceRequestId);
+    }
+
+    function Update(id) {
+        var data = {};
+
+        data.AddressId = id;
+        data.AddressLine1 = $(".street").val();
+        data.AddressLine2 = $(".house").val();
+        data.Mobile = $(".phone").val();
+        data.PostalCode = $(".postal").val();
+        data.City = $(".city").val();
+
+
+
+
+        $.ajax({
+            type: 'POST',
+            url: '/Customer/UpdateAddress',
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+
+            data: data,
+            success: function (result) {
+                if (result.value == "true") {
+                    alert('Successfully!Updated Data!');
+                   
+                }
+            },
+            error: function () {
+                alert('Failed to update Data');
+                console.log('Failed ');
+            }
+        })
+
+    }
+
+    function Delete(id)
+    {
+        $("#delete").prop("value", id);
+
+    }
+
+    function Remove(val) {
+        $.post("/Customer/RemoveAddress", { Id: parseInt(val) }, function (data) {
+
+            if (data) {
+                alert("Delete Successfully!!");
+            }
+
+        });
+    }
+</script>

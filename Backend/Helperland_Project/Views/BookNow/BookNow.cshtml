@@ -174,12 +174,12 @@
                                     <div class="col">
                                         <b>When do you need your cleaner?</b>
                                         <div class="d-flex mt-3">
-                                            <input type="date" asp-for="ServiceStartDate" class="date pt-2 pb-2 px-1" onblur="date();" id="day">
-                                            <select class="select-btn pt-2 pb-2 px-1" onblur="Time();" id="time">
-                                                <option value="8:00">8:00</option>
-                                                <option value="9:00">9:00</option>
-                                                <option value="10:00">10:00</option>
-                                                <option value="11:00">11:00</option>
+                                            <input type="date" asp-for="ServiceDate" class="date pt-2 pb-2 px-1" onblur="date();" id="day">
+                                            <select class="select-btn pt-2 pb-2 px-1" asp-for="ServiceTime" onblur="Time();" id="time">
+                                                <option value="08:00:00">8:00</option>
+                                                <option value="09:00:00">9:00</option>
+                                                <option value="10:00:00">10:00</option>
+                                                <option value="11:00:00">11:00</option>
                                             </select>
                                         </div>
                                     </div>
@@ -207,7 +207,7 @@
                                                          src="../image/cabinet.png" alt="Card image"
                                                          onclick="Cabinet();">
                                                     <!--<img class="card-img-top back-img" src="../image/cabinet-green.png"
-                                                        alt="Card image">-->
+                                alt="Card image">-->
                                                 </div>
                                             </div>
                                             <div class="card-body text-center extraservice-body">
@@ -224,7 +224,7 @@
                                                     <img id="fridge" class="card-img-top front-img"
                                                          src="../image/fridge.png" alt="Card image" onclick="Fridge();">
                                                     <!--<img class="card-img-top back-img" src="../image/fridge-green.png"
-                                                        alt="Card image">-->
+                                alt="Card image">-->
                                                 </div>
                                             </div>
                                             <div class="card-body text-center extraservice-body">
@@ -242,7 +242,7 @@
                                                     <img id="oven" class="card-img-top front-img"
                                                          src="../image/oven.png" alt="Card image" onclick="Oven();">
                                                     <!--<img class="card-img-top back-img" src="../image/oven-green.png"
-                                                        alt="Card image">-->
+                                alt="Card image">-->
                                                 </div>
                                             </div>
                                             <div class="card-body text-center extraservice-body">
@@ -260,7 +260,7 @@
                                                          src="../image/laundry.png" alt="Card image"
                                                          onclick="Laundry();">
                                                     <!--<img class="card-img-top back-img" src="../image/laundry-green.png"
-                                                        alt="Card image">-->
+                                alt="Card image">-->
                                                 </div>
                                             </div>
                                             <div class="card-body text-center extraservice-body">
@@ -277,7 +277,7 @@
                                                     <img id="window" class="card-img-top front-img"
                                                          src="../image/window.png" alt="Card image" onclick="window();">
                                                     <!--<img class="card-img-top back-img" src="../image/window-green.png"
-                                                        alt="Card image">-->
+                                alt="Card image">-->
                                                 </div>
                                             </div>
                                             <div class="card-body text-center extraservice-body">
@@ -289,14 +289,14 @@
                                     <hr>
 
                                     <label for="comment"><b>Comments</b></label>
-                                    <textarea rows="3" cols="3" asp-for="Comments"  placeholder="Comments"
+                                    <textarea rows="3" cols="3" asp-for="Comments" placeholder="Comments"
                                               class="comment pt-2 mt-3" id="comment"></textarea>
                                     <div class="form-check px-0">
                                         <input type="checkbox" id="pet" name="pet" value="pet" class="px-0 mt-5">
                                         <label for="pet" class="check-label px-0">I have pets at home</label>
                                     </div>
                                     <!-- <input type="checkbox" id="pet" name="pet" class="px-0 mt-5">
-                                        <label for="pet">I have pets at home</label>-->
+                <label for="pet">I have pets at home</label>-->
                                     <hr class="mt-4">
 
                                     <div>
@@ -315,16 +315,16 @@
 
                                 <div id="displayaddress"></div>
 
-                                
+
                                 <!-- <div class="row mb-3 address">
-                                    <div class="col-lg-4">
-                                        <input type="radio" name="address" class="radio-btn">
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <p>Adress: koenigstrasse 112, Tambach-Dietharz 99897</p>
-                                        <p>Phone Number:9955648797</p>
-                                    </div>
-                                </div> -->
+            <div class="col-lg-4">
+                <input type="radio" name="address" class="radio-btn">
+            </div>
+            <div class="col-lg-8">
+                <p>Adress: koenigstrasse 112, Tambach-Dietharz 99897</p>
+                <p>Phone Number:9955648797</p>
+            </div>
+        </div> -->
 
                                 <div class="address row mb-3">
                                     <div class="col-lg-4 pt-4">
@@ -361,7 +361,7 @@
 
                                             <div class="col">
                                                 <label for="house-no" class="form-label">House number</label>
-                                                <input asp-for="addressline2" id="AddressLine2"  class="form-control"
+                                                <input asp-for="addressline2" id="AddressLine2" class="form-control"
                                                        placeholder="House number">
                                             </div>
                                         </div>
@@ -369,7 +369,7 @@
                                         <div class="row pt-5 px-3">
                                             <div class="col">
                                                 <label for="postal code" class="form-label">Postal Code</label>
-                                                <input asp-for="postalcode" id="PostalCode"  class="form-control"
+                                                <input asp-for="postalcode" id="PostalCode" class="form-control"
                                                        placeholder="Postal Code">
                                             </div>
 
@@ -389,7 +389,7 @@
                                                     </div>
                                                     <input asp-for="mobile" id="MobileNumber" class="form-control"
                                                            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Phone Number" />
-                                                           
+
                                                 </div>
                                             </div>
                                         </div>
@@ -448,14 +448,14 @@
                                 <div class="container-fluid carddetails mt-5 d-flex">
                                     <div class="row">
                                         <!-- <div class="col-lg-4">
-                                            <input type="text" class="form-control" placeholder="Card Number">
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <input type="text" class="form-control" placeholder="mm/yy">
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <input type="text" class="form-control" placeholder="cvc">
-                                        </div> -->
+                    <input type="text" class="form-control" placeholder="Card Number">
+                </div>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control" placeholder="mm/yy">
+                </div>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control" placeholder="cvc">
+                </div> -->
                                         <div class="col">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -504,12 +504,37 @@
                                 </div>
                                 <hr>
                                 <div class="">
-                                    <button type="button" class="rounded-pill justify-content-end" id="book-btn"
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#Complete" class="rounded-pill justify-content-end" id="book-btn"
                                             onclick="Complete();">
                                         Complete Booking
                                     </button>
                                 </div>
                             </div>
+
+                            <!--Complete booking-->
+                            <div class="container completemodal">
+                                <div class="modal" id="Complete">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+
+                                            <!-- Modal Header
+    <div class="modal-header">
+        <h4 class="modal-title text-center">Remove Address</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>-->
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                <p class="alert">Congratulations! Your Service has been Booked Successfully.
+                                                Your Service RequestID : <br>@ViewBag.Id</br</p>
+                                                <div class="justify-content-center">
+                                                    <button type="button" class="completebookingbtn mt-3 mb-1 rounded-pill text-center">Ok</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -653,6 +678,7 @@
         var time = 0;
         var payment = 0;
         var percleaning = 87;
+        var extraservice = 0;
 
 
          function Tab1Click() {
@@ -904,9 +930,10 @@
             debugger;
             var data = {};
             data.ZipCode = $("#zipcode").val();
-            data.ServiceStartDate = $("#day").val();
+            data.ServiceDate = $("#day").val();
+            data.ServiceTime = $("#time").val();
             data.ServiceHourlyRate = percleaning;
-            data.ExtraHours = 4;
+            data.ExtraHours = extraservice;
             data.SubTotal = payment;
             data.ServiceHours = $("#hours").val();
             data.PaymentDone = true;
@@ -974,6 +1001,7 @@
 
             if (cabinet < 1) {
                 totaltime += 0.5;
+                extraservice += 0.5;
                 $("#totalservicetime").html(totaltime + " Hrs ");
                 $(".extraservicetext").append("<p>Inside Cabinets(extra)</p>");
                 $(".extratime").append("<p>30 Mins</p>");
@@ -1014,6 +1042,7 @@
         function Fridge() {
             if (fridge < 1) {
                 totaltime += 0.5;
+                extraservice += 0.5;
                 $("#totalservicetime").html(totaltime + " Hrs ");
                 $(".extraservicetext").append("<p>Inside Fridge(extra)</p>");
                 $(".extratime").append("<p>30 Mins</p>");
@@ -1032,6 +1061,7 @@
         function Oven() {
             if (oven < 1) {
                 totaltime += 0.5;
+                extraservice += 0.5;
                 $("#totalservicetime").html(totaltime + " Hrs ");
                 $(".extraservicetext").append("<p>Inside Oven(extra)</p>");
                 $(".extratime").append("<p>30 Mins</p>");
@@ -1052,6 +1082,7 @@
         function Laundry() {
             if (laundry < 1) {
                 totaltime += 0.5;
+                extraservice += 0.5;
                 $("#totalservicetime").html(totaltime + " Hrs ");
                 $(".extraservicetext").append("<p>Laundry Wash & Dry (extra)</p>");
                 $(".extratime").append("<p>30 Mins</p>");
@@ -1072,6 +1103,7 @@
         function Window() {
             if (interior < 1) {
                 totaltime += 0.5;
+                extraservice += 0.5;
                 $("#totalservicetime").html(totaltime + " Hrs ");
                 $(".extraservicetext").append("<p>Interior Windows(extra)</p>");
                 $(".extratime").append("<p>30 Mins</p>");

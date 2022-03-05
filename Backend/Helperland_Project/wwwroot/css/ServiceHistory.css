@@ -1,0 +1,177 @@
+﻿.service-history-title {
+    margin-top: 41px;
+    margin-left: 16px;
+}
+
+.service-history-text {
+    font-family: 'Roboto';
+    font-size: 22px;
+    color: #646464;
+}
+
+.exportbtn {
+    position: absolute;
+    border: none;
+    background-color: #146371;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: 'roboto';
+    width: 70px;
+    height: 34px;
+    margin-left: 700px;
+    /* margin-right: 0px!important; */
+}
+
+    .exportbtn:hover {
+        background-color: #ffffff !important;
+        color: #1d7a8c !important;
+    }
+
+/*------------------------------*/
+.service-History-table2 {
+    /* position: absolute; */
+}
+
+.service-History-table-table2 {
+    /* width: 864px; */
+    width: 100%;
+    border: 1px solid #e1e1e1;
+    margin-left: 0px;
+    margin-right:0px!important;
+}
+
+.service-History-table2-heading {
+    background-color: #f9f9f9;
+    color: #646464;
+    font-size: 16px;
+    height: 49px;
+}
+
+.service-History-table-table2 .service-History-table2-data {
+    font-size: 16px;
+    color: #646464;
+}
+
+.cap {
+    border: 1px solid #aaaaaa;
+    margin-right: 12px;
+    margin-top: 10px;
+    border-radius: 50%;
+    padding: 10px 5px 10px 5px;
+}
+
+#payment {
+    color: #1d7a8c;
+    font-size: 20px;
+    font-family: 'roboto';
+}
+
+.completebtn {
+    color: #ffffff;
+    background-color: #67b644;
+    width: 82px;
+    height: 22px;
+    border: none;
+    font-family: 'roboto';
+    font-size: 13px;
+}
+
+.canclebtn {
+    color: #ffffff;
+    background-color: #ff6b6b;
+    width: 82px;
+    height: 22px;
+    border: none;
+    font-family: 'roboto';
+    font-size: 13px;
+}
+
+.ratebtn {
+    background-color: #6da9b5;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: 'roboto';
+    border: none;
+    width: 70px;
+    height: 34px;
+}
+
+
+.reschedulebtn {
+    background-color: #1d7a8c;
+    border: 1px solid #1d7a8c !important;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: 'roboto';
+    border: none;
+    width: 110px;
+    height: 38px;
+    padding: 10px 15px 15px 15px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+    .reschedulebtn:hover {
+        background-color: #146371;
+    }
+
+
+.show-text {
+    position: relative;
+    margin-left: 20px;
+}
+
+
+
+
+
+
+.service-history-table-bottom {
+    font-size: 14px;
+    color: #646464;
+    font-family: 'roboto';
+}
+
+.service-history-select {
+    outline: #e1e1e1;
+}
+
+    .service-history-select option {
+        color: #646464;
+        font-size: 14px;
+    }
+
+
+
+
+
+.pages {
+    position: relative;
+    margin-left: 120px !important;
+    margin-top: -30px;
+}
+
+
+
+
+footer {
+    background-color: #111111;
+    height: auto;
+    font-family: 'Roboto';
+}
+
+    footer a {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    footer .insta {
+        color: white;
+        text-decoration: none;
+    }
+
+    footer .fb {
+        color: white;
+        text-decoration: none;
+    }
