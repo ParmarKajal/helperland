@@ -88,7 +88,7 @@
 
     <!--user name-->
     <section class="title">
-        <h1 class="welcome-text text-center">Welcome,<b> @ViewBag.FirstName!</b></h1>
+        <h1 class="welcome-text text-center">Welcome,<b> @ViewBag.firstname!</b></h1>
         <div class="welcome-line"></div>
     </section>
 
@@ -249,6 +249,7 @@
                             <div class="col-sm-5">
                                 <label class="add-new-button-label">Old Password:</label>
                                 <input type="Password" asp-for="OldPassword" placeholder="Current Password" id="op" placeholder="Current Password" class="form11">
+                                
                             </div>
                         </div>
 
@@ -262,12 +263,13 @@
                         <div class="row">
                             <div class="col-sm-5">
                                 <label class="add-new-button-label">Repeat Password:</label>
-                                <input type="Password" name="" placeholder="Repeat Password" class="form11">
+                                <input type="Password" asp-for="ConfirmPassword" placeholder="Repeat Password" class="form11">
+                                <span class="text-danger">@TempData["Message"]</span>
                             </div>
                         </div>
 
                         <div>
-                            <button type="button" class="savecomputer-btn" onclick="PasswordUpdate()"  style="background-color:#6DA9B5 ;">Save</button>
+                            <button type="submit" class="savecomputer-btn" style="background-color:#6DA9B5 ;">Save</button>
                         </div>
                         </form>
                 </div>

@@ -150,11 +150,11 @@ namespace Helperland_Project.Controllers
                         }
                         if (detail.UserTypeId == 1)
                         {
-                            return RedirectToAction("CustomPage", "Customer");
+                            return RedirectToAction("Profile", "Customer");
                         }
                         if (detail.UserTypeId == 2)
                         {
-                            return RedirectToAction("ServiceProviderRegistration", "BecomeProvider");
+                            return RedirectToAction("ServiceProviderLayout", "ServiceProvider");
                         }
                     }
 

@@ -181,11 +181,18 @@ namespace Helperland_Project.Controllers
             ViewBag.Id = serviceaddress.ServiceRequestId;
             _schema.Add(serviceaddress);
             _schema.SaveChanges();
-           
 
-            var emailmessage = _schema.Users.Where(b => b.ZipCode.Equals(AddressData.PostalCode) && b.UserTypeId == 2).ToList();
 
-            foreach (var EmailMessage in emailmessage)
+            //var emailmessage = _schema.Users.Where(b => b.ZipCode.Equals(AddressData.PostalCode) && b.UserTypeId == 2).ToList();
+            List<User> user = new List<User>();
+            var sp = _schema.FavoriteAndBlockeds.Where(a => a.TargetUserId.Equals(ID) && a.IsBlocked == true).ToList();
+            foreach (var item in sp)
+            {
+                user.AddRange(_schema.Users.Where(a => a.UserId != item.UserId && a.UserTypeId == 2 && a.ZipCode == AddressData.PostalCode).ToList());
+            }
+
+
+            foreach (var EmailMessage in user)
             {
                 var subject = "New Request Arrived";
                 var body = "Greetings From Helperland, <br> " + EmailMessage.FirstName + ", <br/> Customer Wants to book a service in this area." + "<br> Thank you!";

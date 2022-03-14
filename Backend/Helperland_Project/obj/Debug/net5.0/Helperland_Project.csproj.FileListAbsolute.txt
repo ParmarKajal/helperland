@@ -404,3 +404,12 @@ C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\
 C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Customer\ServiceHistory.cshtml.g.cs
 C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Customer\CustomPage.cshtml.g.cs
 C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Customer\MyAddress.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\ServiceProvider\ServiceProviderLayout.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\ServiceProvider\SPBlockCustomer.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\ServiceProvider\SPDetail.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\ServiceProvider\SPMyRating.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\ServiceProvider\SPNewServiceRequest.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\ServiceProvider\SPPassword.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\ServiceProvider\SPProfile.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\ServiceProvider\SPServiceHistory.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\ServiceProvider\SPUpcomingService.cshtml.g.cs

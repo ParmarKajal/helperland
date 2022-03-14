@@ -7,23 +7,26 @@ using System.Threading.Tasks;
 
 namespace Helperland_Project.ViewModels
 {
-    public class ProfileViewModel
+    public class SPProfileViewModel
     {
-        public int userId { get; set; }
-        // [Required]
+        public int UserId { get; set; }
+        [Required]
         [StringLength(100)]
-        public string firstname { get; set; }
-        // [Required]
+        public string FirstName { get; set; }
+        [Required]
         [StringLength(100)]
-        public string lastname { get; set; }
-        // [Required]
+        public string LastName { get; set; }
+        [Required]
         [StringLength(100)]
-        public string email { get; set; }
-
-        //[Required]
+        public string Email { get; set; }
+        [StringLength(100)]
+        public string Password { get; set; }
+        [Required]
         [StringLength(20)]
         public string Mobile { get; set; }
+        public int UserTypeId { get; set; }
 
+        public int? Gender { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? DateOfBirth { get; set; }
 
@@ -32,38 +35,37 @@ namespace Helperland_Project.ViewModels
         public string BirthMonth { get; set; }
 
         public int BirthYear { get; set; }
+        [StringLength(200)]
+        public string UserProfilePicture { get; set; }
+
+        public bool IsActive { get; set; }
+
+        public int? Status { get; set; }
+
+        public DateTime ModifiedDate { get; set; }
+        public int ModifiedBy { get; set; }
+        public int? NationalityId { get; set; }
 
 
-
-        public int AddressId { get; set; }
-        public int UserId { get; set; }
-        //[Required]
+        [Required]
         [StringLength(200)]
         public string AddressLine1 { get; set; }
         [StringLength(200)]
         public string AddressLine2 { get; set; }
-        // [Required]
+        [Required]
         [StringLength(50)]
         public string City { get; set; }
-        //[StringLength(50)]
-        //public string State { get; set; }
-        //[Required]
+        [StringLength(50)]
+        public string State { get; set; }
+        [Required]
         [StringLength(20)]
         public string PostalCode { get; set; }
-        //public bool IsDefault { get; set; }
-        public bool IsDeleted { get; set; }
-        //[StringLength(20)]
-        //public string Mobile { get; set; }
+
         //[StringLength(100)]
-        //public string Email { get; set; }
-
-
-        [StringLength(100)]
-        public string Password { get; set; }
+        //public string Password { get; set; }
 
         [StringLength(100)]
         public string OldPassword { get; set; }
-
         [StringLength(100)]
         public string ConfirmPassword { get; set; }
     }

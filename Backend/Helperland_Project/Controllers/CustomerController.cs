@@ -51,7 +51,7 @@ namespace Helperland_Project.Controllers
             ProfileViewModel mymodel = new ProfileViewModel();
             var ID = Customer.UserId;
             ViewBag.ID = ID;
-            ViewBag.FirstName = Customer.FirstName;
+            ViewBag.firstname = Customer.FirstName;
 
             mymodel.firstname = Customer.FirstName;
             mymodel.lastname = Customer.LastName;
@@ -232,61 +232,77 @@ namespace Helperland_Project.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdatePassword(ProfileViewModel pvm)
+        public IActionResult UpdatePassword(ProfileViewModel sp)
         {
-            var olddetails = _schema.Users.Where(b => b.Email.Equals(HttpContext.Session.GetString("Email"))).FirstOrDefault();
-            var oldpwd = olddetails.Password;
-            int ID = olddetails.UserId;
+            User use = _schema.Users.Where(b => b.Email.Equals(HttpContext.Session.GetString("Email"))).FirstOrDefault();
+            var oldpwd = use.Password;
+            var userid = use.UserId;
 
-            if (string.Compare(Crypto.Hash(pvm.OldPassword), oldpwd) == 0)
-
+            if (string.Compare(Crypto.Hash(sp.OldPassword), oldpwd) == 0)
             {
-                User view = new User();
+                if (sp.Password == sp.ConfirmPassword)
+                {
+                    sp.Password = Crypto.Hash(sp.Password);
+                    use.Password = sp.Password;
+                    use.ModifiedDate = DateTime.Now;
+                    //use.CreatedDate = DateTime.Now;
+                    _schema.Users.Update(use);
+                    _schema.SaveChanges();
+                    TempData["Message"] = "Password Update Successfully";
+                }
+                else
+                {
+                    TempData["Message"] = "Does not match confirm password and New Password!";
+                   
+                }
+            }
+            else
+            {
+               
+                TempData["Message"] = "Old Password is invalid";
+               
+            }
 
-                var pwd = (from userlist in _schema.Users
-                           where userlist.Email == HttpContext.Session.GetString("Email")
-                           select new
-                           {
-                               userlist.UserId,
-                               userlist.FirstName,
-                               userlist.LastName,
-                               userlist.Email,
-                               userlist.Mobile,
-                               userlist.DateOfBirth,
-                               userlist.Password,
-                               userlist.CreatedDate
-
-                           }).ToList();
-                view.UserId = pwd[0].UserId;
-                view.FirstName = pwd[0].FirstName;
-                view.LastName = pwd[0].LastName;
-                view.Mobile = pwd[0].Mobile;
-                view.DateOfBirth = pwd[0].DateOfBirth;
-                view.Email = pwd[0].Email;
-                view.UserTypeId = 1;
-                view.IsRegisteredUser = true;
-                view.WorksWithPets = true;
-                view.CreatedDate = pwd[0].CreatedDate;
-                view.ModifiedDate = DateTime.Now;
-                view.ModifiedBy = 1;
-                view.IsApproved = true;
-                view.IsActive = true;
-                view.IsDeleted = true;
-                view.Password = pvm.Password;
+            return View("Profile");
+        }
 
 
-                _schema.Users.Update(view);
+        public JsonResult Rating(int id, int OnTimeArrival, int Friendly, int QualityOfService, decimal Ratings, string Comments)
+        {
+            var sr = _schema.ServiceRequests.Where(a => a.ServiceRequestId.Equals(id)).FirstOrDefault();
+            Rating ratingtable = _schema.Ratings.Where(a => a.ServiceRequestId.Equals(id)).FirstOrDefault();
+            if (ratingtable != null)
+            {
+
+                ratingtable.OnTimeArrival = OnTimeArrival;
+                ratingtable.Friendly = Friendly;
+                ratingtable.QualityOfService = QualityOfService;
+                ratingtable.RatingDate = DateTime.Now;
+                ratingtable.Ratings = Ratings;
+                _schema.Ratings.Update(ratingtable);
                 _schema.SaveChanges();
-                return Ok(Json("true"));
+
+
             }
 
             else
             {
-                ViewBag.Message = "Invalid Old Password";
-                return RedirectToAction("Profile", "Customer");
+
+                Rating rate = new Rating();
+                rate.ServiceRequestId = sr.ServiceRequestId;
+                rate.RatingFrom = sr.UserId;
+                rate.RatingTo = Convert.ToInt32(sr.ServiceProviderId);
+                rate.Ratings = Ratings;
+                rate.OnTimeArrival = OnTimeArrival;
+                rate.Friendly = Friendly;
+                rate.QualityOfService = QualityOfService;
+                rate.RatingDate = DateTime.Now;
+                rate.Comments = Comments;
+
+                _schema.Ratings.Add(rate);
+                _schema.SaveChanges();
             }
-
-
+            return Json(true);
         }
 
     }
