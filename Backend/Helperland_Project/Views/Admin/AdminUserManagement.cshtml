@@ -1,0 +1,456 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin>User Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css">
+    <link href="~/css/UserManagement.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!---header section-->
+    <header>
+        <nav class="navbar navbar-expand-md header-nav">
+            <div class="container-fluid" id="navbar">
+                <a class="navbar-brand site-name" href="#">helperland</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><img src="../image/admin-user.png"></a>
+                        </li>
+                        <li class="nav-item pt-1">
+                            <a class="nav-link" href="#" style="color: #ffffff;">James Smith</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><img src="../image/logout.png"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--main-->
+    <main>
+        <div class="container-fluid px-0">
+            <div class="row">
+
+                <!--navigation bar-->
+                <div class="col-sm-3 UserManagement-navbar">
+                    <nav class="navbar mt-0 pt-0">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link UserManagement-navbar-content">Service Management</a>
+                            </li>
+                            <hr class="UserManagement-navbar-line">
+                            <li class="nav-item">
+                                <a class="nav-link UserManagement-navbar-content">Role Management</a>
+                            </li>
+                            <hr class="UserManagement-navbar-line">
+                            <li class="nav-item">
+                                <a class="nav-link UserManagement-navbar-content"> Coupon Code Management</a>
+                            </li>
+                            <hr class="UserManagement-navbar-line">
+                            <li class="nav-item">
+                                <a class="nav-link UserManagement-navbar-content">Escalation Management</a>
+                            </li>
+                            <hr class="UserManagement-navbar-line">
+                            <li class="nav-item">
+                                <a class="nav-link UserManagement-navbar-content" href="ServiceRequest.html" target="_blank">Service Request</a>
+                            </li>
+                            <hr class="UserManagement-navbar-line">
+                            <li class="nav-item">
+                                <a class="nav-link UserManagement-navbar-content">Service Provider</a>
+                            </li>
+                            <hr class="UserManagement-navbar-line">
+                            <li class="nav-item">
+                                <a class="nav-link UserManagement-navbar-content admin-nav-active" href="UserManagement.html" target="_blank">User Management</a>
+                            </li>
+                            <hr class="UserManagement-navbar-line">
+                            <li class="nav-item">
+                                <a class="nav-link UserManagement-navbar-content">Finance Module</a>
+                            </li>
+                            <hr class="UserManagement-navbar-line">
+                            <li class="nav-item">
+                                <a class="nav-link UserManagement-navbar-content"> Zip Code Management </a>
+                            </li>
+                            <hr class="UserManagement-navbar-line">
+                            <li class="nav-item">
+                                <a class="nav-link UserManagement-navbar-content">Rating Management</a>
+                            </li>
+                            <hr class="UserManagement-navbar-line">
+                            <li class="nav-item">
+                                <a class="nav-link UserManagement-navbar-content">Inquiry Management</a>
+                            </li>
+                            <hr class="UserManagement-navbar-line">
+                            <li class="nav-item">
+                                <a class="nav-link UserManagement-navbar-content">Newsletter Management</a>
+                            </li>
+                            <hr class="UserManagement-navbar-line">
+                            <li class="nav-item">
+                                <a class="nav-link UserManagement-navbar-content">Content Management</a>
+                            </li>
+                            <hr class="UserManagement-navbar-line">
+                        </ul>
+                    </nav>
+                </div>
+
+                <!--main table-->
+                <div class="col-sm-9 main-table">
+                    <div class="UserManagement-table-heading">
+                        <b class="UserManagement-table-heading-text">
+                            User Management<button type="button" class="adduserbtn">
+                                <img src="../image/add.png" class="addimg"> Add New User
+                            </button>
+                        </b>
+                    </div>
+
+                    <div class="form">
+                        <div class="row g-3">
+                            <div class="col-auto">
+                                <input type="text" class="form-control" id="userName" placeholder="User Name" />
+                            </div>
+                            <div class="col-auto">
+                                <select class="form-select" id="userType">
+                                    <option selected value="">User Type</option>
+                                    <option value="1">Customer</option>
+                                    <option value="2">Service Provider</option>
+                                    <option value="3">Admin</option>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                <div class="input-group">
+                                    <span class="input-group-text">+49</span>
+                                    <input type="text" class="form-control" placeholder="Phone number" id="phoneNumber">
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" class="form-control" id="postalCode" placeholder="Postal Code" />
+                            </div>
+                            <div class="col-auto">
+                                <input type="email" class="form-control" id="email" placeholder="Email" />
+                            </div>
+                            <div class="col-auto">
+                                <input type="date" class="form-control" id="fromDate" placeholder="From Date" />
+                            </div>
+                            <div class="col-auto">
+                                <input type="date" class="form-control" id="toDate" placeholder="To Date" />
+                            </div>
+                            <div class="col-auto searchbtn">
+                                <button id="searchBtn">Search</button>
+                            </div>
+                            <div class="col-auto clearbtn">
+                                <button id="clearBtn">Clear</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-wrap mb-3">
+                        <a id="export" class="ms-auto"  asp-action="DownloadExcel">Export</a>
+                    </div>
+
+                    @*<div class="row usermanagement-user-menu">
+                            <div class="col-sm-1 username">
+                                <select class="form-select" id="userlist" name="User name" aria-placeholder="User-Name">
+                                    <option selected>User Name</option>
+                                    <option value="1">User 1</option>
+                                    <option value="2">User 2</option>
+                                    <option value="3">User 3</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-1 Userrole">
+                                <select class="form-select" id="userlist" name="User role" aria-placeholder="User Role">
+                                    <option selected>User Role</option>
+                                    <option>User 1</option>
+                                    <option>User 2</option>
+                                    <option>User 3</option>
+
+                                </select>
+                            </div>
+
+                            <div class="col-sm-1 num">
+                                <div class="input-group mobile-no">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">+49</span>
+                                    </div>
+                                    <input type="text" class="form-control" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Phone Number"
+                                           name="mobile">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-1 zipcode">
+                                <input type="text" placeholder="Zipcode" name="zipcode" class="form-control">
+                            </div>
+
+                            <div class="col-sm-1 searchbtn">
+                                <button type="button" class="rounded border">Search</button>
+                            </div>
+
+                            <div class="col-sm-1 clearbtn">
+                                <button type="button" class="rounded border">Clear</button>
+                            </div>
+                        </div>*@
+
+
+                    <table id="table_id" class="table table-borderless display nowrap">
+                        <thead>
+                            <tr>
+                                <th>User Name</th>
+                                <th>Role</th>
+                                <th>Date of Registration</th>
+                                <th>User Type</th>
+                                <th>Phone</th>
+                                <th>Postal code</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <!--tr-1-->
+                        <tbody>
+                            <tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            findParameters();
+
+        });
+
+
+        function findParameters() {
+            var table = $("#table_id").DataTable({
+                info: false,
+                buttons: ["excelHtml5"],
+                processing: true,
+                responsive: true,
+                serverSide: true,
+                ajax: {
+                    url: "/Admin/UserManagementData",
+                    type: "POST",
+                    datatype: "json",
+                },
+                stripeClasses: [],
+                aLengthMenu: [
+                    [5, 10, 15, -1],
+                    [5, 10, 25, "All"],
+                ],
+                dom: '<"float-left"B><"float-right"f>rt<"row"<"col-sm-4"l><"col-sm-4"i><"col-sm-4"p>>',
+                pageLength: 10,
+                paging: "true",
+                pagingType: "simple_numbers",
+                language: {
+                    paginate: {
+                        next: '<img src="/images/polygon-2-copy-5.png" />',
+                        previous: '<img src="/images/polygon-1-copy-5.png" />',
+                    },
+                },
+                columnDefs: [
+                    {
+                        targets: 0,
+                        name: "User Name",
+                        render: function (data, type, row, meta) {
+                            return row.firstName + " " + row.lastName;
+                        },
+                    },
+                    {
+                        targets: 1,
+                        orderable: false,
+                    },
+                    {
+                        targets: 2,
+                        name: "Registration Date",
+                        className: "createdDate",
+                        render: function (data, type, row, meta) {
+                            return getDateColumnData(row);
+                        },
+                    },
+                    {
+                        targets: 3,
+                        orderable: false,
+                        render: function (data, type, row, meta) {
+                            return getUserTypeColumnData(row);
+                        },
+                    },
+                    {
+                        targets: 4,
+                        name: "Phone",
+                        render: function (data, type, row, meta) {
+                            return row.mobile;
+                        },
+                    },
+                    {
+                        targets: 5,
+                        orderable: false,
+                        render: function (data, type, row, meta) {
+                            return row.zipCode;
+                        },
+                    },
+                    {
+                        targets: 6,
+                        orderable: false,
+                        render: function (data, type, row, meta) {
+                            return getStatusColumnData(row);
+                        },
+                    },
+                    {
+                        targets: 7,
+                        orderable: false,
+                        render: function (data, type, row, meta) {
+                            return getActionColumnData(row);
+                        },
+                    },
+                ],
+            });
+
+
+            $(".buttons-excel").hide();
+            $("#table_id_filter").hide();
+            $.fn.dataTable.ext.errMode = "none";
+            $("#table_id").on("error.dt", function (e, settings, techNote, message) {
+                console.log("An error occurred: ", message);
+            });
+            oTable = $("#table_id").DataTable();
+            $("#searchBtn").click(function () {
+                oTable.search([
+                    $("#userName").val(),
+                    $("#userType").val(),
+                    $("#phoneNumber").val(),
+                    $("#postalCode").val(),
+                    $("#email").val(),
+                    $("#fromDate").val(),
+                    $("#toDate").val(),
+                ]);
+                oTable.draw();
+            });
+
+            $("#clearBtn").click(function () {
+                $("input,#userType").val("");
+                $("#searchBtn").trigger("click");
+            });
+
+            $("#export").on("click", function () {
+                $(".buttons-excel").trigger("click");
+            });
+        }
+
+        function getDateColumnData(row) {
+            var date = row.createdDate.split("T");
+            var array = date[0].split("-");
+            return (
+                '<img src="../image/calendar2.png"/>' +
+                " " +
+                array[2] +
+                "/" +
+                array[1] +
+                "/" +
+                array[0]
+            );
+        }
+
+        function getUserTypeColumnData(row) {
+            var userType = "";
+            if (row.userTypeId == 1) {
+                userType = "Customer";
+            } else if (row.userTypeId == 2) {
+                userType = "Service Provider";
+            } else if (row.userTypeId == 3) {
+                userType = "Admin";
+            }
+            return "<span>" + userType + "</span>";
+        }
+
+        function getStatusColumnData(row) {
+            
+            if (row.isActive) {
+                return '<span class="activebtn">Active</span>';
+            } else {
+                return '<span class="inactivebtn">Inactive</span>';
+            }
+        }
+
+        function getActionColumnData(row) {
+            var deactiveOprion = "";
+            if (row.isActive) {
+                deactiveOprion =
+                    '<a class="dropdown-item" onclick="DeActivate(' +
+                    row.userId +
+                    ')">Deactivate</a>';
+            } else {
+                deactiveOprion =
+                    '<a class="dropdown-item" onclick="Activate(' +
+                    row.userId +
+                    ')">Activate</a>';
+            }
+
+            return (
+                '<div class="dropdown">' +
+                '<a class="btn threedots" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">' +
+                '<img src="../image/three-dot.png"/>' +
+                "</a>" +
+                '<ul class="dropdown-content" aria-labelledby="dropdownMenuLink">' +
+                '<li><a class="dropdown-item" onclick="onDeleteLinkClick(' +
+                row.userId +
+                ')">Delete</a></li>' +
+                deactiveOprion +
+                "</ul >" +
+                "</div >"
+            );
+        }
+
+        function Activate(val) {
+            $.post("/Admin/ActivateUser", { Id: parseInt(val) }, function (data) {
+
+                if (data) {
+                    alert("Activate User Successfully!");
+                }
+
+            });
+        }
+
+        function DeActivate(val) {
+            $.post("/Admin/DeActivateUser", { Id: parseInt(val) }, function (data) {
+
+                if (data) {
+                    alert("DeActivate User Successfully!");
+                }
+
+            });
+        }
+    </script>
+</body>
+</html>

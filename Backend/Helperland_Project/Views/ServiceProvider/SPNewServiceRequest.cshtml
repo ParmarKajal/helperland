@@ -35,17 +35,16 @@
             if (item.servicerequest.Status != 1 && item.servicerequest.Status != 2)
             {
 
-                DateTime dt = item.servicerequest.ServiceStartDate;               //Gets the current date
-                string datetime = dt.ToString();          //converts the datetime value to string
-                string[] DateTime = datetime.Split(' ');  //splitting the date from time with the help of space delimeter
-                string Date = DateTime[0];                //saving the date value from the string array
+                DateTime dt = item.servicerequest.ServiceStartDate;               
+                string datetime = dt.ToString();          
+                string[] DateTime = datetime.Split(' '); 
+                string Date = DateTime[0];                
                 string Time = DateTime[1];
                 string[] time = Time.Split(':');
                 string clocktime = time[0] + ":" + time[1];
 
                 var Extrahour = Convert.ToDouble(item.servicerequest.ExtraHours);
                 var Extratime = item.servicerequest.ServiceHours + Extrahour;
-                //  DateTime dts = Convert.ToDateTime(Extratime);
                 DateTime end = Convert.ToDateTime(clocktime);
                 DateTime watch = end.AddHours(Extratime);
 
@@ -68,7 +67,7 @@
                             <b>@Html.DisplayFor(modelitem => Date)</b>
                         </div>
                         <div>
-                            <img src="../image/layer-712.png">
+                            <img src="../image/watch.png">
                             @Html.DisplayFor(modelitem => clocktime)- @Html.DisplayFor(modelitem => totaltime)
                         </div>
                     </td>
@@ -85,16 +84,16 @@
 
 
                         <div>
-                            <img src="../image/layer-719.png">
+                            <img src="../image/home.png">
                             @Html.DisplayFor(modelitem => item.servicerequestaddress.AddressLine1) , @Html.DisplayFor(modelitem => item.servicerequestaddress.AddressLine2) ,
                             @Html.DisplayFor(modelitem => item.servicerequestaddress.City),@Html.DisplayFor(modelitem => item.servicerequestaddress.PostalCode)
                         </div>
                     </td>
                     <td>@Html.DisplayFor(modelitem => item.servicerequest.TotalCost)&#128;</td>
-                    <td>15 km</td>
+                    <td></td>
                     <td>
 
-                        <button type="button" class="reschedule-button" id="Acceptting" data-bs-toggle="modal" data-bs-target="#AcceptModal" onclick="AcceptReq(@item.servicerequest.ServiceRequestId)">Accept</button>
+                        <button type="button" class="reschedule-button rounded-pill border border-1 text-center reschedulebtn" id="Acceptting" data-bs-toggle="modal" data-bs-target="#AcceptModal" onclick="AcceptReq(@item.servicerequest.ServiceRequestId)">Accept</button>
 
 
                     </td>
@@ -179,7 +178,7 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <p class="alert">Do you want to Accept this request?</p>
-                    <button type="button" class="remove-btn" value="" onclick="AcceptNow(this.value)" id="accept">Accept</button>
+                    <button type="button" class="remove-btn rounded-pill border border-1 text-center reschedulebtn" value="" onclick="AcceptNow(this.value)" id="accept">Accept</button>
                 </div>
             </div>
         </div>

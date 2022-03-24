@@ -5,7 +5,7 @@
 
 <div class="col-sm-9 service-History-table2">
     <div class="service-history-title">
-        <p class="service-history-text">Service History <button type="button" class="rounded-pill exportbtn">Export</button></p>
+        <p class="service-history-text">Service History <a role="button" style="float:right;" class="rounded-pill exportbtn" asp-action="DownloadExcel">Export</a></p>
     </div>
     <table class="table service-History-table-table2" id="customerservicehistory">
         <tr class="service-History-table2-heading">
@@ -20,17 +20,38 @@
         @foreach (var req in Model)
         {
             if (req.Status == 1 || req.Status == 3)
-            { 
-            DateTime dt = req.ServiceStartDate;
-            string datetime = dt.ToString();
-            string[] DateTime = datetime.Split(' ');
-            string Date = DateTime[0];
-            string Time = DateTime[1];
-            string[] time = Time.Split(':');
-            string clocktime = time[0] + ":" + time[1];
-            var Extratime = req.ServiceHours + req.ExtraHours;
-            string Endtime = Extratime.ToString();
-            string totaltime = clocktime + Endtime;
+            {
+                //DateTime dt = req.ServiceStartDate;
+                //string datetime = dt.ToString();
+                //string[] DateTime = datetime.Split(' ');
+                //string Date = DateTime[0];
+                //string Time = DateTime[1];
+                //string[] time = Time.Split(':');
+                //string clocktime = time[0] + ":" + time[1];
+                //var Extratime = req.ServiceHours + req.ExtraHours;
+                //string Endtime = Extratime.ToString();
+                //string totaltime = clocktime + Endtime;
+
+                DateTime dt = req.ServiceStartDate;
+                string datetime = dt.ToString();
+                string[] DateTime = datetime.Split(' ');
+                string Date = DateTime[0];
+                string Time = DateTime[1];
+                string[] time = Time.Split(':');
+                string clocktime = time[0] + ":" + time[1];
+
+                var Extrahour = Convert.ToDouble(req.ExtraHours);
+                var Extratime = req.ServiceHours + Extrahour;
+                DateTime end = Convert.ToDateTime(clocktime);
+                DateTime watch = end.AddHours(Extratime);
+
+                string Endtime = watch.ToString();
+
+                string[] d = Endtime.Split(' ');
+                string endt = d[1];
+                string[] endda = endt.Split(':');
+
+                string totaltime = endda[0] + ":" + endda[1];
             <tr class="service-History-table2-data">
                 <td class="pt-3" onclick="ServiceDetails(@req.ServiceRequestId)" data-bs-toggle="modal" data-bs-target=".ServiceHistory">
                     <div class="px-2">

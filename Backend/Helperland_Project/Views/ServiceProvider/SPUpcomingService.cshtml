@@ -50,7 +50,7 @@
                             <b>@Html.DisplayFor(modelitem => Date)</b>
                         </div>
                         <div>
-                            <img src="../image/layer-712.png">
+                            <img src="../image/watch.png">
                             @Html.DisplayFor(modelitem => clocktime)- @Html.DisplayFor(modelitem => totaltime)
                         </div>
                     </td>
@@ -67,7 +67,7 @@
 
 
                         <div>
-                            <img src="../image/layer-719.png">
+                            <img src="../image/home.png">
                             @Html.DisplayFor(modelitem => item.servicerequestaddress.AddressLine1) , @Html.DisplayFor(modelitem => item.servicerequestaddress.AddressLine2) ,
                             @Html.DisplayFor(modelitem => item.servicerequestaddress.City),@Html.DisplayFor(modelitem => item.servicerequestaddress.PostalCode)
                         </div>
@@ -77,11 +77,11 @@
                     <td>
                         @if (item.servicerequest.Status == 1)
                         {
-                            <button type="button" class="reschedule-button">Complete</button>
+                            <button type="button" class="reschedule-button rounded-pill border border-1 text-center reschedulebtn">Complete</button>
                         }
                         else
                         {
-                            <button type="button" class="cancel-button" data-toggle="modal" data-target="#Remove" onclick="Cancle(@item.servicerequest.ServiceRequestId)">Cancel</button>
+                            <button type="button" class="cancel-button rounded-pill border border-1 text-center canclebtn" data-bs-toggle="modal" data-bs-target="#Remove" onclick="Cancle(@item.servicerequest.ServiceRequestId)">Cancel</button>
                         }
 
                     </td>
@@ -89,71 +89,6 @@
                 </tr>
             }
         }
-        @*<tr data-bs-toggle="modal" data-bs-target="#NewServiceRequest">
-                <td>323436</td>
-
-                <td>
-                    <div>
-                        <img src="../image/calendar2.png">
-                        <b>09/04/2018</b>
-                    </div>
-                    <div>
-                        <img src="../image/watch.png">
-                        12:00 - 18:00
-                    </div>
-                </td>
-
-
-                <td>
-                    <div>
-                        Gaurang Patel
-                    </div>
-                    <div>
-                        <img src="../image/home.png">
-                        Koeingstrasse 112<br> 99897 Tambach-Dietharz
-                    </div>
-                </td>
-
-
-                <td> 56,25&#128; </td>
-
-                <td>  </td>
-                <td><button type="button" class="text-center Accept-button">Accept</button></td>
-
-            </tr>
-
-            <tr>
-                <td>323436</td>
-
-                <td>
-                    <div>
-                        <img src="../image/calendar2.png">
-                        <b>09/04/2018</b>
-                    </div>
-                    <div>
-                        <img src="../image/watch.png">
-                        12:00 - 18:00
-                    </div>
-                </td>
-
-
-                <td>
-                    <div>
-                        Gaurang Patel
-                    </div>
-                    <div>
-                        <img src="../image/home.png">
-                        Koeingstrasse 112<br> 99897 Tambach-Dietharz
-                    </div>
-                </td>
-
-
-                <td> 56,25&#128; </td>
-
-                <td>  </td>
-                <td><button type="button" class="text-center Accept-button">Accept</button></td>
-
-            </tr>*@
     </tbody>
 </table>
 
@@ -195,10 +130,11 @@
                     <hr>
                     <div class="row pt-2">
                         <div class="col-sm-3">
-                            <button type="button" class="cancel-button">Cancel</button>
-
-                            <button type="button" class="reschedule-button" value="" data-bs-toggle="modal" data-bs-target="#Complete" onclick="CompleteService(this.value);" id="CompleteBtn">Complete</button>
+                            <button type="button" class="cancel-button rounded-pill border border-1 text-center canclebtn">Cancel</button>
                         </div>
+                        <div class="col-sm-3">
+                            <button type="button" class="reschedule-button rounded-pill border border-1 text-center reschedulebtn" value="" data-bs-toggle="modal" data-bs-target="#Complete" onclick="CompleteService(this.value);" id="CompleteBtn">Complete</button>
+                        </div>   
                     </div>
                 </div>
             </div>
@@ -206,16 +142,6 @@
     </div>
 </div>
 
-@*@if (ViewBag.Complete != null)
-    {
-        <script type="text/javascript">
-
-                window.onload = function () {
-                    alert("@ViewBag.Complete");
-                };
-        </script>
-
-    }*@
 <!------------------------Cancel Modal-------------------------------------->
 
 <div class="container remove-modal">
@@ -226,13 +152,13 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title text-center">Cancel Service</h4>
-                    <button type="button" class="btnclose" data-bs-dismiss="modal"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <p class="alert">Are You Sure You Wang to Delete Address?</p>
-                    <button type="button" class="remove-btn" value="" onclick="CancleNow(this.value)" id="cancle">Extinguish</button>
+                    <p class="alert">Are You Sure You Want to Cancle Service Request?</p>
+                    <button type="button" class="remove-btn rounded-pill border border-1 text-center canclebtn" value="" onclick="CancleNow(this.value)" id="cancle">Extinguish</button>
                 </div>
             </div>
         </div>
@@ -253,8 +179,8 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <p class="alert">Do you want to change your action cancle to complete?</p>
-                    <button type="button" class="remove-btn" value="" onclick="CompleteNow(this.value)" id="complete">Complete</button>
+                    <p class="alert">Do you want to change status of service request to complete?</p>
+                    <button type="button" class="remove-btn rounded-pill border border-1 text-center reschedulebtn" value="" onclick="CompleteNow(this.value)" id="complete">Complete</button>
                 </div>
             </div>
         </div>

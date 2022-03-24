@@ -413,3 +413,8 @@ C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\
 C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\ServiceProvider\SPProfile.cshtml.g.cs
 C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\ServiceProvider\SPServiceHistory.cshtml.g.cs
 C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\ServiceProvider\SPUpcomingService.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Admin\AdminServiceRequestPage.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Admin\AdminEditModel.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\bin\Debug\net5.0\EPPlus.dll
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\bin\Debug\net5.0\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Admin\AdminUserManagement.cshtml.g.cs

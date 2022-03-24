@@ -150,7 +150,7 @@ namespace Helperland_Project.Controllers
                         }
                         if (detail.UserTypeId == 1)
                         {
-                            return RedirectToAction("Profile", "Customer");
+                            return RedirectToAction("CustomPage", "Customer");
                         }
                         if (detail.UserTypeId == 2)
                         {

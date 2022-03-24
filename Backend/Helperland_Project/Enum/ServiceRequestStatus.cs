@@ -9,6 +9,8 @@ namespace Helperland_Project.Enum
     {
         Completed = 1,
         Accepted = 2,
-        cancelled = 3
+        cancelled = 3,
+        New=4,
+        Pending=5
     }
 }

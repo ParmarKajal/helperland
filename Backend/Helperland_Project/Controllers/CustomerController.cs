@@ -3,8 +3,11 @@ using Helperland_Project.Repository;
 using Helperland_Project.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -25,8 +28,10 @@ namespace Helperland_Project.Controllers
             var loggedinuser = _schema.Users.Where(b => b.Email.Equals(HttpContext.Session.GetString("Email"))).FirstOrDefault();
             var userid = loggedinuser.UserId;
             ViewBag.FirstName = loggedinuser.FirstName;
-            System.Threading.Thread.Sleep(2000);
-            return View(_schema.ServiceRequests.Where(b => b.UserId.Equals(userid)).ToList());
+            IEnumerable<ServiceRequest> sr = _schema.ServiceRequests.Include(x => x.ServiceProvider).Where(x => x.UserId.Equals(userid)).ToList();
+            var user = _schema.ServiceRequests.Where(b => b.UserId.Equals(userid)).ToList();
+            System.Threading.Thread.Sleep(2000);  
+            return View(sr);
         }
 
 
@@ -303,6 +308,49 @@ namespace Helperland_Project.Controllers
                 _schema.SaveChanges();
             }
             return Json(true);
+        }
+
+        public FileResult DownloadExcel()
+        {
+            var Customer = _schema.Users.Where(b => b.Email.Equals(HttpContext.Session.GetString("Email"))).FirstOrDefault();
+            var ID = Customer.UserId;
+            IEnumerable<ServiceRequest> use = _schema.ServiceRequests.Include(x => x.ServiceProvider).ThenInclude(x => x.RatingRatingToNavigations).Where(x => x.UserId.Equals(ID)
+ && (x.Status == 1 || x.Status == 3)).ToList();
+
+
+            ExcelPackage Ep = new ExcelPackage();
+            ExcelWorksheet Sheet = Ep.Workbook.Worksheets.Add("Report");
+            Sheet.Cells["A1"].Value = "Service Details";
+            Sheet.Cells["B1"].Value = "Service Provider";
+            Sheet.Cells["C1"].Value = "Payment";
+            Sheet.Cells["D1"].Value = "Status";
+            int row = 2;
+            foreach (var item in use)
+            {
+                Sheet.Cells[String.Format("A{0}", row)].Value = item.ServiceStartDate.ToShortDateString() + "\n" + item.ServiceStartDate.ToShortTimeString() + " - " + item.ServiceStartDate.AddHours(Convert.ToDouble(item.SubTotal)).ToShortTimeString();
+                Sheet.Cells[String.Format("B{0}", row)].Value = item.ServiceProvider.FirstName + item.ServiceProvider.LastName;
+                Sheet.Cells[String.Format("C{0}", row)].Value = item.SubTotal;
+                if (item.Status == 1)
+                {
+                    Sheet.Cells[String.Format("D{0}", row)].Value = "Completed";
+                }
+                if (item.Status == 3)
+                {
+                    Sheet.Cells[String.Format("D{0}", row)].Value = "Cancelled";
+                }
+
+                row++;
+            }
+
+            Sheet.Cells["A:AZ"].AutoFitColumns();
+            using (MemoryStream stream = new MemoryStream())
+            {
+                Ep.SaveAs(stream);
+                return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "CustomerServiceHistory.xlsx");
+            }
+
+
+
         }
 
     }

@@ -379,3 +379,32 @@ body{
   font-family: 'roboto';
   margin-left: -50px;
 }
+
+
+
+.modal-title{
+  color: #646464!important;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.modal-body{
+  color: #646464!important;
+  font-size:16px;
+  font-family: 'roboto';
+}
+
+#Date{  color:#a0a0a0;}
+#rescheduledTime{
+  /* padding: 10px 10px 10px 10px; */
+  border: 1px solid #e1e1e1;
+  color:#a0a0a0;
+}
+
+#update{
+  background-color: #1fb6ff;
+  border: none!important;
+  color: white!important;
+  width: 100%;
+  height:46px;
+}

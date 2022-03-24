@@ -4,8 +4,10 @@ using Helperland_Project.Repository;
 using Helperland_Project.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -56,7 +58,7 @@ namespace Helperland_Project.Controllers
                                      join sra in servicerequestaddress on sr.ServiceRequestId equals sra.ServiceRequestId into table1
                                      from sra in table1.ToList()
                                      join u in user on sr.UserId equals u.UserId into table2
-                                     from u in table2.ToList()
+                                     from u in table2.Distinct().ToList()
                                      select new UpcomingViewModel
                                      {
                                          servicerequest = sr,
@@ -107,7 +109,7 @@ namespace Helperland_Project.Controllers
             var ServiceAddress = AddressDetails.AddressLine1 + AddressDetails.AddressLine2 + AddressDetails.City + AddressDetails.PostalCode;
             // var Phone = AddressDetails.Mobile;
             // var Email = AddressDetails.Email;
-            // return View(_testContext.ServiceRequests.Where(b => b.ServiceRequestId.Equals(Id)).ToList());
+            // return View(_schema.ServiceRequests.Where(b => b.ServiceRequestId.Equals(Id)).ToList());
             return Json(new
             {
                 id = SrID,
@@ -142,10 +144,10 @@ namespace Helperland_Project.Controllers
         public JsonResult CompleteUpcomingService(int Id)
         {
             var details = _schema.ServiceRequests.Where(b => b.ServiceRequestId.Equals(Id)).FirstOrDefault();
-            DateTime dt = details.ServiceStartDate;              
-            string datetime = dt.ToString();          
-            string[] DateTim = datetime.Split(' ');  
-            string Date = DateTim[0];                
+            DateTime dt = details.ServiceStartDate;
+            string datetime = dt.ToString();
+            string[] DateTim = datetime.Split(' ');
+            string Date = DateTim[0];
             string Time = DateTim[1];
             string[] time = Time.Split(':');
             string clocktime = time[0] + ":" + time[1];
@@ -201,13 +203,15 @@ namespace Helperland_Project.Controllers
             var Customer = _schema.Users.Where(b => b.Email.Equals(HttpContext.Session.GetString("Email"))).FirstOrDefault();
             SPProfileViewModel mymodel = new SPProfileViewModel();
             var ID = Customer.UserId;
-            ViewBag.ID = ID;
+            ViewBag.firstname = Customer.FirstName;
 
             mymodel.FirstName = Customer.FirstName;
             mymodel.LastName = Customer.LastName;
             mymodel.Email = Customer.Email;
             mymodel.Mobile = Customer.Mobile;
             mymodel.Gender = Customer.Gender;
+            mymodel.UserProfilePicture = Customer.UserProfilePicture;
+            ViewBag.profilepicture = mymodel.UserProfilePicture;
             if (Customer.DateOfBirth != null)
             {
 
@@ -217,9 +221,9 @@ namespace Helperland_Project.Controllers
 
 
                 string[] dob = Date.Split('-');
-                mymodel.BirthYear = Int32.Parse(dob[2]);
-                mymodel.BirthMonth = dob[1];
-                mymodel.BirthDate = Int32.Parse(dob[0]);
+                //mymodel.BirthYear = Int32.Parse(dob[2]);
+                //mymodel.BirthMonth = dob[1];
+                //mymodel.BirthDate = Int32.Parse(dob[0]);
             }
 
 
@@ -247,6 +251,7 @@ namespace Helperland_Project.Controllers
             use.Email = spmodel.Email;
             use.Mobile = spmodel.Mobile;
             use.Gender = spmodel.Gender;
+            use.UserProfilePicture = spmodel.UserProfilePicture;
             var BirthDate = spmodel.BirthDate + "-" + spmodel.BirthMonth + "-" + spmodel.BirthYear;
             DateTime birth = Convert.ToDateTime(BirthDate);
             use.DateOfBirth = birth;
@@ -276,7 +281,7 @@ namespace Helperland_Project.Controllers
             _schema.Users.Update(use);
             _schema.SaveChanges();
 
-            return View("ServiceProviderProfile");
+            return View("SPProfile");
         }
 
         [HttpPost]
@@ -329,7 +334,7 @@ namespace Helperland_Project.Controllers
             {
                 List<User> user = new List<User>();
                 List<ServiceRequestAddress> servicerequestaddress = new List<ServiceRequestAddress>();
-               // List<ServiceRequest> servicerequest = new List<ServiceRequest>();
+                // List<ServiceRequest> servicerequest = new List<ServiceRequest>();
                 var ServiceProvider = db.Users.Where(b => b.Email.Equals(HttpContext.Session.GetString("Email"))).FirstOrDefault();
                 // var ID = ServiceProvider.UserId;
                 var zip = ServiceProvider.ZipCode;
@@ -534,7 +539,7 @@ namespace Helperland_Project.Controllers
 
                 var CustomerRecord = from sr in servicerequest
                                      join u in user on sr.UserId equals u.UserId into table1
-                                     from u in table1.ToList()
+                                     from u in table1.ToList().Distinct()
                                          //join f in favoriteandblocked on u.UserId equals f.TargetUserId into table2
                                          //from f in table2.ToList()
 
@@ -550,7 +555,7 @@ namespace Helperland_Project.Controllers
 
 
 
-            // IEnumerable<ServiceRequest> sr=_testContext.ServiceRequests.Include(x=>x.User).ThenInclude(x=>x.UserAddresses).
+            // IEnumerable<ServiceRequest> sr=_schema.ServiceRequests.Include(x=>x.User).ThenInclude(x=>x.UserAddresses).
 
         }
 
@@ -607,6 +612,70 @@ namespace Helperland_Project.Controllers
             }
 
         }
-    }
 
+
+        public FileResult DownloadExcel()
+        {
+            List<User> user = new List<User>();
+            List<ServiceRequestAddress> servicerequestaddress = new List<ServiceRequestAddress>();
+
+
+            var ServiceProvider = _schema.Users.Where(b => b.Email.Equals(HttpContext.Session.GetString("Email"))).FirstOrDefault();
+            var ID = ServiceProvider.UserId;
+
+            var request = _schema.ServiceRequests.Where(b => b.ServiceProviderId.Equals(ID)).ToList();
+            foreach (var item in request)
+            {
+                user.AddRange(_schema.Users.Where(b => b.UserId.Equals(item.UserId)).ToList());
+
+                servicerequestaddress.AddRange(_schema.ServiceRequestAddresses
+               .Where(b => b.ServiceRequestId.Equals(item.ServiceRequestId)).ToList());
+            }
+
+
+
+            List<ServiceRequest> servicerequest = _schema.ServiceRequests.Where(b => b.ServiceProviderId.Equals(ID)).ToList();
+
+
+
+
+            var UpcomingRecord = from sr in servicerequest
+                                 join sra in servicerequestaddress on sr.ServiceRequestId equals sra.ServiceRequestId into table1
+                                 from sra in table1.ToList().Distinct()
+                                 join u in user on sr.UserId equals u.UserId into table2
+                                 from u in table2.ToList().Distinct()
+                                 select new UpcomingViewModel
+                                 {
+                                     servicerequest = sr,
+                                     servicerequestaddress = sra,
+                                     user = u
+                                 };
+
+
+            ExcelPackage Ep = new ExcelPackage();
+            ExcelWorksheet Sheet = Ep.Workbook.Worksheets.Add("Report");
+            Sheet.Cells["A1"].Value = "Service ID";
+            Sheet.Cells["B1"].Value = "Service date";
+            Sheet.Cells["C1"].Value = "Customer details";
+
+            int row = 2;
+            foreach (var item in UpcomingRecord)
+            {
+
+                Sheet.Cells[string.Format("A{0}", row)].Value = item.servicerequest.ServiceRequestId;
+                Sheet.Cells[string.Format("B{0}", row)].Value = item.servicerequest.ServiceStartDate;
+                Sheet.Cells[string.Format("C{0}", row)].Value = item.user.FirstName;
+
+                row++;
+            }
+
+            Sheet.Cells["A:AZ"].AutoFitColumns();
+            using (MemoryStream stream = new MemoryStream())
+            {
+                Ep.SaveAs(stream);
+                return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ServiceHistory.xlsx");
+            }
+        }
+
+    }
 }

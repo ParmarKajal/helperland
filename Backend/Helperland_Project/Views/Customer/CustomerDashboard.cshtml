@@ -22,18 +22,40 @@
             </tr>
             @foreach (var displayservice in Model)
             {
+                //DateTime dt = displayservice.ServiceStartDate;
+                //string datetime = dt.ToString();
+                //string[] DateTime = datetime.Split(' ');
+                //string Date = DateTime[0];
+                //string Time = DateTime[1];
+                //string[] time = Time.Split(':');
+                //string formatetime = time[0] + ":" + time[1];
+                //var Extratime = displayservice.ServiceHours + displayservice.ExtraHours;
+                //string Endtime = Extratime.ToString();
+                //string totaltime = formatetime + Endtime;
+
                 DateTime dt = displayservice.ServiceStartDate;
                 string datetime = dt.ToString();
                 string[] DateTime = datetime.Split(' ');
                 string Date = DateTime[0];
                 string Time = DateTime[1];
                 string[] time = Time.Split(':');
-                string formatetime = time[0] + ":" + time[1];
-                var Extratime = displayservice.ServiceHours + displayservice.ExtraHours;
-                string Endtime = Extratime.ToString();
-                string totaltime = formatetime + Endtime;
+                string clocktime = time[0] + ":" + time[1];
 
+                var Extrahour = Convert.ToDouble(displayservice.ExtraHours);
+                var Extratime = displayservice.ServiceHours + Extrahour;
+                DateTime end = Convert.ToDateTime(clocktime);
+                DateTime watch = end.AddHours(Extratime);
 
+                string Endtime = watch.ToString();
+
+                string[] d = Endtime.Split(' ');
+                string endt = d[1];
+                string[] endda = endt.Split(':');
+
+                string totaltime = endda[0] + ":" + endda[1];
+
+                @if(displayservice.Status!=1 && displayservice.Status!=3)
+                { 
                 <tr class="customer-dashboard-table2-data">
                     <td class="pt-3" onclick="ShowDetails(@displayservice.ServiceRequestId);" data-bs-toggle="modal" data-bs-target=".ServiceDetails" id="SrId">
                         <div class="px-2">
@@ -48,11 +70,12 @@
                         </div>
                         <div id="time">
                             <img src="../image/watch.png">
-                            @Html.DisplayFor(modelitem => formatetime) to @Html.DisplayFor(modelitem => totaltime)
+                            @Html.DisplayFor(modelitem => clocktime) - @Html.DisplayFor(modelitem => totaltime)
                         </div>
                     </td>
 
                     <td id="serviceprovider" class="pt-3">
+                        @Html.DisplayFor(modelItem => displayservice.ServiceProvider.FirstName) @Html.DisplayFor(modelItem => displayservice.ServiceProvider.LastName)
                     </td>
                     <td class="pt-4" id="payment" onclick="ShowDetails(@displayservice.ServiceRequestId);" data-bs-toggle="modal" data-bs-target=".ServiceDetails">
                         @Html.DisplayFor(modelItem => displayservice.SubTotal)&#128;
@@ -60,14 +83,14 @@
 
                     <td class="pt-4">
                         <button type="button" class="rounded-pill border border-1 text-center reschedulebtn">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#Reschedule" onclick="Reschedule(@displayservice.ServiceRequestId)">Reschedule</a>
+                            <a href="#" style="text-decoration:none!important; color:white;" data-bs-toggle="modal" data-bs-target="#Reschedule" onclick="Reschedule(@displayservice.ServiceRequestId)">Reschedule</a>
                         </button>
-                        <button type="button" class="rounded-pill border border-1 text-center canclebtn">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#Cancel" onclick="Cancle(@displayservice.ServiceRequestId)">Cancel</a>
+                        <button type="button" class="rounded-pill border border-1 text-center canclebtn" style="color:white; text-decoration:none!important;">
+                            <a href="#" style="text-decoration:none!important; color:white;" data-bs-toggle="modal" data-bs-target="#Cancel" onclick="Cancle(@displayservice.ServiceRequestId)">Cancel</a>
                         </button>
                     </td>
                 </tr>
-
+                }
             }
         </table>
 
