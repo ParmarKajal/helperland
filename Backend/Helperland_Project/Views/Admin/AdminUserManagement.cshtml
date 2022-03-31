@@ -405,17 +405,35 @@
 
         function getActionColumnData(row) {
             var deactiveOprion = "";
+            var isapprovedlink = "";
+
+
             if (row.isActive) {
                 deactiveOprion =
                     '<a class="dropdown-item" onclick="DeActivate(' +
                     row.userId +
                     ')">Deactivate</a>';
-            } else {
+            }
+            else {
                 deactiveOprion =
                     '<a class="dropdown-item" onclick="Activate(' +
                     row.userId +
                     ')">Activate</a>';
             }
+
+            if (row.userTypeId == 2) {
+                isapprovedlink = '<a class="dropdown-item" onclick="Approve(' +
+                    row.userId +
+                    ')">Approve</a>';
+
+
+            }
+            else {
+                isapprovedlink = '<a class="dropdown-item disabled">Approve</a>';
+
+            }
+
+
 
             return (
                 '<div class="dropdown">' +
@@ -427,6 +445,7 @@
                 row.userId +
                 ')">Delete</a></li>' +
                 deactiveOprion +
+                isapprovedlink +
                 "</ul >" +
                 "</div >"
             );
@@ -438,6 +457,9 @@
                 if (data) {
                     alert("Activate User Successfully!");
                 }
+                else {
+                    alert("Plz Approved First to Service Provider");
+                }
 
             });
         }
@@ -447,6 +469,17 @@
 
                 if (data) {
                     alert("DeActivate User Successfully!");
+                }
+
+            });
+        }
+
+        function Approve(val) {
+            $.post("/Admin/ApproveSP", { Id: parseInt(val) }, function (data) {
+
+                if (data) {
+
+                    alert("Approved Service Provider!!");
                 }
 
             });

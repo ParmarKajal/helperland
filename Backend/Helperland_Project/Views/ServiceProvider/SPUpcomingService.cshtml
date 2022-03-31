@@ -16,7 +16,7 @@
 
         @foreach (var item in Model)
         {
-            if (item.servicerequest.Status != 3)
+            if (item.servicerequest.Status != 1)
             {
 
                 DateTime dt = item.servicerequest.ServiceStartDate;
@@ -73,7 +73,7 @@
                         </div>
                     </td>
                     <td>@Html.DisplayFor(modelitem => item.servicerequest.TotalCost)&#128;</td>
-                    <td>15 km</td>
+                    <td></td>
                     <td>
                         @if (item.servicerequest.Status == 1)
                         {

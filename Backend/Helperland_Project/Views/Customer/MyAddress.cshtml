@@ -136,6 +136,17 @@
     {
       
         $("#update").prop("value", ServiceRequestId);
+
+        $.post("/Customer/GetAddress", { Id: parseInt(ServiceRequestId) }, function (data) {
+
+            $(".street").val(data.adress);
+            $(".house").val(data.adressline);
+            $(".phone").val(data.mobile);
+            $(".postal").val(data.zip);
+            $(".city").val(data.city);
+           
+
+        });
     }
 
     function Update(id) {

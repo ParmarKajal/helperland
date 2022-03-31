@@ -1,4 +1,5 @@
-﻿using Helperland_Project.Models.Data;
+﻿using Helperland_Project.Enum;
+using Helperland_Project.Models.Data;
 using Helperland_Project.Repository;
 using Helperland_Project.ViewModels;
 using Microsoft.AspNetCore.Http;
@@ -26,33 +27,34 @@ namespace Helperland_Project.Controllers
 
         public IActionResult BookNow()
         {
-            return View();
-        }
-
-        [HttpPost]
-
-        public IActionResult ZipCodeValue(BookNowViewModel model)
-        {
             if (HttpContext.Session.GetString("Email") != null)
             {
-                var postal = _schema.Users.Where(b => b.ZipCode.Equals(model.ZipCode) && b.UserTypeId == 2).FirstOrDefault();
-                if (postal != null)
-                {
-                    HttpContext.Session.SetString("ZipCode", model.ZipCode);
-                    return Ok(Json("true"));
-                }
-                else
-                {
-                    return Ok(Json("false"));
-                }
+                return View();
             }
 
             else
             {
                 return RedirectToAction("Index", "Home");
             }
+        }
 
-            return View();
+        [HttpPost]
+
+        public JsonResult ZipCodeValue(BookNowViewModel model)
+        {
+            var postal = _schema.Users.Where(b => b.ZipCode.Equals(model.ZipCode) && b.UserTypeId == 2).FirstOrDefault();
+            if (postal != null)
+            {
+                HttpContext.Session.SetString("ZipCode", model.ZipCode);
+                return Json(true);
+
+            }
+            else
+            {
+                return Json(false);
+
+            }
+
         }
 
 
@@ -74,10 +76,11 @@ namespace Helperland_Project.Controllers
         [HttpGet]
         public IActionResult Address()
         {
-            var loggedinuser = _schema.Users.Where(b => b.Email.Equals(HttpContext.Session.GetString("Email"))).FirstOrDefault();
-            var userid = loggedinuser.UserId;
+            var CustomerId = _schema.Users.Where(b => b.Email.Equals(HttpContext.Session.GetString("Email"))).FirstOrDefault();
+            int ID = CustomerId.UserId;
+            string zipp = HttpContext.Session.GetString("ZipCode");
             System.Threading.Thread.Sleep(2000);
-            return View(_schema.UserAddresses.Where(b=>b.UserId.Equals(userid)).ToList());
+            return View(_schema.UserAddresses.Where(address => address.UserId.Equals(ID) && address.PostalCode == zipp).ToList());
         }
 
         [HttpPost]
@@ -94,6 +97,7 @@ namespace Helperland_Project.Controllers
         public IActionResult AddNewAddress(BookNowViewModel address)
 
         {
+            string zipp = HttpContext.Session.GetString("ZipCode");
             var user = _schema.Users.Where(b => b.Email.Equals(HttpContext.Session.GetString("Email"))).FirstOrDefault();
             var userid = user.UserId;
             UserAddress add = new UserAddress
@@ -103,7 +107,8 @@ namespace Helperland_Project.Controllers
                 AddressLine2 = address.addressline2,
                 City = address.city,
                 State = address.state,
-                PostalCode = address.postalcode,
+                //PostalCode = address.postalcode,
+                PostalCode = zipp,
                 Mobile = address.mobile,
             };
             _schema.Add(add);
@@ -134,7 +139,7 @@ namespace Helperland_Project.Controllers
 
         [HttpPost]
 
-        public ActionResult CompleteBooking(BookNowViewModel booking)
+        public ActionResult CompleteBooking(BookNowViewModel booking , int[] extraservice)
         {
             var CustomerId = _schema.Users.Where(b => b.Email.Equals(HttpContext.Session.GetString("Email"))).FirstOrDefault();
             int ID = CustomerId.UserId;
@@ -160,6 +165,7 @@ namespace Helperland_Project.Controllers
                 TotalCost = booking.TotalCost,
                 Comments = booking.Comments,
                 HasPets = booking.HasPets,
+                Status=(int)ServiceRequestStatus.New,
                 //ServiceId=Guid.New Guid();
             };
             _schema.Add(service);
@@ -182,8 +188,21 @@ namespace Helperland_Project.Controllers
             _schema.Add(serviceaddress);
             _schema.SaveChanges();
 
+            ServiceRequestExtra extra = new ServiceRequestExtra();
+            for (int j = 0; j <= 4; j++)
+            {
+                if (extraservice[j] == 1)
+                {
+                    extra.ServiceRequestExtraId = 0;
+                    extra.ServiceRequestId = service.ServiceRequestId;
+                    extra.ServiceExtraId = j + 1;
+                    _schema.Add(extra);
+                    _schema.SaveChanges();
 
-            
+                }
+
+            }
+
             List<User> user = new List<User>();
             var sp = _schema.FavoriteAndBlockeds.Where(a => a.TargetUserId.Equals(ID) && a.IsBlocked == true).ToList();
             if(sp!=null)

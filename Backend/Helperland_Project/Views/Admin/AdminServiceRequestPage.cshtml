@@ -160,148 +160,179 @@
                 <!--table2-->
                 @*<div class="col-sm-9 ServiceRequest-maintable">
         <h2 class="maintable-heading">Service Requests</h2>*@
-                <div class="col-sm-9 d-flex flex-column table-container">
-                    <h4 class="maintable-heading">Service Requests</h4>
-                    <div class="form">
-                        <div class="row g-3">
-                            <div class="col-auto">
-                                <input type="text" class="form-control" id="serviceId" placeholder="Service ID" />
-                            </div>
-                            <div class="col-auto">
-                                <input type="text" class="form-control" id="postalCode" placeholder="Postal code" />
-                            </div>
-                            <div class="col-auto">
-                                <input type="text" class="form-control" id="email" placeholder="Email" />
-                            </div>
-                            <div class="col-auto">
-                                <input type="text" class="form-control" id="customerName" placeholder="Customer Name" />
-                            </div>
-                            <div class="col-auto">
-                                <input type="text" class="form-control" id="spName" placeholder="Service Provider Name" />
-                            </div>
-                            <div class="col-auto">
-                                <select class="form-select" id="status">
-                                    <option selected value="">Select Status</option>
-                                    <option value=5>Pending</option>
-                                    <option value=2>Accepted</option>
-                                    <option value=1>Completed</option>
-                                    <option value=3>Cancelled</option>
-                                    <option value=4>New</option>
-                                </select>
-                            </div>
-                            <div class="col-auto ms-4">
-                                <input class="form-check-input" type="checkbox" value="" id="hasIssue">
-                                <label class="form-check-label">Has Issue</label>
-                            </div>
-                            <div class="col-auto">
-                                <input type="date" class="form-control" id="fromDate" placeholder="From Date" />
-                            </div>
-                            <div class="col-auto">
-                                <input type="date" class="form-control" id="toDate" placeholder="To Date" value="To Date" />
-                            </div>
-                            <div class="col-auto searchbtn">
-                                <button id="searchBtn">Search</button>
-                            </div>
-                            <div class="col-auto clearbtn">
-                                <button id="clearBtn">Clear</button>
-                            </div>
+            <div class="col-sm-9 d-flex flex-column table-container">
+                <h4 class="maintable-heading">Service Requests</h4>
+                <div class="form">
+                    <div class="row g-3">
+                        <div class="col-auto">
+                            <input type="text" class="form-control" id="serviceId" placeholder="Service ID" />
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" class="form-control" id="postalCode" placeholder="Postal code" />
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" class="form-control" id="email" placeholder="Email" />
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" class="form-control" id="customerName" placeholder="Customer Name" />
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" class="form-control" id="spName" placeholder="Service Provider Name" />
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-select" id="status">
+                                <option selected value="">Select Status</option>
+                                <option value=5>Pending</option>
+                                <option value=2>Accepted</option>
+                                <option value=1>Completed</option>
+                                <option value=3>Cancelled</option>
+                                <option value=4>New</option>
+                            </select>
+                        </div>
+                        <div class="col-auto ms-4">
+                            <input class="form-check-input" type="checkbox" value="" id="hasIssue">
+                            <label class="form-check-label">Has Issue</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="date" class="form-control" id="fromDate" placeholder="From Date" />
+                        </div>
+                        <div class="col-auto">
+                            <input type="date" class="form-control" id="toDate" placeholder="To Date" value="To Date" />
+                        </div>
+                        <div class="col-auto searchbtn">
+                            <button id="searchBtn">Search</button>
+                        </div>
+                        <div class="col-auto clearbtn">
+                            <button id="clearBtn">Clear</button>
                         </div>
                     </div>
+                </div>
 
-                    <!--<div class="row ServiceRequest-menu">
-        <div class="col-sm-1 text-center id">
-            <input type="text" placeholder=" Service ID" name="Service ID">
+                <!--<div class="row ServiceRequest-menu">
+    <div class="col-sm-1 text-center id">
+        <input type="text" placeholder=" Service ID" name="Service ID">
+    </div>
+
+    <div class="col-sm-1 customer">
+        <select class="form-select" id="userlist" name="customer" aria-placeholder="User-Name">
+            <option selected>Customer</option>
+            <option value="1">Customer 1</option>
+            <option value="2">Customer 2</option>
+            <option value="3">Customer 3</option>
+        </select>
+    </div>
+
+    <div class="col-sm-1 service-provider">
+        <select class="form-select" id="userlist" name="service provider" aria-placeholder="service provider">
+            <option selected>Service Provider</option>
+            <option value="1">Service Provider 1</option>
+            <option value="2">Service Provider 2</option>
+            <option value="3">Service Provider 3</option>
+        </select>
+    </div>
+
+    <div class="col-sm-1 status">
+        <select class="form-select" id="userlist" name="status" aria-placeholder="status">
+            <option selected>Status</option>
+            <option value="1">Status 1</option>
+            <option value="2">Status 2</option>
+            <option value="3">Status 3</option>
+        </select>
+    </div>
+
+    <div class="col-sm-1 fromdate">-->
+                <!-- <img  class="calender" src="../image/admin-calendar-blue.png">
+    <input type="text" placeholder="From Date" name="from-date"> -->
+                <!--<input type="date" name="From Date">
+    </div>
+
+    <div class="col-sm-1 todate">-->
+                <!-- <img class="calender" src="../image/admin-calendar-blue.png">
+    <input type="text" placeholder="To Date" name="to-date"> -->
+                <!--<input type="date" name="From Date">
         </div>
 
-        <div class="col-sm-1 customer">
-            <select class="form-select" id="userlist" name="customer" aria-placeholder="User-Name">
-                <option selected>Customer</option>
-                <option value="1">Customer 1</option>
-                <option value="2">Customer 2</option>
-                <option value="3">Customer 3</option>
-            </select>
+        <div class="col-sm-1 searchbtn">
+            <button type="button" class="rounded border">Search</button>
         </div>
 
-        <div class="col-sm-1 service-provider">
-            <select class="form-select" id="userlist" name="service provider" aria-placeholder="service provider">
-                <option selected>Service Provider</option>
-                <option value="1">Service Provider 1</option>
-                <option value="2">Service Provider 2</option>
-                <option value="3">Service Provider 3</option>
-            </select>
+        <div class="col-sm-1 clearbtn">
+            <button type="button" class="rounded border">Clear</button>
         </div>
+    </div>-->
+                <!--table2-->
+                @*<table class="table ServiceRequest-main-table">*@
+                <table id="table_id" class="table table-borderless display nowrap">
+                    <thead>
+                        <tr>
+                            <th>Service ID</th>
+                            <th>Service Date</th>
+                            <th>Customer Details</th>
+                            <th>Service Provider</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
 
-        <div class="col-sm-1 status">
-            <select class="form-select" id="userlist" name="status" aria-placeholder="status">
-                <option selected>Status</option>
-                <option value="1">Status 1</option>
-                <option value="2">Status 2</option>
-                <option value="3">Status 3</option>
-            </select>
-        </div>
+                    <tbody>
+                        <tr>
+                        </tr>
+                    </tbody>
+                </table>
 
-        <div class="col-sm-1 fromdate">-->
-                    <!-- <img  class="calender" src="../image/admin-calendar-blue.png">
-        <input type="text" placeholder="From Date" name="from-date"> -->
-                    <!--<input type="date" name="From Date">
-        </div>
+                <div class="container edit-modal">
+                    <div class="modal" id="EditReschedule">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
 
-        <div class="col-sm-1 todate">-->
-                    <!-- <img class="calender" src="../image/admin-calendar-blue.png">
-        <input type="text" placeholder="To Date" name="to-date"> -->
-                    <!--<input type="date" name="From Date">
-            </div>
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title text-center">Edit Service Request</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
 
-            <div class="col-sm-1 searchbtn">
-                <button type="button" class="rounded border">Search</button>
-            </div>
+                                <!-- Modal body -->
+                                <div class="modal-body px-3">
+                                    <div id="editingmodal" class="address-form">
 
-            <div class="col-sm-1 clearbtn">
-                <button type="button" class="rounded border">Clear</button>
-            </div>
-        </div>-->
-                    <!--table2-->
-                    @*<table class="table ServiceRequest-main-table">*@
-                    <table id="table_id" class="table table-borderless display nowrap">
-                        <thead>
-                            <tr>
-                                <th>Service ID</th>
-                                <th>Service Date</th>
-                                <th>Customer Details</th>
-                                <th>Service Provider</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                           <tr>
-                           </tr>
-                        </tbody>
-                    </table>
-
-                    <div class="container edit-modal">
-                        <div class="modal" id="EditReschedule">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-
-                                    <!-- Modal Header -->
-                                    <div class="modal-header">
-                                        <h4 class="modal-title text-center">Edit Service Request</h4>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
-
-                                    <!-- Modal body -->
-                                    <div class="modal-body px-3">
-                                        <div id="editingmodal" class="address-form">
-
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!--cancle request model-->
+
+                <div class="container remove-modal">
+                    <div class="modal" id="CancelModal">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title text-center">Cancle Service Request</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <p class="alert">Why You Want To Cancle The Service Request?</p>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <textarea rows="3" cols="35"></textarea>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="cancle" value="" class="rounded-pill border border-1 text-center reschedulebtn" onclick="CancleNow(this.value);">Cancle Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
             </div>
         </div>
     </main>
@@ -489,7 +520,7 @@
             }
             else {
                 $(function () {
-                    $('.stars').stars(row.spRating);
+                    $('.stars').stars((row.spRating).toFixed(2));
                 });
                 return (
                     //'<div class="d-flex align-items-center">' +
@@ -500,7 +531,7 @@
                     "<span>" +
                     row.spName +
                     "</span>" +
-                    '<div class="d-flex align-items-center">' +
+                    '<div class="d-flex align-items-center" data-num-stars="5">' +
                     "<span class='stars' data-num-stars='5' ></span>"+
 
                     //"<div class='stars' data-num-stars='5' data-rating=" +
@@ -524,21 +555,24 @@
             else if (row.status == 3) {
                 return '<button type="button" class="user-cancelled-button cancelbtn">Cancelled</button>';
             }
+            else if (row.status == 2) {
+                return '<button type="button" class="user-cancelled-button pendingbtn">Accepted</button>';
+            }
             else {
-                return '<button type="button" class="user-pending-button pendingbtn">Pending</button>';
+                return '<button type="button" class="user-pending-button newbtn">New</button>';
             }
             /* return '<span class="' + row.status + '">' + row.status + "</span>";*/
         }
 
         function getActionColumnData(row) {
             var actionString = "";
-            if (row.status == 1 || row.status == 2) {
+            if (row.status == 4 || row.status == 2) {
                 actionString =
                     '<li><a class="dropdown-item editLink" data-bs-toggle="modal" data-bs-target="#EditReschedule" onclick="EditModal(' +
                     row.serviceRequestId +
-                    ')">Edit & Reschedule</a></li> <li><a class="dropdown-item cancelLink" onclick="onCancelLinkClick(' +
+                    ')">Edit & Reschedule</a></li> <li><a class="dropdown-item cancelLink"  data-bs-toggle="modal" data-bs-target="#CancelModal" onclick="CancelMod(' +
                     row.serviceRequestId +
-                    ')" >Cancel SR by Cust</a></li>';
+                    ')" >Cancel Service Request</a></li>';
             } else {
                 actionString =
                     '<li><a class="dropdown-item editLink disabled">Edit & Reschedule</a></li> <li><a class="dropdown-item cancelLink disabled">Cancel SR by Cust</a></li>';
@@ -555,27 +589,27 @@
             );
         }
 
-        $.fn.stars = function () {
-            return $(this).each(function () {
-                var rating = $(this).data("rating");
-                var fullStar = new Array(Math.floor(rating + 1)).join('<i class="fas fa-star" style="color : #FFD700"></i>');
-                var halfStar = ((rating % 1) !== 0) ? '<i class="fas fa-star-half-alt" style="color : #FFD700"></i>' : '';
-                var noStar = new Array(Math.floor($(this).data("numStars") + 1 - rating)).join('<i class="fas fa-star" style="color : #e0e0e0"></i>');
-                $(this).html(fullStar + halfStar + noStar);
-            });
-        }
-
-        ////ES6
-        //$.fn.stars = function () {
+        //$.fn.stars = function (rating) {
         //    return $(this).each(function () {
-        //        const rating = $(this).data("rating");
-        //        const numStars = $(this).data("numStars");
-        //        const fullStar = '<i class="fas fa-star" style="color : #FFD700"></i>'.repeat(Math.floor(rating));
-        //        const halfStar = (rating % 1 !== 0) ? '<i class="fas fa-star-half-alt" style="color : #FFD700"></i>' : '';
-        //        const noStar = '<i class="fas fa-star" style="color : #e0e0e0"></i>'.repeat(Math.floor(numStars - rating));
-        //        $(this).html(`${fullStar}${halfStar}${noStar}`);
+        //       /* var rating = $(this).data("rating");*/
+        //        var fullStar = new Array(Math.floor(rating + 1)).join('<i class="fas fa-star" style="color : #FFD700"></i>');
+        //        var halfStar = ((rating % 1) !== 0) ? '<i class="fas fa-star-half-alt" style="color : #FFD700"></i>' : '';
+        //        var noStar = new Array(Math.floor($(this).data("numStars") + 1 - rating)).join('<i class="fas fa-star" style="color : #e0e0e0"></i>');
+        //        $(this).html(fullStar + halfStar + noStar);
         //    });
         //}
+
+        ////ES6
+        $.fn.stars = function (rating) {
+            return $(this).each(function () {
+               /* const rating = $(this).data("rating");*/
+                const numStars = $(this).data("numStars");
+                const fullStar = '<i class="fas fa-star" style="color : #FFD700"></i>'.repeat(Math.floor(rating));
+                const halfStar = (rating % 1 !== 0) ? '<i class="fas fa-star-half-alt" style="color : #FFD700"></i>' : '';
+                const noStar = '<i class="fas fa-star" style="color : #e0e0e0"></i>'.repeat(Math.floor(numStars - rating));
+                $(this).html(`${fullStar}${halfStar}${noStar}`);
+            });
+        }
 
        
 
@@ -589,18 +623,43 @@
            $.post("/Admin/EditServiceRequest", { Id: parseInt(Id) }, function (data) {
 
                 $("#servicedate").val(data.date);
-
                 $("#servicetime").val(data.time);
-
                $("#address1").val(data.line);
                $("#address2").val(data.linetwo);
                $("#postalcode").val(data.postcode);
                $("#city").val(data.city);
+               $("#invoiceaddress1").val(data.line);
+               $("#invoiceaddress2").val(data.linetwo);
+               $("#invoicepostalcode").val(data.postcode);
+               $("#invoicecity").val(data.city);
                $("#upd").prop("value", data.ids);
               // $("#EditReschedule").modal('show');
 
             });
         }
-    </script>
+
+        function CancelMod(Id)
+        {
+
+            $("#cancle").prop("value", Id);
+
+
+
+        }
+
+        function CancleNow(val)
+        {
+            $.post("/Admin/CancleService", { Id: parseInt(val) }, function (data) {
+
+                if (data) {
+                    // alert("Update Successfully!!");
+                    $("#CancelModal").modal('hide');
+                    location.reload();
+                    //$("#tableDashboard").show();
+                }
+
+            });
+        }
+</script>
 </body>
 </html>

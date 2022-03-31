@@ -22,16 +22,7 @@
             </tr>
             @foreach (var displayservice in Model)
             {
-                //DateTime dt = displayservice.ServiceStartDate;
-                //string datetime = dt.ToString();
-                //string[] DateTime = datetime.Split(' ');
-                //string Date = DateTime[0];
-                //string Time = DateTime[1];
-                //string[] time = Time.Split(':');
-                //string formatetime = time[0] + ":" + time[1];
-                //var Extratime = displayservice.ServiceHours + displayservice.ExtraHours;
-                //string Endtime = Extratime.ToString();
-                //string totaltime = formatetime + Endtime;
+                
 
                 DateTime dt = displayservice.ServiceStartDate;
                 string datetime = dt.ToString();
@@ -75,7 +66,19 @@
                     </td>
 
                     <td id="serviceprovider" class="pt-3">
-                        @Html.DisplayFor(modelItem => displayservice.ServiceProvider.FirstName) @Html.DisplayFor(modelItem => displayservice.ServiceProvider.LastName)
+                        @if (displayservice.ServiceProvider != null)
+                        {
+                            <img src="../image/@displayservice.ServiceProvider.UserProfilePicture" style="width : 50px !important; height : 50px !important;" />
+
+                            @Html.DisplayFor(modelItem => displayservice.ServiceProvider.FirstName) @Html.DisplayFor(modelItem => displayservice.ServiceProvider.LastName)
+                    <div class="rating-star">
+
+                        <span class="stars" data-rating="3" data-num-stars="5"></span>&nbsp;&nbsp;
+                        @*@displayservice.ServiceProvider.RatingRatingToNavigations.Average(x => x.Ratings)*@
+                    </div>
+                        }
+
+
                     </td>
                     <td class="pt-4" id="payment" onclick="ShowDetails(@displayservice.ServiceRequestId);" data-bs-toggle="modal" data-bs-target=".ServiceDetails">
                         @Html.DisplayFor(modelItem => displayservice.SubTotal)&#128;
@@ -249,6 +252,32 @@
 
     <script type="text/javascript">
 
+        $(function () {
+            $('.stars').stars();
+        });
+
+        //$.fn.stars = function () {
+        //    return $(this).each(function () {
+        //        var rating = $(this).data("rating");
+        //        var fullStar = new Array(Math.floor(rating + 1)).join('<i class="fas fa-star" style="color : #FFD700"></i>');
+        //        var halfStar = ((rating % 1) !== 0) ? '<i class="fas fa-star-half-alt" style="color : #FFD700"></i>' : '';
+        //        var noStar = new Array(Math.floor($(this).data("numStars") + 1 - rating)).join('<i class="fas fa-star" style="color : #e0e0e0"></i>');
+        //        $(this).html(fullStar + halfStar + noStar);
+        //    });
+        //}
+
+        //ES6
+        $.fn.stars = function () {
+            return $(this).each(function () {
+                const rating = $(this).data("rating");
+                const numStars = $(this).data("numStars");
+                const fullStar = '<i class="fas fa-star" style="color : #FFD700"></i>'.repeat(Math.floor(rating));
+                const halfStar = (rating % 1 !== 0) ? '<i class="fas fa-star-half-alt" style="color : #FFD700"></i>' : '';
+                const noStar = '<i class="fas fa-star" style="color : #e0e0e0"></i>'.repeat(Math.floor(numStars - rating));
+                $(this).html(`${fullStar}${halfStar}${noStar}`);
+            });
+        }
+
         function ShowDetails(ServiceRequestId) {
 
             $.post("/Customer/CustomerServiceDetail", { Id: parseInt(ServiceRequestId) }, function (data) {
@@ -272,6 +301,14 @@
         function Reschedule(ServiceRequestId) {
             $(".ServiceDetails").modal('hide');
             $("#update").prop("value", ServiceRequestId);
+
+                $.post("/Customer/RescheduleGetDetail", { Id: parseInt(ServiceRequestId) }, function (data) {
+
+
+                    $("#scheduleddate").text(data.date);
+                    $("#scheduledtime").val(data.time);
+
+                });
         }
 
         function Update(val)

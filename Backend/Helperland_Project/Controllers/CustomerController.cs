@@ -9,6 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace Helperland_Project.Controllers
@@ -62,6 +64,20 @@ namespace Helperland_Project.Controllers
             mymodel.lastname = Customer.LastName;
             mymodel.email = Customer.Email;
             mymodel.Mobile = Customer.Mobile;
+
+            if (Customer.DateOfBirth != null)
+            {
+
+                string datetime = Customer.DateOfBirth.ToString();
+                string[] DateTime = datetime.Split(' ');
+                string Date = DateTime[0];
+
+
+                string[] dob = Date.Split('-');
+                mymodel.BirthYear = Int32.Parse(dob[2]);
+                mymodel.BirthMonth = dob[1];
+                mymodel.BirthDate = Int32.Parse(dob[0]);
+            }
             return View(mymodel);
         }
 
@@ -125,14 +141,99 @@ namespace Helperland_Project.Controllers
 
         public JsonResult UpdateService(int Id, string ServiceDateTime)
         {
-            DateTime Date = DateTime.Parse(ServiceDateTime);
-            var details = _schema.ServiceRequests.Where(b => b.ServiceRequestId.Equals(Id)).FirstOrDefault();
-            details.ServiceStartDate = Date;
-            _schema.ServiceRequests.Update(details);
-            _schema.SaveChanges();
-            return Json(true);
+            //    DateTime Date = DateTime.Parse(ServiceDateTime);
+            //    var details = _schema.ServiceRequests.Where(b => b.ServiceRequestId.Equals(Id)).FirstOrDefault();
+            //    details.ServiceStartDate = Date;
+            //    _schema.ServiceRequests.Update(details);
+            //    _schema.SaveChanges();
+            //    return Json(true);
+            bool conflictService = false;
+            ServiceRequest serviceRequest = _schema.ServiceRequests.Include(x => x.ServiceProvider).FirstOrDefault(x => x.ServiceRequestId.Equals(Id));
+            DateTime newdate = DateTime.Parse(ServiceDateTime);
+            if (serviceRequest.ServiceProvider == null)
+            {
+                serviceRequest.ServiceStartDate = newdate;
+                serviceRequest.ModifiedDate = DateTime.Now;
+                _schema.ServiceRequests.Update(serviceRequest);
+                _schema.SaveChanges();
+                return Json(true);
+            }
+            else
+            {
+                var newstarttime = newdate;
+                var extra = Convert.ToDouble(serviceRequest.ExtraHours);
+                var newendtime = newstarttime.AddHours(serviceRequest.ServiceHours + extra);
+                IEnumerable<ServiceRequest> service = _schema.ServiceRequests.Where(x => x.ServiceProviderId == serviceRequest.ServiceProviderId && x.Status == 2 && x.ServiceRequestId != serviceRequest.ServiceRequestId).ToList();
+                foreach (var request in service)
+                {
+                    var oldStartTime = request.ServiceStartDate;
+                    var oldextra = Convert.ToDouble(request.ExtraHours);
+                    var oldEndTime = oldStartTime.AddHours(request.ServiceHours + oldextra);
+                    conflictService = false;
+                    //check time conflicts
+                    if ((request.ServiceStartDate == newdate) || (((newstarttime > oldStartTime) && (newstarttime < oldEndTime)) || ((newendtime > oldStartTime) && (newendtime < oldEndTime))))
+                    {
+                        conflictService = true;
+                        break;
+                    }
+                }
+
+
+
+                if (conflictService)
+                {
+
+                    return Json(false);
+                }
+                else
+                {
+                    serviceRequest.ServiceStartDate = newdate;
+                    serviceRequest.ModifiedDate = DateTime.Now;
+
+                    _schema.ServiceRequests.Update(serviceRequest);
+                    _schema.SaveChanges();
+
+                    var subject = "";
+                    var body = "";
+
+                    if (serviceRequest.ServiceProviderId != null)
+                    {
+                        subject = "Detail Update";
+                        body = "Hi " + "<b>" + serviceRequest.ServiceProvider.FirstName + "</b>" + ", <br/>" +
+                            " Service Request Id :" + Id + "This Service is Rescheduled by customer";
+
+                        SendEmail(serviceRequest.ServiceProvider.Email, body, subject);
+                    }
+                    return Json(true);
+
+                }
+            }
         }
 
+        private void SendEmail(string emailAddress, string body, string subject)
+        {
+            using (MailMessage mm = new MailMessage("18it.nensi.dedakia@gmail.com", emailAddress))
+            {
+                mm.Subject = subject;
+                mm.Body = body;
+
+                mm.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+
+                smtp.Host = "smtp.gmail.com";
+
+
+
+
+                smtp.UseDefaultCredentials = false;
+                NetworkCredential NetworkCred = new System.Net.NetworkCredential("18it.nensi.dedakia@gmail.com", "9737012809Jayshri@123");
+                smtp.Credentials = NetworkCred;
+                smtp.EnableSsl = true;
+                smtp.Port = 587;
+                smtp.Send(mm);
+
+            }
+        }
         public JsonResult CancleService(int Id)
         {
             var details = _schema.ServiceRequests.Where(b => b.ServiceRequestId.Equals(Id)).FirstOrDefault();
@@ -183,6 +284,26 @@ namespace Helperland_Project.Controllers
                 duration = Duration
             });
 
+        }
+
+        public JsonResult GetAddress(int Id)
+        {
+            var add = _schema.UserAddresses.Where(x=>x.AddressId.Equals(Id)).FirstOrDefault();
+
+            var Address = add.AddressLine1;
+            var Addresses = add.AddressLine2;
+            var Postal = add.PostalCode;
+            var Phone = add.Mobile;
+            var City = add.City;
+            return Json(new
+            {
+                adress = Address,
+                adressline = Addresses,
+                mobile = Phone,
+                zip = Postal,
+                city = City
+
+            });
         }
 
         public JsonResult UpdateAddress(ProfileViewModel model)
@@ -315,7 +436,7 @@ namespace Helperland_Project.Controllers
             var Customer = _schema.Users.Where(b => b.Email.Equals(HttpContext.Session.GetString("Email"))).FirstOrDefault();
             var ID = Customer.UserId;
             IEnumerable<ServiceRequest> use = _schema.ServiceRequests.Include(x => x.ServiceProvider).ThenInclude(x => x.RatingRatingToNavigations).Where(x => x.UserId.Equals(ID)
- && (x.Status == 1 || x.Status == 3)).ToList();
+            && (x.Status == 1 || x.Status == 3)).ToList();
 
 
             ExcelPackage Ep = new ExcelPackage();
@@ -350,6 +471,25 @@ namespace Helperland_Project.Controllers
             }
 
 
+
+        }
+
+        public JsonResult RescheduleGetDetail(int Id)
+        {
+
+            var servicerequest = _schema.ServiceRequests.Where(b => b.ServiceRequestId.Equals(Id)).FirstOrDefault();
+
+            var servicedate = servicerequest.ServiceStartDate.ToShortDateString();
+            var servicetime = servicerequest.ServiceStartDate.ToLongTimeString();
+
+            string[] times = servicetime.Split(' ');
+
+            return Json(new
+            {
+                date = servicedate,
+                time = times[0],
+
+            });
 
         }
 

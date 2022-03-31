@@ -418,3 +418,5 @@ C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\
 C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\bin\Debug\net5.0\EPPlus.dll
 C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\bin\Debug\net5.0\Microsoft.IO.RecyclableMemoryStream.dll
 C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Admin\AdminUserManagement.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Home\LoginModal.cshtml.g.cs
+C:\Users\HP\source\repos\Helperland_Project\Helperland_Project\obj\Debug\net5.0\Razor\Views\Home\ForgotModel.cshtml.g.cs

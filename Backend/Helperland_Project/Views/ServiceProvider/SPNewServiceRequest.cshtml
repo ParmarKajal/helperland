@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Helperland_Project.ViewModels.UpcomingViewModel>
+﻿@model IEnumerable<Helperland_Project.Models.Data.ServiceRequest>
 @{
     Layout = null;
 }
@@ -32,10 +32,10 @@
         {
 
 
-            if (item.servicerequest.Status != 1 && item.servicerequest.Status != 2)
+            if (item.Status == 4)
             {
 
-                DateTime dt = item.servicerequest.ServiceStartDate;               
+                DateTime dt = item.ServiceStartDate;               
                 string datetime = dt.ToString();          
                 string[] DateTime = datetime.Split(' '); 
                 string Date = DateTime[0];                
@@ -43,8 +43,8 @@
                 string[] time = Time.Split(':');
                 string clocktime = time[0] + ":" + time[1];
 
-                var Extrahour = Convert.ToDouble(item.servicerequest.ExtraHours);
-                var Extratime = item.servicerequest.ServiceHours + Extrahour;
+                var Extrahour = Convert.ToDouble(item.ExtraHours);
+                var Extratime = item.ServiceHours + Extrahour;
                 DateTime end = Convert.ToDateTime(clocktime);
                 DateTime watch = end.AddHours(Extratime);
 
@@ -59,8 +59,8 @@
                 <tr>
 
 
-                    <td>@Html.DisplayFor(modelitem => item.servicerequest.ServiceRequestId)</td>
-                    <td onclick="ShowSrDetails(@item.servicerequest.ServiceRequestId);" data-bs-toggle="modal" data-bs-target="#srDetails">
+                    <td>@Html.DisplayFor(modelitem => item.ServiceRequestId)</td>
+                    <td onclick="ShowSrDetails(@item.ServiceRequestId);" data-bs-toggle="modal" data-bs-target="#srDetails">
                         <div>
 
                             <img src="../image/calendar2.png">
@@ -78,22 +78,22 @@
 
 
                         <div>
-                            @Html.DisplayFor(modelitem => item.user.FirstName)  @Html.DisplayFor(modelitem => item.user.LastName)
+                            @Html.DisplayFor(modelitem => item.User.FirstName)  @Html.DisplayFor(modelitem => item.User.LastName)
                         </div>
 
 
 
                         <div>
                             <img src="../image/home.png">
-                            @Html.DisplayFor(modelitem => item.servicerequestaddress.AddressLine1) , @Html.DisplayFor(modelitem => item.servicerequestaddress.AddressLine2) ,
-                            @Html.DisplayFor(modelitem => item.servicerequestaddress.City),@Html.DisplayFor(modelitem => item.servicerequestaddress.PostalCode)
+                            @Html.DisplayFor(modelitem => item.ServiceRequestAddresses.ElementAt(0).AddressLine1) , @Html.DisplayFor(modelitem => item.ServiceRequestAddresses.ElementAt(0).AddressLine2) ,
+                            @Html.DisplayFor(modelitem => item.ServiceRequestAddresses.ElementAt(0).City),@Html.DisplayFor(modelitem => item.ServiceRequestAddresses.ElementAt(0).PostalCode)
                         </div>
                     </td>
-                    <td>@Html.DisplayFor(modelitem => item.servicerequest.TotalCost)&#128;</td>
+                    <td>@Html.DisplayFor(modelitem => item.TotalCost)&#128;</td>
                     <td></td>
                     <td>
 
-                        <button type="button" class="reschedule-button rounded-pill border border-1 text-center reschedulebtn" id="Acceptting" data-bs-toggle="modal" data-bs-target="#AcceptModal" onclick="AcceptReq(@item.servicerequest.ServiceRequestId)">Accept</button>
+                        <button type="button" class="reschedule-button rounded-pill border border-1 text-center reschedulebtn" id="Acceptting" data-bs-toggle="modal" data-bs-target="#AcceptModal" onclick="AcceptReq(@item.ServiceRequestId)">Accept</button>
 
 
                     </td>
@@ -219,6 +219,20 @@
     function AcceptReq(ServiceRequestId) {
         $("#srDetails").modal('hide');
         $("#accept").prop("value", ServiceRequestId);
+
+        //$("#accept").prop("value", ServiceRequestId);
+
+        $.post("/ServiceProvider/SetRecordVersion", { Id: parseInt(ServiceRequestId) }, function (data) {
+            if (data) {
+
+                alert("RecordVersion is now set.");
+            }
+            else {
+                alert("record version is not set");
+            }
+
+        });
+
 
     }
 

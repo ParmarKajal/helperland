@@ -1,4 +1,5 @@
-﻿using Helperland_Project.Models.Data;
+﻿using Helperland_Project.Enum;
+using Helperland_Project.Models.Data;
 using Helperland_Project.Repository;
 using Helperland_Project.ViewModels;
 using Microsoft.AspNetCore.Http;
@@ -202,25 +203,28 @@ namespace Helperland_Project.Controllers
                     if (!string.IsNullOrEmpty(postalCode))
                     {
                         data = data.Where(x => x.ZipCode == postalCode).ToList();
+                        //data = data.Where(x => x.ZipCode.Contains(postalCode)).ToList();
                     }
 
                     if (!string.IsNullOrEmpty(email))
                     {
-                        data = data.Where(x => x.User.Email == email || x.ServiceProvider?.Email == email).ToList();
+                        //data = data.Where(x => x.User.Email == email || x.ServiceProvider?.Email == email).ToList();
+                        data = data.Where(x => x.User.Email.Contains(email, StringComparison.OrdinalIgnoreCase) || (!string.IsNullOrEmpty(x.ServiceProvider?.Email) ? x.ServiceProvider.Email.Contains(email, StringComparison.OrdinalIgnoreCase) : false)).ToList();
                     }
 
                     if (!string.IsNullOrEmpty(customerName))
                     {
-                        var name = customerName.Split(" ");
-                        data = data.Where(x => x.User.FirstName == name[0] && x.User.LastName == name[1]).ToList();
+                        //var name = customerName.Split(" ");
+                        //data = data.Where(x => x.User.FirstName == name[0] && x.User.LastName == name[1]).ToList();
+                        data = data.Where(x => x.User.FirstName.Contains(customerName, StringComparison.OrdinalIgnoreCase) || x.User.LastName.Contains(customerName, StringComparison.OrdinalIgnoreCase)).ToList();
 
                     }
 
                     if (!string.IsNullOrEmpty(spName))
                     {
-                        var name = spName.Split(" ");
-                        data = data.Where(x => x.ServiceProvider?.FirstName == name[0] && x.ServiceProvider.LastName == name[1]).ToList();
-
+                        //var name = spName.Split(" ");
+                        //data = data.Where(x => x.ServiceProvider?.FirstName == name[0] && x.ServiceProvider.LastName == name[1]).ToList();
+                        data = data.Where(x => (!string.IsNullOrEmpty(x.ServiceProvider?.FirstName) ? x.ServiceProvider.FirstName.Contains(spName, StringComparison.OrdinalIgnoreCase) : false) || (!string.IsNullOrEmpty(x.ServiceProvider?.LastName) ? x.ServiceProvider.LastName.Contains(spName, StringComparison.OrdinalIgnoreCase) : false)).ToList();
                     }
                     if (!string.IsNullOrEmpty(status))
                     {
@@ -286,7 +290,7 @@ namespace Helperland_Project.Controllers
                     serviceRequest.serviceTime = request.ServiceStartDate.ToString("HH:mm") + "-" + request.ServiceStartDate.AddHours(request.ServiceHours).ToString("HH:mm");
                     serviceRequest.customerName = request.User.FirstName + " " + request.User.LastName;
 
-                    serviceRequest.customerAddress = request.ServiceRequestAddresses.ElementAt(0).AddressLine1;
+                    serviceRequest.customerAddress = request.ServiceRequestAddresses.ElementAt(0).AddressLine1 + "," + request.ServiceRequestAddresses.ElementAt(0).AddressLine2 + "," + request.ServiceRequestAddresses.ElementAt(0).City + "," + request.ServiceRequestAddresses.ElementAt(0).PostalCode;
 
                     serviceRequest.spName = request.ServiceProvider?.FirstName + " " + request.ServiceProvider?.LastName;
                     serviceRequest.spAvtar = request.ServiceProvider?.UserProfilePicture;
@@ -347,8 +351,9 @@ namespace Helperland_Project.Controllers
 
                     if (!string.IsNullOrEmpty(userName))
                     {
-                        var fullName = userName.Split(" ");
-                        data = data.Where(x => x.FirstName == fullName[0] && x.LastName == fullName[1]).ToList();
+                       // var fullName = userName.Split(" ");
+                        //data = data.Where(x => x.FirstName == fullName[0] && x.LastName == fullName[1]).ToList();
+                        data = data.Where(x => x.FirstName.Contains(userName, StringComparison.OrdinalIgnoreCase) || x.LastName.Contains(userName, StringComparison.OrdinalIgnoreCase)).ToList();
                     }
 
                     if (!string.IsNullOrEmpty(userType))
@@ -364,11 +369,13 @@ namespace Helperland_Project.Controllers
                     if (!string.IsNullOrEmpty(postalCode))
                     {
                         data = data.Where(x => x.ZipCode == postalCode).ToList();
+                       // data = data.Where(x => x.ZipCode.Contains(postalCode)).ToList();
                     }
 
                     if (!string.IsNullOrEmpty(email))
                     {
-                        data = data.Where(x => x.Email == email).ToList();
+                        // data = data.Where(x => x.Email == email).ToList();
+                        data = data.Where(x => x.Email.Contains(email, StringComparison.OrdinalIgnoreCase)).ToList();
                     }
 
                     if (!string.IsNullOrEmpty(fromDate) && !string.IsNullOrEmpty(toDate))
@@ -464,22 +471,89 @@ namespace Helperland_Project.Controllers
         public IActionResult ActivateUser(int Id)
         {
             User use = _schema.Users.Where(b => b.UserId.Equals(Id)).FirstOrDefault();
-            use.IsActive = true;
-            use.ModifiedDate = DateTime.Now;
-            _schema.Users.Update(use);
-            _schema.SaveChanges();
-            return Json(true);
+
+            if (use.UserTypeId == 2)
+            {
+                if (use.IsApproved == true)
+                {
+                    use.IsActive = true;
+                    use.ModifiedDate = DateTime.Now;
+                    _schema.Users.Update(use);
+                    _schema.SaveChanges();
+                    return Json(true);
+                }
+                else
+                {
+                    return Json(false);
+                }
+            }
+            else
+            {
+                use.IsActive = true;
+                use.ModifiedDate = DateTime.Now;
+                _schema.Users.Update(use);
+                _schema.SaveChanges();
+                return Json(true);
+            }
+
         }
 
         public IActionResult DeActivateUser(int Id)
         {
             User use = _schema.Users.Where(b => b.UserId.Equals(Id)).FirstOrDefault();
+
             use.IsActive = false;
+            if (use.UserTypeId == 2)
+            {
+                use.IsApproved = false;
+            }
             use.ModifiedDate = DateTime.Now;
             _schema.Users.Update(use);
             _schema.SaveChanges();
             return Json(true);
+
         }
+
+        public IActionResult ApproveSP(int Id)
+        {
+
+            User use = _schema.Users.Where(b => b.UserId.Equals(Id)).FirstOrDefault();
+            use.IsApproved = true;
+            use.ModifiedDate = DateTime.Now;
+            _schema.Users.Update(use);
+            _schema.SaveChanges();
+
+            return Json(true);
+        }
+
+        public JsonResult CancleService(int Id)
+        {
+            //var subject = "";
+            //var body = "";
+            var details = _schema.ServiceRequests.Where(b => b.ServiceRequestId.Equals(Id)).FirstOrDefault();
+            User s = _schema.Users.Where(a => a.UserId.Equals(details.ServiceProviderId)).FirstOrDefault();
+            var sname = s.FirstName;
+            details.Status = (int)ServiceRequestStatus.cancelled;
+            details.ModifiedDate = DateTime.Now;
+            details.ModifiedBy = (int)UserTypeIdEnum.Admin;
+            _schema.ServiceRequests.Update(details);
+            //_schema.ServiceRequestAddresses.Remove(detail);
+            _schema.SaveChanges();
+            return Json(true);
+
+            //if (details.ServiceProviderId != null)
+            //{
+            //    subject = "Detail Update";
+            //    body = "Hi " + "<b>" + sname + "</b>" + ", <br/>" +
+            //        " Service Request Id :" + Id + "This Service is cancelled by customer";
+
+            //    SendEmail(s.Email, body, subject);
+            //}
+
+
+        }
+
+        
 
     }
 }

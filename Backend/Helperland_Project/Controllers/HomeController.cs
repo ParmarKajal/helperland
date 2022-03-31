@@ -118,12 +118,13 @@ namespace Helperland_Project.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(CreateAccountViewModel use)
+        public ActionResult Index(LoginViewModel use)
         {
             using (Helperland_SchemaContext _tc = new Helperland_SchemaContext())
             {
                 var detail = _tc.Users.Where(a => a.Email.Equals(use.email)).FirstOrDefault();
-
+                if (ModelState.IsValid) 
+                { 
                 if (detail == null)
                 {
                     ViewBag.Message("Invalid UserName And Password");
@@ -156,6 +157,11 @@ namespace Helperland_Project.Controllers
                         {
                             return RedirectToAction("ServiceProviderLayout", "ServiceProvider");
                         }
+                        if (detail.UserTypeId == 3)
+                        {
+                            return RedirectToAction("AdminServiceRequestPage", "Admin");
+                        }
+
                     }
 
                     else
@@ -163,8 +169,11 @@ namespace Helperland_Project.Controllers
                         ViewBag.message = "Invalid Password";
                     }
                 }
+                }
 
+                TempData["Modal"] = "#login";
             }
+
             return View();
 
         }
